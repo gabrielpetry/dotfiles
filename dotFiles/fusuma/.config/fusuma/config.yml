@@ -1,0 +1,34 @@
+# sudo gpasswd -a $USER input
+swipe:
+  3: 
+    left: 
+      command: 'i3-msg workspace previous'
+    right: 
+      command: 'i3-msg workspace next'
+    up: 
+      command: 'xdotool key ctrl+Page_Down'
+    down: 
+      command: 'xdotool key ctrl+Page_Up'
+  4:
+    up:
+      command: 'xdotool key Alt+Right'
+    down:
+      command: 'xdotool key Alt+Left'
+    left:
+      command: '$HOME/petryfiles/scripts/player_ctl_dmenu.sh 3-Previous'
+    right:
+      command: '$HOME/petryfiles/scripts/player_ctl_dmenu.sh 2-Next'
+pinch:
+  2:
+    in:
+      command: '$HOME/petryfiles/scripts/blocklets/pavolume.sh --up 5'
+    out:
+      command: '$HOME/petryfiles/scripts/blocklets/pavolume.sh --down 5'
+
+threshold:
+  swipe: 0.8
+  pinch: 0.01
+
+interval:
+  swipe: 0.2
+  pinch: 0.01

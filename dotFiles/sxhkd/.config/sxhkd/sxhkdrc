@@ -1,0 +1,86 @@
+# vim: fdm=marker
+# Basic user keys {{{
+
+# Restart the configuration file
+super + Escape
+   pkill -USR1 -x sxhkd && \
+   notify-send "Reloaded SXHKD"
+
+super + {_, shift +} Return
+   $TERMINAL {-d "$(echo $HOME)", -d "$(cat $HOME/.config/.last_dir)"}
+
+super + p
+   $SCRIPTS_DIR/player_ctl_dmenu.sh
+
+super + shift + s
+   i3lock -c 000000 -i "$HOME/.config/wall.png"
+
+super + shift + e
+   $SCRIPTS_DIR/logout_dmenu.sh
+
+@Print
+   $HOME/petryfiles/scripts/screenshot.sh
+
+super + d 
+   dmenu_run -m 0
+
+super + b
+   $BROWSER
+
+# }}}
+# XF86 Keys {{{
+XF86AudioMute
+    $SCRIPTS_DIR/blocklets/pavolume.sh --togmute
+
+XF86AudioLowerVolume
+    $SCRIPTS_DIR/blocklets/pavolume.sh --down 5
+
+XF86AudioRaiseVolume
+    $SCRIPTS_DIR/blocklets/pavolume.sh --up 5
+
+XF86PowerOff
+    # prompt "Realy shutdown?" "$shutdown
+    echo 0
+
+XF86Explorer
+    exec $term -e range
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioPrev
+    playerctl previous
+
+XF86AudioStop
+    playerctl play-pause
+
+XF86TouchpadToggle
+    toggletouchpad
+
+XF86TouchpadOn
+    synclient TouchpadOff=0
+
+XF86TouchpadOff
+    synclient TouchpadOff=1
+
+XF86Suspend
+    lockscreen
+
+XF86MonBrightnessDown
+    light -U 5
+
+XF86MonBrightnessUp
+    light -A 5
+
+XF86AudioMedia
+    $TERMINAL -e ncmpcpp
+
+XF86Display
+    arandr
+
+XF86Documents
+    $TERMINAL -e ranger ~/Documents
+# }}}

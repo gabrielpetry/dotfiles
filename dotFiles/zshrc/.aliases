@@ -1,0 +1,14 @@
+#!/bin/bash
+# vim: fdm=marker ft=sh
+alias vim="nvim"
+alias vimzsh="vim ~/.zshrc"
+alias vimaliases="vim \$HOME/.aliases"
+alias vimfunctions="vim \$HOME/.functions"
+alias srczsh="source ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias ll="ls -l"
+alias la="ls -la"
+alias tree="tree -C"
+alias pa="php artisan"
+alias xclip-i="xclip -selection clipboard -t image/png -i"
+alias s="export TERM=xterm; ssh "

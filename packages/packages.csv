@@ -1,0 +1,70 @@
+pacman,feh, change wallpaper
+pacman,termite, best terminal emulator
+pacman,git, versionador
+pacman,sshpass, agiliza conexões ssh
+pacman,lolcat, printa no terminal de forma maneira
+pacman,figlet, imprime letas figlet de forma bem simples
+pacman,chromium, Chrome menos invasivo
+pacman,i3lock, uma forma de travar a tela do computador
+pacman,yay, Aur wrapper
+pacman,xclip, permite copiar do terminal para seleção mais facilmente
+pacman,zsh, Shell mais eficiente
+pacman,pango, permite realizar marcações no i3blocks
+pacman,acpi, Permite acessar facilmente informaçoes do sistema
+pacman,ranger, gerenciador de arquivos no terminal
+pacman,tree, mostra a arvore de diretórios
+pacman,thunderbird, gerenciador de emails
+pacman,rofi, lançador de programas
+pacman,arandr, gerenciador de telas para o X
+pacman,mpv, mediaplayer
+pacman,texlive-core, core for latex
+pacman,pandoc, convert documents to other documento types
+pacman,zathura, leitor de pdf
+pacman,zathura-pdf-mupdf, plugin de leitor de pdf com auto reload
+pacman,lua, lua programming language
+pacman,luarocks, gerenciador de pacotes para lua
+pacman,tree, tree view in terminal 
+pacman,dunst, notifications daemons
+pacman,firefox, a better browser
+pacman,chromium, another browser
+pacman,bind-tools, dig the dns ;)
+pacman,whois, whois the dnsss
+pacman,atom, text-editor
+pacman,code, vscode text-editor
+pacman,python-pip, pip3
+pacman,python2-pip, pip2
+pacman,playerctl, command line tool to operate with media players
+pacman,libreoffice-fresh, basic office programs
+pacman,mariadb, mysql driver
+pacman,postgresql, postgresql driver
+pacman,xorg-xbacklight, controll the backlight
+pacman,docker, docker container
+pacman,otf-fira-mono, monospace firacode
+pacman,otf-fira-code, fira code
+pacman,pulseaudio, pulseaudio
+pacman,paprefs, config pulseaudio
+pacman,pavucontrol, gtk frontend
+pacman,pulseaudio-alsa, pulseaudio plugin for alsa
+pacman,docker, usefull for build docker containers
+pacman,docker-compose, best way to handle docker containers
+pacman,arandr, adjust xrandr config easy
+pacman,htop, better top
+pacman,redshift, blue light filter
+pacman,kitty, terminal emuator with ligatures
+pacman,neovim, improved vim
+pacman,xorg-util-macros, enable macros in x11
+pacman,python-i3-py, i3 scripting in python, i3 scripting in python
+pacman,sxhkd, simple x hotkey daemon
+pacman,dash, faster sh POSIX compliant
+pacman,shellcheck, lint shell scripts
+pacman,cmake, usefull for compilling
+pacman,python-neovim, python suport for neovim
+pacman,pygmentize, colors for commands
+pacman,entr, watch for files
+pacman,cmatrix,matrix letters
+aur,chromium-widevine, chromium webbrowser
+aur,spotify, spotify player
+aur,light-git, control backlight
+aur,ruby-fusuma, multigestures for touchpad
+aur,i3-gaps-next, i3 gaps next branch
+manual-installation,https://github.com/ryanoasis/nerd-fonts, nerd fonts thats a large package

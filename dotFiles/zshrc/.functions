@@ -1,0 +1,477 @@
+#!/bin/bash
+# Shell functions
+cd() { # {{{
+  builtin cd -L "$@" || return 1
+  pwd > ~/.config/.last_dir
+} # }}}
+runSilent() { # {{{
+  if [[ -n $ZSH_VERSION ]]; then  # zsh:  https://superuser.com/a/1285272/365890
+    setopt local_options no_notify no_monitor
+    # We'd use &| to background and disown, but incompatible with bash, so:
+    "$@" &
+  elif [[ -n $BASH_VERSION ]]; then  # bash: https://stackoverflow.com/a/27340076/5353461
+    { 2>&3 "$@"& } 3>&2 2>/dev/null
+  else  # Unknownness - just background it
+    "$@" &
+  fi
+  disown &>/dev/null  # Close STD{OUT,ERR} to prevent whine if job has already completed
+  # export the currentPid
+  export "${1}"Pid="$!"
+} # }}}
+gitRoot() { # {{{
+  local root
+  root="$(git rev-parse --show-toplevel)"
+  if [[ -d "${root}" ]]; then
+    echo "$root"
+    return 0
+  else
+    return 1
+  fi
+} # }}}
+pullMaster() { # {{{
+  BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  git checkout master && \
+  git pull
+  git checkout "$BRANCH"
+} #  }}}
+argParser() { # {{{
+    local OPTIONS=""
+    for ARG in "${@:2}"; do
+        KEY="$(echo "$ARG" | cut -f1 -d=)"
+        VAL="$(echo "$ARG" | cut -f2 -d=)"
+
+        if [[ "$KEY" =~ $1 ]]; then
+          echo "${VAL}"
+          OPTIONS="${OPTIONS} ${VAL}"
+        fi
+    done
+    if [[ -z "$OPTIONS" ]]; then
+      printf "%s\n" "${RED}Pattern not found${NC}" 1>&2
+      return 1
+    fi
+    return 0
+    
+} # }}}
+getModifiedFilesFromLastCommit() { # {{{
+  local count
+  count="$(argParser "(count)" "${@}" 2>/dev/null || echo 10)"
+  if gitRoot; then
+    files="$(git diff HEAD~"${count}" --name-only --diff-filter=ACMRTUXB)"
+  fi
+  echo "$files";
+  return 0
+  # while read -r file; do
+  #   lint "${file}" || return 1
+  # done <<< "${files}"
+
+  # echo "Não é um repositório git, testando todos os arquivos php ;)"
+  # echo "-----------------------------------------------------------"
+  # find . -type f -name '*.php' | xargs -I{} php -l {}
+  # return
+} # }}}
+fastCommit() { # {{{
+    local quitIfFail
+
+    # Accept a commit message From paramter 
+    commitMessageParameter="$(argParser "(m)" "${@}" 2>/dev/null)"
+    # Which files to add {{{
+    filesToCommit="$(argParser "(-f)" "${@}" 2>/dev/null)"
+    # Get the current working branch 
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    printf "Working on branch: %s\n" "${GREEN}${BRANCH}${NC}"
+    # }}} 
+
+    # Check if need to commit {{{ 
+    GIT_CURRENT_STATUS="$(git status | \
+        grep -Eo '^nothing to commit, working tree clean')"
+
+    # If nothing to commit, exit 
+    if [[ -n "$GIT_CURRENT_STATUS" ]]; then
+        echo "${GREEN}Nothing to Commit${NC}\nPulling new refs ${BRANCH}"
+        git checkout master 
+        git pull origin "${BRANCH}"
+        git checkout "${BRANCH}"
+        if [[ "${*}" =~ (nopush) ]]; then
+          return
+        fi
+        echo "${GREEN}Nothing to Commit${NC}\nPushing new refs ${BRANCH}"
+        git push origin "${BRANCH}"
+    fi
+    # }}}
+    
+    # Check if ahead of {{{
+    GIT_AHEAD_OF="$(git status | \
+        grep -Eo 'Your branch is ahead of')"
+
+    # If is already ahead, just push
+    if [[ -n $GIT_AHEAD_OF ]]; then
+        git pull origin "$BRANCH"
+        git push origin "$BRANCH"
+        return
+    fi
+    # }}}
+
+    # Check if there are syntax erros  {{{
+
+    echo "Testing files, wait"
+    runSilent _spinner
+
+    while read -r file; do
+      if ! grep -q "$file" "$(gitRoot)"/.lintignore;  then
+        if ! lint --f="${file}" > /dev/null; then
+          quitIfFail=1
+        fi
+      fi
+      if [[ "${quitIfFail}" == 1 ]]; then
+        printf "\r
+  [ %s ] 
+  The file %s contain errors, fix them first.
+  No commits made nor files were added.
+
+  You can manually check the file with: 
+  lint --f=\"%s\"\n" \
+              "${RED}ERROR${NC}" \
+              "${RED}${file}${NC}" \
+              "${file}"
+
+        kill -9 "${_spinnerPid}"
+        return 1
+      fi
+      done <<< "$(getModifiedFilesFromLastCommit)"
+
+    echo -ne "\r ${GREEN}No errors, cool${NC}\n"
+    kill -9 "${_spinnerPid}"
+
+    # }}}
+
+    # Grab the diffs {{{
+    GIT_DIFF="$(git diff)"
+    # If empty try with --cached
+    if [[ -z "$GIT_DIFF" ]]; then
+        GIT_DIFF="$(git diff --cached || echo '#')"
+    fi
+    # Really ?
+    if [[ -z "$GIT_DIFF" ]]; then
+        GIT_DIFF="#"
+    fi # }}}
+
+
+    if [[ -z "${filesToCommit}" ]]; then
+        git add .
+    else
+        git add "${filesToCommit}"
+    fi
+    
+    # Format the commit message file {{{
+    # Prepend # to the start of git status lines
+    GIT_STATUS="$(git status | \
+        sed 's/^/# /g')"
+    
+    # prepend # to the last 5 commit messages
+    GIT_LAST_COMMIT="$(git log -5 --pretty=oneline | \
+        cut -d ' ' -f2- | \
+        sed 's/^/# /g')"
+
+    # formart the commit comment
+    EDIT_MSG_FILE="$(git rev-parse --show-toplevel)/.git/COMMIT_EDITMSG"
+    printf "\n%s" \
+        "$GIT_STATUS" \
+        "# Last commit messages: " \
+        "$GIT_LAST_COMMIT" \
+        "# DIFS {{{" \
+        "$GIT_DIFF" \
+        "# DIFS}}}" \
+        "# vim: ft=gitcommit fdm=marker fmr={{{,}}} fdl=0 fen" \
+        > "$EDIT_MSG_FILE"
+
+    # }}}
+
+    # Promp to commit message
+    if [[ -z "${commitMessageParameter}" ]]; then
+      vim "${EDIT_MSG_FILE}"
+    else
+      printf "%s\n\n# DIFS {"\
+        "${commitMessageParameter}" \
+        > "${EDIT_MSG_FILE}"
+    fi
+
+    # Format the commit message {{{
+    COMMIT_MESSAGE_LINE="$(awk '{print NR, $0}' "$EDIT_MSG_FILE" | \
+        grep -E "DIFS\ \{" | \
+        cut -d' ' -f1)"
+
+    COMMIT="$(head -n "$COMMIT_MESSAGE_LINE" "$EDIT_MSG_FILE" | \
+        grep -Ev '^#')"
+
+    # if no commit message just return
+    if [[ -z $COMMIT ]]; then
+        echo "${RED} empty commit message, please fix ${NC}"
+        return
+    fi
+
+    printf "\n%s\n" "$GIT_STATUS" | head -n -1
+
+    printf "Commited: %s\n\n" \
+      "${GREEN} ${COMMIT} ${NC}"
+
+    # }}}
+
+    # Send formmated commit message to git commit
+    echo "${COMMIT}" | \
+      git commit -F -
+
+    # Does not push if arg is passed
+    if [[ "${*}" =~ (nopush) ]]; then
+        echo "${RED} Not pushing nor pulling from remote${NC}"
+        return
+    fi
+    # pull new refs if needed, if no error push
+    # push now - https://www.youtube.com/watch?v=a0fkNdPiIL4
+    git pull origin "$BRANCH" && \
+    git push origin "$BRANCH"
+} # }}}
+printfLintMessage() { # {{{
+  #\ @param --file path of the tested file
+  #\ @param --lint for the resul
+  #\ @param -- feedback custom feedback for building
+  #\              the output message
+  #\ @param --status [error][ok]
+  #\ @return formated linting message
+  FILE_PATH="$(argParser "(file)" "${@}" 2>/dev/null)"
+  LINT="$(argParser "(lint)" "${@}" 2>/dev/null)"
+  FEEDBACK="$(argParser "(feedback)" "${@}" 2>/dev/null)"
+  MSG_STATUS="$(argParser "(status)" "${@}" 2>/dev/null)"
+
+  if [[ -z "${FEEDBACK}" ]]; then
+    FEEDBACK="is"
+  fi
+
+  if [[ "${MSG_STATUS}" =~ (error) ]]; then
+    STATUS="${RED}FAILED${NC}"
+  elif [[ "${MSG_STATUS}" =~ (good)\|(ok) ]]; then
+    STATUS="${GREEN}OK${NC}"
+  fi
+
+  printf "%-70s %-20s [ %s ]\n%s\n" \
+  "${FILE_PATH}" \
+  "${FEEDBACK}" \
+  "${STATUS}" \
+  "${LINT}"
+
+  return 0
+
+} # }}}
+lintPHP() { # {{{
+  #\ @param --php-path custom path for php, or 'docker' for using a container
+  #\ @param --php-ver if --php-path is docker, inform the version of php to use
+  #\ @param --file file for linting
+  #\ @return a printfLintMessage with the result
+  # PHP_PATH="$(argParser "$*")"
+  local PHP_PATH
+  local PHP_VER
+  local FILE_PATH
+  local NO_RUN
+
+  PHP_PATH="$(argParser "(php-path)" "${@}" 2>/dev/null)"
+  FILE_PATH="$(argParser "(file)" "${@}" 2>/dev/null)"
+  PHP_VER="$(argParser "(php-ver)" "${@}" 2>/dev/null || echo '53')"
+  NO_RUN="$(argParser "(no-run)" "${@}" 2>/dev/null)"
+
+  if [[ "${NO_RUN}" == "true" ]]; then
+    # echo "Not running at'all, but returing exit-code: 0"
+    return 0
+  fi
+
+  local current_pwd
+  current_pwd="$(pwd)"
+
+  if [[ "${PHP_PATH}" != "docker" ]]; then
+    PHP_PATH="$(command -v php)"
+  fi
+
+  if [[ "${PHP_PATH}" != "docker" ]]; then
+    PHP_VER="$(${PHP_PATH} -v | \
+      grep -Eo "^PHP\ [0-9.]{1,5}" | \
+      cut -d ' ' -f2)"
+    lint="$(${PHP_PATH} -l "${FILE_PATH}" 2>&1)"
+  else
+    builtin cd "$(dirname "${FILE_PATH}")" || return
+    file_name="$(echo "${FILE_PATH}" | rev | cut -d '/' -f1 | rev)"
+    lint="$(phpDocker "${PHP_VER}" php -l "${file_name}" 2>&1)"
+    builtin cd "${current_pwd}" || return
+  fi
+
+  # Build return msgs
+  # There's an erro
+  # feedback="in php $(echo "${PHP_VER}" | sed 's/([0-9])/&\./g')"
+  feedback="in php ${PHP_VER}"
+  if [[ "$lint" == *Parse*error* ]]; then
+    printfLintMessage \
+      --file="${FILE_PATH}" \
+      --status="error" \
+      --feedback="${feedback}" \
+      --lint="${lint}\n"
+    return 1
+  # no error, syntax ok
+  else
+    printfLintMessage \
+      --file="${FILE_PATH}" \
+      --feedback="${feedback}" \
+      --status="good"
+    return 0
+  fi
+  return 0
+} # }}}
+lintSh() { # {{{
+  #\ @param --file file for linting
+  #\ @param --severity error, warnings, info and style
+  #\ @return 0 if no errors, 1 if any
+
+  local FILE_PATH
+  local SEVERITY
+  local lint
+  FILE_PATH="$(argParser "(file)" "${@}" 2>/dev/null)"
+  SEVERITY="$(argParser "(severity)" "${@}" 2>/dev/null || echo 'style')"
+
+  lint="$(shellcheck --severity="${SEVERITY}" "${FILE_PATH}" 2>&1)"
+
+
+  feedback="in \$(shellcheck) with severity ${GREEN}${SEVERITY}${NC}"
+  # if empety, no report, so it's good to go
+  if [[ -z "${lint}" ]]; then
+    printfLintMessage \
+      --file="${FILE_PATH}" \
+      --status="good" \
+      --feedback="${feedback}" \
+      --lint="${lint}"
+
+    return 0
+  fi
+  printfLintMessage \
+    --file="${FILE_PATH}" \
+    --status="error" \
+    --feedback="${feedback}" \
+    --lint="${lint}"
+  return 1
+} # }}}
+lint() { # {{{
+  #\ @param --f path to file
+  #\ @param --php-path custom path for php binarie, 
+  #\            or docker for a container version
+  #\ @param --php-ver custom version for path 'docker'
+  #\ @param --php-once set to false for running for a second opinion
+  #\ @param --severity severity to run, error, warning, info, style
+  #\ @return 0 if no error, 1 if any
+  FILE_PATH="$(argParser "(f)" "${@}" 2>/dev/null)"
+  PHP_PATH="$(argParser "(php-path)" "${@}" 2>/dev/null)"
+  PHP_VER="$(argParser "(php-ver)" "${@}" 2>/dev/null || echo 53)"
+  PHP_ONCE="$(argParser "(php-once)" "${@}" 2>/dev/null || echo 'true')"
+  severity="$(argParser "(severity)" "${@}" 2>/dev/null || echo 'error')"
+
+  if [[ -z "${FILE_PATH}" ]]; then
+    FILE_PATH="${1}"
+  fi
+
+  if [[ ! -e "${FILE_PATH}" ]]; then
+    printf "The file %s, does not exists in this realm.\n" \
+      "${RED}${FILE_PATH}${NC}"
+    return 1
+  fi
+
+  fileType="$(file -iLb "${FILE_PATH}" | cut -d ';' -f1)"
+  # Define file types
+  php="(text/x-php)"
+  shell="(text/x-shellscript)"
+  lint=''
+  if [[ "${fileType}" =~ ${php} ]]; then
+    lint="$(lintPHP --file="${FILE_PATH}" && \
+      lintPHP --no-run="${PHP_ONCE}" --file="${FILE_PATH}" --php-path="docker" --php-ver="${PHP_VER}")"
+  elif [[ "${fileType}" =~ ${shell} ]]; then
+    lint="$(lintSh --file="${FILE_PATH}" --severity="${severity}")"
+  else
+    # If not found the type, inform the user
+    printf "Then file %s, is %s  and no tests are configured.\n" \
+      "${RED}${FILE_PATH}${NC}" "${BLUE}$fileType${NC}" # 1>&2
+    # return 2
+    return 0
+  fi
+
+  # If not empety, there an erro
+  printf "%s\n" \
+    "${lint}"
+  if [[ "$lint" == *FAILED* ]]; then
+    return 1
+  else
+    return 0
+  fi
+} # }}}
+_spinner() { # {{{
+  spinner_choose="$(argParser "(spinner)" "$@" 2>/dev/null || echo 'arrows')" 
+  delay="$(argParser "(delay)" "$@" 2>/dev/null || echo '0.2')" 
+  case $spinner_choose in 
+
+    bars)
+      spinner=("┤" "┘" "┴" "└" "├" "┌" "┬" "┐")
+      ;;
+    arrow)
+      spinner=("←" "↖" "↑" "↗" "→" "↘" "↓" "↙")
+      ;;
+    pipes)
+      spinner=("|" "/" "-" "\\")
+      ;;
+    *)
+      spinner=("|" "/" "-" "\\")
+      ;;
+  esac
+  #    "▉▊▋▌▍▎▏▎▍▌▋▊▉",
+  #  "▁▃▄▅▆▇█▇▆▅▄▃",
+  #  "▉▊▋▌▍▎▏▎▍▌▋▊▉",
+  #  "▖▘▝▗",
+  #  "▌▀▐▄",
+  #  "┤┘┴└├┌┬┐",
+  #  "◢◣◤◥",
+  #  "◰◳◲◱",
+  #  "◴◷◶◵",
+  #  "◐◓◑◒",
+  #  "|/-\\",
+  #  ".oO@*", ["◡◡", "⊙⊙", "◠◠"],
+  #  ["◜ ", " ◝", " ◞", "◟ "],
+  #  "◇◈◆",
+  #  "⣾⣽⣻⢿⡿⣟⣯⣷",
+
+
+  while true; do
+    for i in "${spinner[@]}"; do
+      echo -ne "\r $i "
+      # printf "\r%s" "${i}"
+      sleep "${delay}"
+    done
+  done
+} # }}}
+doSpin() { # {{{
+  # put process in backgrond
+  runSilent _spinner
+  # loop 4 seconds
+  for i in $(seq 1 4); do
+    sleep .5
+  done
+  # kill the spin
+  # echo a new line
+  echo -ne "\r ${GREEN}Done${NC}\n"
+  kill -9 "${_spinnerPid}"
+} # }}}
+compellent() { # {{{
+  docker run -it --rm \
+    -e "DISPLAY=${DISPLAY}" \
+    -e "XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}" \
+    -v "/tmp/.X11-unix:/tmp/.X11-unix" \
+    -v "$HOME/ContainerStuff/firefox-java:/home/firefox/.mozilla" \
+    -v "$HOME/DockerDownloads:/home/firefox/Downloads" \
+    -h "batman" \
+    gabrielpetry/firefox-java
+} # }}}
+parrotOs() { # {{{
+  docker run -ti --rm parrotsec/parrot
+}
+# }}} 
+# vim: fdm=marker ft=sh
