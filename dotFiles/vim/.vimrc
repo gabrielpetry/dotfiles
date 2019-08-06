@@ -1,6 +1,8 @@
 " vim: fdm=marker
 " Plugins {{{ 
 " Auto install to vim plug
+" :CocInstall coc-css
+" :CocInstall coc-tsserver
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -54,18 +56,7 @@ call plug#begin()
   Plug 'tomtom/tlib_vim'
   " Plug 'roxma/nvim-yarp' " ncm2 deps
   Plug 'djoshea/vim-autoread' " Reaload files automagically
-  " Code completion
-  " Plug 'ncm2/ncm2'
-  " Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
-  " Plug 'autozimu/LanguageClient-neovim', {
-  "   \ 'branch': 'next',
-  "   \ 'do': 'bash install.sh',
-  "   \ }
   Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'} " intelisense
-  " :CocInstall coc-css
-  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-
-
 call plug#end()
 " }}}
 let mapleader = ","
