@@ -143,16 +143,9 @@ bar {
         statusline "#d8dee8"
         separator "#4b5262"
         #colour of             border,   background, text
-        # focused_workspace       "#708bdc"   "#54659a"      $darkwhite 
-        focused_workspace       "#54659a"   "#54659a"      $white
-        active_workspace        "#54659a"   "#54659a"      $white
+        focused_workspace       $blue $blue      $black
+        active_workspace       $blue $blue      $black
         inactive_workspace      "#2f343f50" "#2f343f50"    $white 
-        # focused_workspace       "#bf616a"   "#bf616a"      "#d8dee8" 
-        # active_workspace        "#2f343f50" "#2f343f50"    "#d8dee8" 
-        # inactive_workspace      "#2f343f50" "#2f343f50"    "#d8dee8" 
-        # focused_workspace       "#2f343f" "#bf616a"    "#d8dee8" 
-        # active_workspace        "#2f343f" "#2f343f"    "#d8dee8" 
-        # inactive_workspace      "#2f343f" "#2f343f"    "#d8dee8" 
         urgent_workspace        $red $red        "#d8dee8"
     }
 
