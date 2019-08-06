@@ -11,12 +11,13 @@ endif
 " To install plugs use :PlugInstall
 call plug#begin()
   " Colorscheme
-  Plug 'tyrannicaltoucan/vim-quantum'
-  Plug 'morhetz/gruvbox'
-  Plug 'fenetikm/falcon'
-  Plug 'nlknguyen/papercolor-theme'
-  Plug 'kristijanhusak/vim-hybrid-material'
-  Plug 'sainnhe/gruvbox-material'
+  Plug 'dracula/vim'
+  " Plug 'tyrannicaltoucan/vim-quantum'
+  " Plug 'morhetz/gruvbox'
+  " Plug 'fenetikm/falcon'
+  " Plug 'nlknguyen/papercolor-theme'
+  " Plug 'kristijanhusak/vim-hybrid-material'
+  " Plug 'sainnhe/gruvbox-material'
   " Syntax
   Plug 'sheerun/vim-polyglot'
   Plug 'briancollins/vim-jst' " ejs syntax
@@ -168,16 +169,12 @@ set whichwrap+=<,>,h,l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors, themes and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" {{{
+" color scheme config {{{
 " Enable syntax Highlight
 " set background=dark
 set termguicolors
 syntax enable
-" Gruvbox is awesome
-" colorscheme gruvbox
-" colorscheme PaperColor
-" colorscheme hybrid_material
-colorscheme gruvbox-material
+colorscheme dracula
 
 set cursorline
 let g:enable_bold_font = 1
@@ -193,14 +190,12 @@ endif
 " force dark background
 " set background=dark
 set encoding=utf8
-" fold colors
-hi Folded ctermfg=4
-" Comment colors
+" Somecolor scheme have weird colors for the fold ;(
+" hi Folded ctermfg=2
+" Better contrast for comments
 hi Comment ctermfg=12
-" Define unix como o filetype default
+" Define unix with current filesystem
 set ffs=unix,dos,mac
-
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
 
 set ruler
 
