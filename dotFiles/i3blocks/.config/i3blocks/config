@@ -4,12 +4,6 @@ interval=once
 markup=pango
 signal=10
 
-[containers]
-label=
-command=expr $(docker ps | wc -l) - 1
-signal=10
-interval=10
-interval=once
 
 [pavolume]
 label=
@@ -17,6 +11,11 @@ command=$SCRIPT_DIR/pavolume.sh
 signal=10
 markup=pango
 interval=once
+
+[docker]
+label=
+command=$SCRIPT_DIR/docker.sh
+interval=1
 
 [wheather]
 command=$SCRIPT_DIR/i3weather.sh
