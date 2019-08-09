@@ -15,7 +15,7 @@ interval=once
 [docker]
 label=
 command=$SCRIPT_DIR/docker.sh
-interval=1
+interval=10
 
 [wheather]
 command=$SCRIPT_DIR/i3weather.sh
