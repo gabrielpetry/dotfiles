@@ -26,9 +26,9 @@ pinch:
       command: '$HOME/petryfiles/scripts/blocklets/pavolume.sh --down 5'
 
 threshold:
-  swipe: 0.8
+  swipe: 0.9
   pinch: 0.01
 
 interval:
-  swipe: 0.5
+  swipe: 0.7
   pinch: 0.01
