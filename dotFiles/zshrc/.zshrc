@@ -81,6 +81,11 @@ colorFullLess() {
 # }}}
 # system config {{{
 systemExports() {
+
+  export ANDROID_HOME=~/Android/Sdk
+  export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+
   export LANG="en_US.UTF-8"
   export LC_ALL="en_US.UTF-8"
   export VISUAL=nvim

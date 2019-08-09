@@ -304,7 +304,7 @@ map 0 ^
 " {{{
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-autocmd FileType html,php,css EmmetInstall
+autocmd FileType html,php,css,javascript,javascript.jsx  EmmetInstall
 
 let g:user_emmet_leader_key='<C-y>'
 let g:user_emmet_settings = {

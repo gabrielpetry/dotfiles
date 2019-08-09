@@ -9,4 +9,4 @@ spotify & # initiatiate spotify always
 chromium & # Start a chrome session
 sxhkd -c "${HOME}"/.config/sxhkd/sxhkdrc &
 fusuma &
-compton
+compton &
