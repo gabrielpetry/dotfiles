@@ -21,6 +21,9 @@ super + shift + e
 @Print
    $HOME/petryfiles/scripts/screenshot.sh
 
+# Prove people are wrong
+super + w
+   rifle $HOME/petryfiles/imgs/you-wrong.png
 super + d 
    dmenu_run -m 0
 
@@ -84,3 +87,4 @@ XF86Display
 XF86Documents
     $TERMINAL -e ranger ~/Documents
 # }}}
+
