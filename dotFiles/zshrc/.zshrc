@@ -107,8 +107,8 @@ main() {
   sourceIfExists "$HOME/.functions"
   # sourceIfExists "$cool_docker_images_path/docker_functions.sh"
   # load private stuff
-  sourceIfExists "$PETRYFILES/protected/zsh/.aliases"
-  sourceIfExists "$PETRYFILES/protected/zsh/.functions"
+  sourceIfExists "$HOME/Protected/zsh/.aliases"
+  sourceIfExists "$HOME/Protected/zsh/.functions"
 }
 
 
