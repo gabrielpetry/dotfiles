@@ -30,6 +30,10 @@ super + d
 super + b
    $BROWSER
 
+super + {_, shift +} Tab
+   i3-msg {scratchpad show, move scratchpad}
+
+
 # }}}
 # XF86 Keys {{{
 XF86AudioMute
