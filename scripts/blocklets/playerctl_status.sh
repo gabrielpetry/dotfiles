@@ -34,17 +34,17 @@ main() {
       "$(echo "${title}" | tr -cs '[[a-zA-Z0-9]]' ' ')"
   fi
 }
-case $BLOCK_BUTTON in
-    1) 
-      if playerctl --player=chromium status | grep -q "Playing\|Paused"; then
-	playerctl -p chromium play-pause
-	main "$@" 2>/dev/null
-	exit
-      fi
-      playerctl play-pause 
-      ;;
-    *) # playerctl play-pause ;;
-esac
+# case $BLOCK_BUTTON in
+#     1) 
+#       if playerctl --player=chromium status | grep -q "Playing\|Paused"; then
+# 	playerctl -p chromium play-pause
+# 	main "$@" 2>/dev/null
+#       else 
+# 	playerctl play-pause 
+#       fi
+#       ;;
+#     2) playerctl play-pause ;;
+# esac
 
 
 main "$@" 2>/dev/null
