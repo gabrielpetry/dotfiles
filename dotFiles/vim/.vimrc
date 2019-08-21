@@ -35,7 +35,7 @@ call plug#begin()
   Plug 'terryma/vim-multiple-cursors'
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons' " icons for NERDTree
-  " Plug 'joeytwiddle/sexy_scroller.vim' " Smotth scrolling
+  Plug 'joeytwiddle/sexy_scroller.vim' " Smotth scrolling
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'junegunn/goyo.vim' " Zen mode
   Plug 'jistr/vim-nerdtree-tabs' " Fix the nerd tree in the left of all tabs
