@@ -49,6 +49,7 @@ call plug#begin()
   Plug 'mattn/emmet-vim'
   Plug 'tpope/vim-commentary'
   Plug 'cohama/lexima.vim' " Auto close (){}[]
+  Plug 'vim-scripts/ctags.vim'
   " Plug 'garbas/vim-snipmate'
   Plug 'honza/vim-snippets'
   Plug 'skywind3000/asyncrun.vim'
