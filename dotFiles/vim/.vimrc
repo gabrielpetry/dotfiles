@@ -29,6 +29,7 @@ call plug#begin()
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   " Interface
+  Plug 'majutsushi/tagbar' " Show function names
   Plug 'gregsexton/matchtag' " heighlight matching html tag
   Plug 'kshenoy/vim-signature' " Show marks
   Plug 'w0rp/ale' " Async linting engine
@@ -212,6 +213,8 @@ let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'bubblegum'
+let g:airline#extensions#tagbar#enabled = 1
+
 
 " set laststatus=2
 let g:airline_powerline_fonts = 1
