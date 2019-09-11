@@ -19,6 +19,7 @@ call plug#begin()
   " Plug 'kristijanhusak/vim-hybrid-material'
   " Plug 'sainnhe/gruvbox-material'
   " Syntax
+  Plug 'leafgarland/typescript-vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'briancollins/vim-jst' " ejs syntax
   Plug 'posva/vim-vue'

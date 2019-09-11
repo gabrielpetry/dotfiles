@@ -13,3 +13,4 @@ alias pa="php artisan"
 alias xclip-i="xclip -selection clipboard -t image/png -i"
 alias s="export TERM=xterm; ssh "
 alias please="sudo"
+alias ft='flutter'
