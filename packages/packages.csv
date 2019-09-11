@@ -67,4 +67,5 @@ aur,spotify, spotify player
 aur,light-git, control backlight
 aur,ruby-fusuma, multigestures for touchpad
 aur,i3-gaps-next, i3 gaps next branch
+aur,ttf-monoid, cool font
 manual-installation,https://github.com/ryanoasis/nerd-fonts, nerd fonts thats a large package
