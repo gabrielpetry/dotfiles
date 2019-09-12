@@ -13,7 +13,7 @@ call plug#begin()
   " Colorscheme
   Plug 'dracula/vim'
   " Plug 'tyrannicaltoucan/vim-quantum'
-  " Plug 'morhetz/gruvbox'
+  Plug 'morhetz/gruvbox'
   " Plug 'fenetikm/falcon'
   " Plug 'nlknguyen/papercolor-theme'
   " Plug 'kristijanhusak/vim-hybrid-material'
@@ -177,7 +177,7 @@ set whichwrap+=<,>,h,l
 " set background=dark
 set termguicolors
 syntax enable
-colorscheme dracula
+colorscheme gruvbox
 
 set cursorline
 let g:enable_bold_font = 1
