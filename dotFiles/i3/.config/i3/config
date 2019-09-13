@@ -133,7 +133,8 @@ bindsym $mod+r mode "resize"
 # /resize mode }}}
 # bars {{{
 bar {
-    status_command SCRIPT_DIR=$HOME/petryfiles/scripts/blocklets i3blocks
+    status_command SCRIPT_DIR=$HOME/petryfiles/scripts/blocklets 2>/tmp/i3blocks.err i3blocks | tee /tmp/i3blocks.out
+
     i3bar_command i3bar --transparency
     position top
     separator_symbol "|"

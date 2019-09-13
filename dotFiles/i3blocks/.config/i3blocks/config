@@ -4,7 +4,6 @@ interval=once
 markup=pango
 signal=10
 
-
 [pavolume]
 label=
 command=$SCRIPT_DIR/pavolume.sh
