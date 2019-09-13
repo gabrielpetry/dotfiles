@@ -31,7 +31,7 @@ super + b
    $BROWSER
 
 super + {_, shift +} Tab
-   i3-msg {scratchpad show, move scratchpad} && i3-msg move position cursor
+   i3-msg {scratchpad show, move scratchpad} # && i3-msg move position cursor
 
 
 # }}}
