@@ -27,7 +27,7 @@ main() {
     text_background=""
   fi
   if [ $? ] && [ -n "$artist$title" ]; then
-    printf "<span %s>%s %s - %s</span>" \
+    printf "<span %s>%s %s - %s</span>\n" \
       "${text_background}" \
       "${icon}" \
       "${artist}" \
