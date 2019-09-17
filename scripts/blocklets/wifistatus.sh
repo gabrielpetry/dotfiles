@@ -30,7 +30,7 @@ if [[ -z "$wifi_connection_name" ]]; then
     fi
 fi
 
-printf "<span %s>%s %s %s</span>" \
+printf "<span %s>%s %s %s</span>\n" \
     "${color}" \
     "${LABEL}" \
     "${wifi_quality}" \
