@@ -27,11 +27,11 @@ main() {
     text_background=""
   fi
   if [ $? ] && [ -n "$artist$title" ]; then
-    printf "<span %s>%s %s - %s</span>" \
+    printf "<span %s>%s %s - %s</span>\n" \
       "${text_background}" \
       "${icon}" \
-      "${artist}" \
-      "$(echo "${title}" | tr -cs '[[a-zA-Z0-9]]' ' ')"
+      "$(echo "${artist}" | iconv -f utf-8 -t utf-8)" \
+      "$(echo "${title}" | iconv -f utf-8 -t utf-8)"
   fi
 }
 # case $BLOCK_BUTTON in
