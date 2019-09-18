@@ -147,7 +147,7 @@ function output() {
         red="#$(grep "color9" ${HOME}/.Xresources | cut -d '#' -f2)"
         echo "<span color='${red}'>🔈 ${curVol}%</span>"
     else
-        echo "🔊 ${curVol}%"
+        echo "墳 ${curVol}%"
     fi
 } 
 
