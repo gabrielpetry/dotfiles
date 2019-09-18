@@ -19,9 +19,7 @@ main() {
     status=$(playerctl status)
   fi
   # icon=""
-  background_color="#$(grep "color12" "${HOME}/.Xresources" | \
-		      cut -d "#" -f2)"
-  text_background="color='${background_color}'"
+  text_background="color='$($SCRIPTS_DIR/getColor.sh magenta)'"
   if [ "$status" != "Playing" ]; then
     icon=""
     text_background=""
