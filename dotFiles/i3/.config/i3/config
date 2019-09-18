@@ -139,16 +139,18 @@ bar {
     position top
     separator_symbol "|"
     tray_output primary
-    font pango: FiraCode, Awesome, "DejaVuSans" 8
+    # font pango: FiraCode, Awesome, "DejaVuSans" 8
+    font pango: Fira Code 8
+
     colors {
         background "#2f343f50"
         statusline "#d8dee8"
-        separator "#4b5262"
-        #colour of             border,   background, text
-        focused_workspace       $blue $blue      $black
-        active_workspace       $blue $blue      $black
-        inactive_workspace      "#2f343f50" "#2f343f50"    $white 
-        urgent_workspace        $red $red        "#d8dee8"
+        separator "#ffffff70"
+        #colour of             border       background   text
+        focused_workspace       $blue       $blue        $black
+        active_workspace        $blue       $blue        $black
+        inactive_workspace      "#2f343f50" "#2f343f50"  $white 
+        urgent_workspace        $red        $red         "#d8dee8"
     }
 
 }
