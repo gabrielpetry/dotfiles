@@ -23,7 +23,7 @@ call plug#begin()
   Plug 'sheerun/vim-polyglot'
   Plug 'briancollins/vim-jst' " ejs syntax
   Plug 'posva/vim-vue'
-  Plug '/hdima/python-syntax'
+  Plug 'hdima/python-syntax'
   Plug 'mechatroner/rainbow_csv' " csv columns color
   Plug 'jwalton512/vim-blade' " Laravel blade template
   Plug 'Yggdroot/indentLine' " Show a ident line
@@ -180,6 +180,8 @@ set whichwrap+=<,>,h,l
 set termguicolors
 syntax enable
 colorscheme gruvbox
+" makes background transparent
+hi Normal guibg=NONE ctermbg=NONE
 
 set cursorline
 let g:enable_bold_font = 1
