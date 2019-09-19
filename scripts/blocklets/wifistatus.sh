@@ -16,9 +16,7 @@ wifi_connection_name="$(echo "${wifi_info}" | \
     grep -Eo "\"([0-9a-zA-Z ])+\"")"
 
 if [[ "$(echo "${wifi_quality}" | cut -d '/' -f1 )" -lt "51" ]]; then
-    background_color="#$(grep "color12" "${HOME}/.Xresources" | \
-		      cut -d "#" -f2)"
-    color="color='${background_color}'"
+    color="color='$("$SCRIPTS_DIR"/getColor.sh magenta)'"
 fi
 
 if [[ -z "$wifi_connection_name" ]]; then
