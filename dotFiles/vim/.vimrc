@@ -101,7 +101,7 @@ let mapleader = ","
   inoremap <silent> <C-S>  <C-O>:update<CR>
   nmap <leader>wq :wq!<cr>
   map <leader>qq :q!<cr>
-  map <leader>e <esc>:quit<cr>
+  map <leader>e <esc>:w!<cr>:Bclose<cr>
 
   " Wildmenu ignores compiled files
   set wildignore=*.o,*~,*.pyc
@@ -179,9 +179,19 @@ set whichwrap+=<,>,h,l
 " set background=dark
 set termguicolors
 syntax enable
-colorscheme gruvbox
+colorscheme dracula
+
 " makes background transparent
 hi Normal guibg=NONE ctermbg=NONE
+" Cool changes for js files
+hi jsImport gui=bold,italic 
+hi jsFrom gui=bold,italic guifg=lightgreen
+hi jsImport gui=bold,italic guifg=lightgreen
+hi jsAsyncKeyWord gui=bold,italic guifg=lightgreen
+" 80 chars rules
+set colorcolumn=80
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 set cursorline
 let g:enable_bold_font = 1
@@ -274,8 +284,6 @@ set number
 " set tw=79
 set wrap
 set fo-=t
-" set colorcolumn=80
-" highlight ColorColumn ctermbg=233
 " }}}
 
 " Sort
@@ -284,6 +292,8 @@ vnoremap <leader>s :sort<CR>
 " Better ident
 vnoremap < <gv
 vnoremap > >gv
+
+" Add conceal to files
 " }}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -297,10 +307,10 @@ nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
-nmap J <esc>:tabprevious<CR>
-nmap K <esc>:tabnext<CR>
-nmap H <esc>:bprevious<CR>
-nmap L <esc>:bnext<CR>
+nmap H <esc>:tabprevious<CR>
+nmap L <esc>:tabnext<CR>
+nmap J <esc>:bprevious<CR>
+nmap K <esc>:bnext<CR>
 
 " }}}
 
