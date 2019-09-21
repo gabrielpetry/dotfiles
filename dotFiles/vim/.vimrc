@@ -42,7 +42,7 @@ call plug#begin()
   Plug 'joeytwiddle/sexy_scroller.vim' " Smotth scrolling
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'junegunn/goyo.vim' " Zen mode
-  Plug 'jistr/vim-nerdtree-tabs' " Fix the nerd tree in the left of all tabs
+  " Plug 'jistr/vim-nerdtree-tabs' " Fix the nerd tree in the left of all tabs
   Plug 'tpope/vim-markdown'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
