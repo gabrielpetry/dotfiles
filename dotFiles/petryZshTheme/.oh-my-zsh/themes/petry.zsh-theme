@@ -6,8 +6,7 @@ function virtualenv_info {
  [ $VIRTUAL_ENV ] && echo '( '$(basename $VIRTUAL_ENV)') ' 
 }
 
-PROMPT='
- %{$fg[cyan]%}[$(hostname)]%{$reset_color%}\
+PROMPT='%{$fg[cyan]%}[$(hostname)]%{$reset_color%}\
  %~ $(git_prompt_info)
  %{$fg[cyan]%}$(date +%H:%M)%{$reset_color%}\
  %{$fg[green]%}$(virtualenv_info)%{$reset_color%}%\
