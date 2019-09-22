@@ -13,76 +13,24 @@ autosync='yes'
 # no : not muted
 curStatus="no"
 active_sink=""
-limit=$((100 - inc))
-maxlimit=$((maxvol - inc))
+alert_danger=90;
+alert_warning=70;
+icon="墳"
 
-reloadSink() {
+red="$($SCRIPTS_DIR/getColor.sh red)"
+orange="$($SCRIPTS_DIR/getColor.sh yellow)"
+normal="$($SCRIPTS_DIR/getColor.sh magenta)"
+
+getActiveSink() {
     active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
 }
 
 function volUp {
-
-    getCurVol
-
-    if [ "$capvol" = 'yes' ]
-    then
-        if [ "$curVol" -le 100 ] && [ "$curVol" -ge "$limit" ]
-        then
-            pactl set-sink-volume "$active_sink" -- 100%
-        elif [ "$curVol" -lt "$limit" ]
-        then
-            pactl set-sink-volume "$active_sink" -- "+$inc%"
-        fi
-    elif [ "$curVol" -le "$maxvol" ] && [ "$curVol" -ge "$maxlimit" ]
-    then
-        pactl set-sink-volume "$active_sink" "$maxvol%"
-    elif [ "$curVol" -lt "$maxlimit" ]
-    then
-        pactl set-sink-volume "$active_sink" "+$inc%"
-    fi
-
-    getCurVol
-
-    if [ ${osd} = 'yes' ]
-    then
-        qdbus org.kde.kded /modules/kosd showVolume "$curVol" 0
-    fi
-
-    if [ ${autosync} = 'yes' ]
-    then
-        volSync
-    fi
+    pactl set-sink-volume "$active_sink" +5%
 }
 
 function volDown {
-
-    pactl set-sink-volume "$active_sink" "-$inc%"
-    getCurVol
-
-    if [ ${osd} = 'yes' ]
-    then
-        qdbus org.kde.kded /modules/kosd showVolume "$curVol" 0
-    fi
-
-    if [ ${autosync} = 'yes' ]
-    then
-        volSync
-    fi
-
-}
-
-function getSinkInputs {
-    input_array=$(pacmd list-sink-inputs | grep -B 4 "sink: $1 " | awk '/index:/{print $2}')
-}
-
-function volSync {
-    getSinkInputs "$active_sink"
-    getCurVol
-
-    for each in $input_array
-    do
-        pactl set-sink-input-volume "$each" "$curVol%"
-    done
+    pactl set-sink-volume "$active_sink" -5%
 }
 
 function getCurVol {
@@ -90,68 +38,38 @@ function getCurVol {
 }
 
 function volMute {
-    case "$1" in
-        mute)
-            pactl set-sink-mute "$active_sink" 1
-            curVol=0
-            status=1
-            ;;
-        unmute)
-            pactl set-sink-mute "$active_sink" 0
-            getCurVol
-            status=0
-            ;;
-    esac
+    pactl set-sink-mute "$active_sink" toggle
 }
 
 function volMuteStatus {
     curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
 }
 
-# Prints output for bar
-# Listens for events for fast update speed
-function listen {
-    firstrun=0
-
-    pactl subscribe 2>/dev/null | {
-        while true; do
-            {
-                # If this is the first time just continue
-                # and print the current state
-                # Otherwise wait for events
-                # This is to prevent the module being empty until
-                # an event occurs
-                if [ $firstrun -eq 0 ]
-                then
-                    firstrun=1
-                else
-                    read -r event || break
-                    if ! echo "$event" | grep -e "on card" -e "on sink"
-                    then
-                        # Avoid double events
-                        continue
-                    fi
-                fi
-            } &>/dev/null
-            output
-        done
-    }
-}
-
 function output() {
-    reloadSink
     getCurVol
     volMuteStatus
-    if [ "${curStatus}" = 'yes' ]
-    then
-        red="#$(grep "color9" ${HOME}/.Xresources | cut -d '#' -f2)"
-        echo "<span color='${red}'>🔈 ${curVol}%</span>"
-    else
-        echo "墳 ${curVol}%"
+    color="$normal"
+    if [ "${curStatus}" = 'yes' ]; then
+        color="$red"
+        curVol="muted"
     fi
+
+    if [[ ${curVol} -gt 69 ]]; then
+        color="$orange"
+    fi
+
+    if [[ "${curVol}" -gt 89 ]]; then
+        color="$red"
+    fi
+
+
+    printf "<span color='%s'>%s %s</span>\n" \
+        "${color}" \
+        "${icon}" \
+        "${curVol}"
 } 
 
-reloadSink
+getActiveSink
 case "$1" in
     --up)
         volUp
@@ -160,31 +78,10 @@ case "$1" in
         volDown
         ;;
     --togmute)
-        volMuteStatus
-        if [ "$curStatus" = 'yes' ]
-        then
-            volMute unmute
-        else
-            volMute mute
-        fi
-        ;;
-    --mute)
-        volMute mute
-        ;;
-    --unmute)
-        volMute unmute
-        ;;
-    --sync)
-        volSync
-        ;;
-    --listen)
-        # Listen for changes and immediately create new output for the bar
-        # This is faster than having the script on an interval
-        listen
+        volMute    
         ;;
     *)
-        # By default print output for bar
-        output
-        pkill -RTMIN+10 i3blocks
         ;;
 esac
+output
+pkill -RTMIN+10 i3blocks
