@@ -33,6 +33,9 @@ super + b
 super + {_, shift +} Tab
    i3-msg {scratchpad show, move scratchpad} && i3-msg move position center
 
+super + f
+   i3-msg fullscreen toggle
+
 
 # }}}
 # XF86 Keys {{{
