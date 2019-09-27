@@ -189,6 +189,8 @@ hi jsImport gui=bold,italic
 hi jsFrom gui=bold,italic guifg=lightgreen
 hi jsImport gui=bold,italic guifg=lightgreen
 hi jsAsyncKeyWord gui=bold,italic guifg=lightgreen
+hi jsGlobalNodeObjects gui=bold,italic guifg=lightgreen
+hi jsStorageClass gui=bold,italic guifg=lightgreen
 " 80 chars rules
 set colorcolumn=80
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
