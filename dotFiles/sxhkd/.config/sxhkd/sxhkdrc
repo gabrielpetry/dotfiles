@@ -36,6 +36,10 @@ super + {_, shift +} Tab
 super + f
    i3-msg fullscreen toggle
 
+super + y
+   printf '( ͡° ͜ʖ ͡°)' | xsel -b && \
+   notify-send "Lenny face in clipboard"
+
 
 # }}}
 # XF86 Keys {{{
