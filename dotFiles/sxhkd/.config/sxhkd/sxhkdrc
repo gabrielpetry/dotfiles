@@ -33,6 +33,13 @@ super + b
 super + {_, shift +} Tab
    i3-msg {scratchpad show, move scratchpad} && i3-msg move position center
 
+super + f
+   i3-msg fullscreen toggle
+
+super + y
+   printf '( ͡° ͜ʖ ͡°)' | xsel -b && \
+   notify-send "Lenny face in clipboard"
+
 
 # }}}
 # XF86 Keys {{{
