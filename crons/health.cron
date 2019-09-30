@@ -1,0 +1,2 @@
+*/15 * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/bin/notify-send "Alongar pulso posterior"
+02 * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/bin/notify-send "Alongar pernas"
