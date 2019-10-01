@@ -29,9 +29,9 @@ call plug#begin()
   Plug 'jwalton512/vim-blade' " Laravel blade template
   Plug 'Yggdroot/indentLine' " Show a ident line
   Plug 'pangloss/vim-javascript'
+  Plug 'saltstack/salt-vim'
   " Plug 'mxw/vim-jsx'
   Plug 'maxmellon/vim-jsx-pretty'
-
   " Interface
   Plug 'majutsushi/tagbar' " Show function names
   Plug 'gregsexton/matchtag' " heighlight matching html tag

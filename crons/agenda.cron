@@ -1,0 +1,1 @@
+10 12 * * 3 XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/bin/notify-send MASSAGEM

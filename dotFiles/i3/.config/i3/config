@@ -141,13 +141,13 @@ bar {
     font pango: Fira Code 8
 
     colors {
-        background "#2f343f50"
+        background "#2f343f95"
         statusline "#d8dee8"
-        separator "#ffffff70"
+        separator "#ffffff95"
         #colour of             border       background   text
         focused_workspace       $blue       $blue        $black
         active_workspace        $blue       $blue        $black
-        inactive_workspace      "#2f343f50" "#2f343f50"  $white 
+        inactive_workspace      "#2f343f95" "#2f343f95"  $white 
         urgent_workspace        $red        $red         "#d8dee8"
     }
 
@@ -166,6 +166,7 @@ exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id $HOME/.screenlayout/screen.sh
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 exec_always --no-startup-id $HOME/petryfiles/scripts/alternating_layouts.py
+exec_always --no-startup-id cat ~/petryfiles/crons/*.cron | crontab -
 # }}}
 # Force windows behaviour {{{
 # Chromium sempre abre no workspace 1
