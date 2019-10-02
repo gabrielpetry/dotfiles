@@ -32,6 +32,7 @@ call plug#begin()
   Plug 'saltstack/salt-vim'
   " Plug 'mxw/vim-jsx'
   Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'vim-volt/volt'
   " Interface
   Plug 'majutsushi/tagbar' " Show function names
   Plug 'gregsexton/matchtag' " heighlight matching html tag
@@ -447,7 +448,7 @@ map 0 ^
 " {{{
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-autocmd FileType html,php,css,javascript,javascript.jsx  EmmetInstall
+autocmd FileType html,php,css,javascript,javascript.jsx,volt  EmmetInstall
 
 let g:user_emmet_leader_key='<C-y>'
 let g:user_emmet_settings = {
