@@ -13,7 +13,9 @@ super + p
    $SCRIPTS_DIR/player_ctl_dmenu.sh
 
 super + shift + s
-   i3lock -c 000000 -i "$HOME/.config/wall.png"
+   playerctl -a pause && \
+   i3lock -n -c 000000 -i "$HOME/.config/wall.png" && \
+   playerctl -a play
 
 super + shift + e
    $SCRIPTS_DIR/logout_dmenu.sh
