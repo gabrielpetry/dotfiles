@@ -9,13 +9,14 @@ super + Escape
 super + {_, shift +} Return
    $TERMINAL {-d "$(echo $HOME)", -d "$(cat $HOME/.config/.last_dir)"}
 
-super + p
-   $SCRIPTS_DIR/player_ctl_dmenu.sh
+super + {_, shift + } p
+   $SCRIPTS_DIR/player_ctl_dmenu.sh { 1, "" }
 
 super + shift + s
-   playerctl -a pause && \
+   player_status="$(playerctl status 2>1 | grep -o "Paused\|Playing")" && \
+   if [[ "$player_status" == "Playing" ]] ; then $SCRIPTS_DIR/player_ctl_dmenu.sh 1 ; fi && \
    i3lock -n -c 000000 -i "$HOME/.config/wall.png" && \
-   playerctl -a play
+   if [[ "$player_status" == "Playing" ]] ; then $SCRIPTS_DIR/player_ctl_dmenu.sh 1 ; fi
 
 super + shift + e
    $SCRIPTS_DIR/logout_dmenu.sh
