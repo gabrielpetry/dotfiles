@@ -27,7 +27,8 @@ call plug#begin()
   Plug 'hdima/python-syntax'
   Plug 'mechatroner/rainbow_csv' " csv columns color
   Plug 'jwalton512/vim-blade' " Laravel blade template
-  Plug 'Yggdroot/indentLine' " Show a ident line
+  " Plug 'Yggdroot/indentLine' " Show a ident line
+  Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
   Plug 'saltstack/salt-vim'
   " Plug 'mxw/vim-jsx'
@@ -390,6 +391,11 @@ function! s:HourColor()
   echo g:colors_name
 endfunction
 
+" indent guides config
+set ts=2 sw=2 et
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
