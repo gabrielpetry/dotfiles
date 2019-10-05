@@ -15,8 +15,11 @@ wifi_connection_name="$(echo "${wifi_info}" | \
     grep -Eo "ESSID:.*" | \
     grep -Eo "\"([0-9a-zA-Z ])+\"")"
 
-if [[ "$(echo "${wifi_quality}" | cut -d '/' -f1 )" -lt "51" ]]; then
+if [[ "$(echo "${wifi_quality}" | cut -d '/' -f1 )" -gt "59" ]]; then
     color="color='$("$SCRIPTS_DIR"/getColor.sh magenta)'"
+fi
+if [[ "$(echo "${wifi_quality}" | cut -d '/' -f1 )" -lt "60" ]]; then
+    color="color='$("$SCRIPTS_DIR"/getColor.sh orange)'"
 fi
 
 if [[ -z "$wifi_connection_name" ]]; then
