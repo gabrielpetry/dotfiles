@@ -32,6 +32,11 @@ command=$SCRIPT_DIR/battery.py
 interval=30
 markup=pango
 
+[GPU]
+command=$SCRIPT_DIR/current_gpu.sh
+interval=120
+markup=pango
+
 [datetime]
 label=
 command=echo "$(date "+%H:%M %d/%m") "
