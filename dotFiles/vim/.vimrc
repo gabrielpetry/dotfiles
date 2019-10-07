@@ -12,7 +12,8 @@ endif
 call plug#begin()
   " Colorscheme
   " Plug 'dracula/vim'
-  Plug 'flazz/vim-colorschemes'
+  " Plug 'flazz/vim-colorschemes'
+  Plug 'tyrannicaltoucan/vim-deep-space'
   " Plug 'tyrannicaltoucan/vim-quantum'
   " Plug 'morhetz/gruvbox'
   " Plug 'fenetikm/falcon'
@@ -183,6 +184,8 @@ set whichwrap+=<,>,h,l
 set termguicolors
 syntax enable
 colorscheme deep-space
+let g:deepspace_italics=1
+
 
 " makes background transparent
 hi Normal guibg=NONE ctermbg=NONE
@@ -232,7 +235,8 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'deep_space'
 let g:airline#extensions#tagbar#enabled = 1
 
 
