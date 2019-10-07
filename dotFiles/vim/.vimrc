@@ -182,7 +182,7 @@ set whichwrap+=<,>,h,l
 " set background=dark
 set termguicolors
 syntax enable
-colorscheme gruvbox
+colorscheme deep-space
 
 " makes background transparent
 hi Normal guibg=NONE ctermbg=NONE
