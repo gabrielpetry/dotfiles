@@ -10,7 +10,7 @@ color="#e2e2e2"
 if [[ "$value" -gt "40000" ]]; then
     color="$("$SCRIPTS_DIR"/getColor.sh magenta)"
 fi
-printf "<span color='%s'>R$ %s</span>\n" \
+printf "<span color='%s'> R$ %s</span>\n" \
     "$color" \
     "$value"
  
