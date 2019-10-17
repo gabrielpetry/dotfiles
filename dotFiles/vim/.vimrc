@@ -11,15 +11,7 @@ endif
 " To install plugs use :PlugInstall
 call plug#begin()
   " Colorscheme
-  " Plug 'dracula/vim'
-  " Plug 'flazz/vim-colorschemes'
   Plug 'tyrannicaltoucan/vim-deep-space'
-  " Plug 'tyrannicaltoucan/vim-quantum'
-  " Plug 'morhetz/gruvbox'
-  " Plug 'fenetikm/falcon'
-  " Plug 'nlknguyen/papercolor-theme'
-  " Plug 'kristijanhusak/vim-hybrid-material'
-  " Plug 'sainnhe/gruvbox-material'
   " Syntax
   Plug 'leafgarland/typescript-vim'
   Plug 'sheerun/vim-polyglot'
@@ -28,11 +20,9 @@ call plug#begin()
   Plug 'hdima/python-syntax'
   Plug 'mechatroner/rainbow_csv' " csv columns color
   Plug 'jwalton512/vim-blade' " Laravel blade template
-  " Plug 'Yggdroot/indentLine' " Show a ident line
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
   Plug 'saltstack/salt-vim'
-  " Plug 'mxw/vim-jsx'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'vim-volt/volt'
   " Interface
@@ -46,7 +36,6 @@ call plug#begin()
   Plug 'joeytwiddle/sexy_scroller.vim' " Smotth scrolling
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'junegunn/goyo.vim' " Zen mode
-  " Plug 'jistr/vim-nerdtree-tabs' " Fix the nerd tree in the left of all tabs
   Plug 'tpope/vim-markdown'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -58,6 +47,7 @@ call plug#begin()
   Plug 'tpope/vim-commentary'
   Plug 'cohama/lexima.vim' " Auto close (){}[]
   Plug 'vim-scripts/ctags.vim'
+  Plug 'sumpygump/php-documentor-vim'
   " Plug 'garbas/vim-snipmate'
   Plug 'honza/vim-snippets'
   Plug 'skywind3000/asyncrun.vim'
@@ -565,7 +555,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " }}}
 
-"
+" PHP Documentor {{{
+au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+" }}}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

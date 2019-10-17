@@ -97,8 +97,6 @@ systemExports() {
 }
 # }}}
 
-
-
 main() {
   ohMyZshConfig
   commonCtrlBind
