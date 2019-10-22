@@ -1,0 +1,11 @@
+cyansprite.smoothscroll
+felixfbecker.php-debug
+felixfbecker.php-intellisense
+hoovercj.vscode-power-mode
+korekontrol.saltstack
+maxmckinney.theme-smooth-yellow
+ms-azuretools.vscode-docker
+neilbrayfield.php-docblocker
+shanejarvie.hybrid-theme
+vscode-icons-team.vscode-icons
+vscodevim.vim

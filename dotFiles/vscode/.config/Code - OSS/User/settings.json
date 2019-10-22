@@ -14,5 +14,10 @@
     "editor.smoothScrolling": true,
     "workbench.colorTheme": "Hybrid",
     "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false
+    "telemetry.enableTelemetry": false,
+    "vim.neovimPath": "/usr/bin/nvim",
+    "vim.enableNeovim": true,
+    "git.autofetch": true,
+    "powermode.enabled": true,
+    "powermode.presets": "simple-rift"
 }
