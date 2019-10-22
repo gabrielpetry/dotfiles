@@ -1,0 +1,18 @@
+{
+    "editor.fontFamily": "'Cascadia Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 25,
+    "window.zoomLevel": 1,
+    "editor.tabSize": 2,
+    "workbench.iconTheme": "vscode-icons",
+    "vim.camelCaseMotion.enable": true,
+    "keyboard.dispatch": "keyCode",
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.smoothScrolling": true,
+    "workbench.colorTheme": "Hybrid",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false
+}
