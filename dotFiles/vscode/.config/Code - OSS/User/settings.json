@@ -1,5 +1,6 @@
 {
     "editor.fontFamily": "'Cascadia Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.rulers": [80,120],
     "editor.fontLigatures": true,
     "editor.lineHeight": 25,
     "window.zoomLevel": 1,
@@ -19,5 +20,7 @@
     "vim.enableNeovim": true,
     "git.autofetch": true,
     "powermode.enabled": true,
-    "powermode.presets": "simple-rift"
+    "powermode.presets": "simple-rift",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
