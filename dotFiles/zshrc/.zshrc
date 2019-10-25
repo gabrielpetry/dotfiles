@@ -99,14 +99,43 @@ systemExports() {
   # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 }
 # }}}
-setZshOpts() {
+setZshOpts() { ### {{{
 	# remove notification of background jobs
 	setopt no_monitor
+} # }}}
+load_nvm() { # {{{
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+} #}}}
+nvm() {
+  unset -f nvm # remove custom function
+  # Only reloads if needed
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm # sources nvm if needed
+  fi
+
+  nvm "$@" # run a command
+}
+
+node() {
+  unset -f node
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm
+  fi
+    node "$@"
+}
+
+npm() {
+  unset -f npm
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm
+  fi
+    npm "$@"
 }
 
 
 main() {
-	setZshOpts
+  setZshOpts
   ohMyZshConfig
   commonCtrlBind
   colorFullLess
