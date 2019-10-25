@@ -94,14 +94,53 @@ systemExports() {
   export EDITOR=nvim
   # Append ruby gems to path
   export PATH=/home/petry/.gem/ruby/2.6.0/bin:$PATH
+
+  # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 }
 # }}}
+setZshOpts() { ### {{{
+	# remove notification of background jobs
+	setopt no_monitor
+} # }}}
+load_nvm() { # {{{
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+} #}}}
+nvm() {
+  unset -f nvm # remove custom function
+  # Only reloads if needed
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm # sources nvm if needed
+  fi
+
+  nvm "$@" # run a command
+}
+
+node() {
+  unset -f node
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm
+  fi
+    node "$@"
+}
+
+npm() {
+  unset -f npm
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm
+  fi
+    npm "$@"
+}
+
 
 main() {
+  setZshOpts
   ohMyZshConfig
   commonCtrlBind
   colorFullLess
   systemExports
+
   # Load custom configs
   sourceIfExists "$HOME/.aliases"
   sourceIfExists "$HOME/.functions"
