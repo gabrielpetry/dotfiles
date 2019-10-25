@@ -49,16 +49,6 @@
     "command": "-workbench.action.nextEditor"
   },
   {
-    "key": "ctrl+d",
-    "command": "extension.vim_ctrl+d",
-    "when": "editorTextFocus && vim.active && !editorFocus && !inDebugRepl"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "-extension.vim_ctrl+d",
-    "when": "editorTextFocus && vim.active && !inDebugRepl"
-  },
-  {
     "key": "shift+j",
     "command": "extension.vim_ctrl+pagedown",
     "when": "editorTextFocus && vim.active && vim.use<C-pagedown> && !inDebugRepl"
@@ -67,5 +57,59 @@
     "key": "ctrl+pagedown",
     "command": "-extension.vim_ctrl+pagedown",
     "when": "editorTextFocus && vim.active && vim.use<C-pagedown> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-extension.vim_ctrl+n",
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "-cursorUndo",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "-list.focusPageUp",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "cursorPageUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "pageup",
+    "command": "-cursorPageUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "-extension.vim_ctrl+u",
+    "when": "editorTextFocus && vim.active && vim.use<C-u> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "cursorPageDown",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "pagedown",
+    "command": "-cursorPageDown",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-extension.vim_ctrl+d",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
   }
 ]
