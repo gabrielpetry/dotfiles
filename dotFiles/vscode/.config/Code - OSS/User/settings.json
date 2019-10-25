@@ -22,5 +22,7 @@
     "powermode.enabled": true,
     "powermode.presets": "simple-rift",
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay"
 }
