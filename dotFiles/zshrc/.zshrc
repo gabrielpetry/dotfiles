@@ -94,21 +94,31 @@ systemExports() {
   export EDITOR=nvim
   # Append ruby gems to path
   export PATH=/home/petry/.gem/ruby/2.6.0/bin:$PATH
+
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 }
 # }}}
+setZshOpts() {
+	# remove notification of background jobs
+	setopt no_monitor
+}
+
 
 main() {
+	setZshOpts
   ohMyZshConfig
   commonCtrlBind
   colorFullLess
-  systemExports
+  systemExports &
+
   # Load custom configs
-  sourceIfExists "$HOME/.aliases"
-  sourceIfExists "$HOME/.functions"
+  sourceIfExists "$HOME/.aliases" &
+  sourceIfExists "$HOME/.functions" &
   # sourceIfExists "$cool_docker_images_path/docker_functions.sh"
   # load private stuff
-  sourceIfExists "$HOME/Protected/zsh/.aliases"
-  sourceIfExists "$HOME/Protected/zsh/.functions"
+  sourceIfExists "$HOME/Protected/zsh/.aliases" &
+  sourceIfExists "$HOME/Protected/zsh/.functions" &
 }
 
 
