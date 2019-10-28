@@ -16,7 +16,7 @@ main() {
     icon=""
     artist="$(playerctl metadata artist | cut -c 1-15 )"
     title="$(playerctl metadata title | cut -c 1-20)"
-    status=$(playerctl status)
+    status="$(playerctl --player=spotify status)"
   fi
   # icon=""
   text_background="color='$($SCRIPTS_DIR/getColor.sh magenta)'"
