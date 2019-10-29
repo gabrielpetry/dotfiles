@@ -3,7 +3,7 @@
     "editor.rulers": [80,120],
     "editor.fontLigatures": true,
     "editor.lineHeight": 25,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "editor.tabSize": 2,
     "workbench.iconTheme": "material-icon-theme",
     "vim.camelCaseMotion.enable": true,
@@ -24,5 +24,10 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.formatOnSave": true,
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSaveTimeout": 5000,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.autoFixOnSave": true
 }
