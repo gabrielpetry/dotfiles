@@ -29,5 +29,6 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "explorer.confirmDelete": false
 }
