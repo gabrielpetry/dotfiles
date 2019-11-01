@@ -21,12 +21,6 @@ command=$SCRIPT_DIR/i3weather.sh
 interval=1800
 separator=true
 
-[bitcoin]
-label=
-command=$SCRIPT_DIR/bitcoin.sh
-interval=120
-markup=pango
-
 [wifiname]
 label=
 command=$SCRIPT_DIR/wifistatus.sh
