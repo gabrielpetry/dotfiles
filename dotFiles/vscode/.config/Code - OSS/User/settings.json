@@ -13,7 +13,7 @@
     "editor.suggestOnTriggerCharacters": false,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.smoothScrolling": true,
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Monokai",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "vim.neovimPath": "/usr/bin/nvim",
@@ -24,11 +24,12 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.formatOnSave": true,
-    "files.autoSave": "afterDelay",
     "editor.formatOnSaveTimeout": 5000,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "eslint.autoFixOnSave": true,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
 }
