@@ -133,6 +133,14 @@ npm() {
     npm "$@"
 }
 
+ng() {
+  unset -f ng
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm
+  fi
+    ng "$@"
+}
+
 
 main() {
   setZshOpts
