@@ -13,7 +13,7 @@
     "editor.suggestOnTriggerCharacters": false,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.smoothScrolling": true,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Monokai Gravity",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "vim.neovimPath": "/usr/bin/nvim",
