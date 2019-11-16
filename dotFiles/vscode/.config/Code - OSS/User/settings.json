@@ -31,5 +31,6 @@
     "eslint.autoFixOnSave": true,
     "explorer.confirmDelete": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "vim.foldfix": true
 }
