@@ -1,6 +1,5 @@
 #!/usr/bin/zsh
-# vim:fdm=marker ft=sh
-# Main variables {{{
+# Main variables
 CURRENT_SHELL=$0
 # exports main repo to a variable
 export PETRYFILES="$HOME/petryfiles"
@@ -10,8 +9,7 @@ if [ -z $cool_docker_images_path ]; then
 fi
 # exports scripts folder to a variable
 export SCRIPTS="$SCRIPTS_DIR"
-#}}}
-# function {{{ 
+# function 
 sourceIfExists() {
     if [[ -e $1 ]]; then
       source $1
@@ -23,8 +21,7 @@ checkIfZsh() {
   fi
   return 1
 }
-# }}}
-## oh my zsh config {{{
+## oh my zsh config 
 ohMyZshConfig() {
   export ZSH=$HOME/.oh-my-zsh
   checkIfZsh || return 0
@@ -38,8 +35,7 @@ ohMyZshConfig() {
 
   source $ZSH/oh-my-zsh.sh
 }
-# }}}
-# Fix commoon CTRL bindings. {{{
+# Fix commoon CTRL bindings.
 commonCtrlBind() {
   checkIfZsh || return 0
   # ctrl + a send to beginning of line
@@ -59,8 +55,7 @@ commonCtrlBind() {
   # ctrl + u delete til start of line
   bindkey "^u" backward-kill-line
 }
-# }}}
-# less config {{{
+# less config
 colorFullLess() {
   checkIfZsh || return 0
   export LESS='-F -i -J -M -R -W -x4 -X -z-4'
@@ -78,8 +73,7 @@ colorFullLess() {
     export LESSCOLORIZER='pygmentize'
   fi
 }
-# }}}
-# system config {{{
+# system config
 systemExports() {
 
   export ANDROID_HOME=~/Android/Sdk
@@ -98,15 +92,14 @@ systemExports() {
   # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 }
-# }}}
-setZshOpts() { ### {{{
+setZshOpts() {
 	# remove notification of background jobs
 	setopt no_monitor
-} # }}}
-load_nvm() { # {{{
+}
+load_nvm() {
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-} #}}}
+}
 nvm() {
   unset -f nvm # remove custom function
   # Only reloads if needed
@@ -131,6 +124,14 @@ npm() {
     load_nvm
   fi
     npm "$@"
+}
+
+ng() {
+  unset -f ng
+  if [[ -z "$NVM_DIR" ]]; then
+    load_nvm
+  fi
+    ng "$@"
 }
 
 
