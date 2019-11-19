@@ -15,7 +15,7 @@ super + {_, shift + } p
 super + shift + s
    player_status="$(playerctl status 2&>1 | grep -o "Paused\|Playing\|Stopped")" && \
    if [[ "$player_status" == "Playing" ]] ; then $SCRIPTS_DIR/player_ctl_dmenu.sh 1 ; fi ; \
-   i3lock -n -c 000000 -i "$HOME/.config/wall.png" && \
+   i3lock -n -c 000000 -t -i "$HOME/.config/wall.png" && \
    if [[ "$player_status" == "Playing" ]] ; then $SCRIPTS_DIR/player_ctl_dmenu.sh 1 ; fi
 
 super + shift + e
