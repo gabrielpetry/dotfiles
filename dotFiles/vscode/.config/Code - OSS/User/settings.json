@@ -13,7 +13,7 @@
     "editor.suggestOnTriggerCharacters": false,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.smoothScrolling": true,
-    "workbench.colorTheme": "Monokai Gravity",
+    "workbench.colorTheme": "Material Theme",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "vim.neovimPath": "/usr/bin/nvim",
@@ -32,5 +32,6 @@
     "explorer.confirmDelete": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-    "vim.foldfix": true
+    "vim.foldfix": true,
+    "files.autoGuessEncoding": true
 }
