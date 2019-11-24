@@ -4,7 +4,7 @@ LABEL=""
 
 color=""
 wifi_connection_name="No connection"
-wifi_card_name="$(ip a | grep -Eo "wlp[0-9]s[0-9]" | tail -n 1)"
+wifi_card_name="$(ip a | grep -Eo "wlp[0-9]s[0-9a-z]+" | tail -n 1)"
 
 wifi_info="$(iwconfig "${wifi_card_name}")"
 wifi_quality="$(echo "${wifi_info}" | \
