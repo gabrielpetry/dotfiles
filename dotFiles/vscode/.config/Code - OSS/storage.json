@@ -382,8 +382,7 @@
                                 },
                                 {
                                     "id": "workbench.action.togglePanel",
-                                    "label": "Show &&Panel",
-                                    "checked": true
+                                    "label": "Show &&Panel"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -960,10 +959,6 @@
             }
         },
         "keybindings": {
-            "workbench.action.files.newUntitledFile": {
-                "label": "Ctrl+N",
-                "userSettingsLabel": "ctrl+n"
-            },
             "workbench.action.newWindow": {
                 "label": "Ctrl+Shift+N",
                 "userSettingsLabel": "ctrl+shift+n"
@@ -995,7 +990,6 @@
             },
             "workbench.action.openSettings": {
                 "label": "Ctrl+,",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+,"
             },
             "workbench.view.extensions": {
@@ -1071,9 +1065,8 @@
                 "userSettingsLabel": "ctrl+shift+h"
             },
             "editor.action.commentLine": {
-                "label": "Ctrl+/",
-                "isNative": false,
-                "userSettingsLabel": "ctrl+/"
+                "label": "Ctrl+\\",
+                "userSettingsLabel": "ctrl+\\"
             },
             "editor.action.blockComment": {
                 "label": "Ctrl+Shift+A",
@@ -1124,8 +1117,8 @@
                 "userSettingsLabel": "shift+alt+i"
             },
             "editor.action.addSelectionToNextFindMatch": {
-                "label": "Ctrl+D",
-                "userSettingsLabel": "ctrl+d"
+                "label": "Ctrl+N",
+                "userSettingsLabel": "ctrl+n"
             },
             "editor.action.selectHighlights": {
                 "label": "Ctrl+Shift+L",
@@ -1154,12 +1147,10 @@
             },
             "workbench.action.zoomIn": {
                 "label": "Ctrl+=",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+="
             },
             "workbench.action.zoomOut": {
                 "label": "Ctrl+-",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+-"
             },
             "workbench.action.zoomReset": {
@@ -1197,9 +1188,8 @@
                 "userSettingsLabel": "ctrl+shift+y"
             },
             "workbench.action.terminal.toggleTerminal": {
-                "label": "Ctrl+Shift+´",
-                "isNative": false,
-                "userSettingsLabel": "ctrl+shift+[BracketLeft]"
+                "label": "Ctrl+`",
+                "userSettingsLabel": "ctrl+`"
             },
             "workbench.actions.view.problems": {
                 "label": "Ctrl+Shift+M",
@@ -1209,9 +1199,12 @@
                 "label": "Alt+Z",
                 "userSettingsLabel": "alt+z"
             },
+            "workbench.action.navigateBack": {
+                "label": "Ctrl+Alt+-",
+                "userSettingsLabel": "ctrl+alt+-"
+            },
             "workbench.action.navigateForward": {
                 "label": "Ctrl+Shift+-",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+shift+-"
             },
             "workbench.action.navigateToLastEditLocation": {
@@ -1220,12 +1213,8 @@
                 "userSettingsLabel": "ctrl+k ctrl+q"
             },
             "workbench.action.nextEditor": {
-                "label": "Ctrl+PageDown",
-                "userSettingsLabel": "ctrl+pagedown"
-            },
-            "workbench.action.previousEditor": {
-                "label": "Ctrl+PageUp",
-                "userSettingsLabel": "ctrl+pageup"
+                "label": "Shift+K",
+                "userSettingsLabel": "shift+k"
             },
             "workbench.action.openNextRecentlyUsedEditorInGroup": {
                 "label": "Ctrl+Tab",
@@ -1297,7 +1286,6 @@
             },
             "editor.action.jumpToBracket": {
                 "label": "Ctrl+Shift+\\",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+shift+\\"
             },
             "editor.action.marker.nextInFiles": {
@@ -1356,6 +1344,10 @@
                 "label": "Shift+F9",
                 "userSettingsLabel": "shift+f9"
             },
+            "workbench.action.terminal.new": {
+                "label": "Ctrl+Shift+`",
+                "userSettingsLabel": "ctrl+shift+`"
+            },
             "workbench.action.terminal.split": {
                 "label": "Ctrl+Shift+5",
                 "userSettingsLabel": "ctrl+shift+5"
@@ -1376,7 +1368,7 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#1e1e1e",
+    "themeBackground": "#263238",
     "windowsState": {
         "lastActiveWindow": {
             "folder": "file:///home/petry/petryfiles",
@@ -1385,7 +1377,7 @@
                 "mode": 1,
                 "x": 1685,
                 "y": 27,
-                "width": 1270,
+                "width": 2546,
                 "height": 1046
             }
         },

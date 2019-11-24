@@ -45,6 +45,7 @@ resolutions="$(echo $monitorWithTheWindow | awk '{print $2}')"
 resolutionX="$(echo $resolutions | cut -dx -f1)"
 resolutionY="$(echo $resolutions | cut -dx -f2)"
 
+if [  ]
 i3-msg resize set $(expr $resolutionX - 100) $(expr $resolutionY - 100) && \
 i3-msg move position center
 
