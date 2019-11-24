@@ -8,7 +8,9 @@
 # screen3=($(xrandr | grep -w connected  | awk -F'[ +]' '{print $1,$3,$4}' | 
 #     head -n 1))
 createLog() {
-    #  echo "$(date) $@" >> /tmp/resizeWindow.log
+    if [ -n "$1"]; then
+        echo "$(date) $@" >> /tmp/resizeWindow.log
+    fi
 }
 
 screens="$(xrandr | \
