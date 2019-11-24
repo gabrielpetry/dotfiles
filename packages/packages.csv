@@ -1,6 +1,8 @@
 pacman,feh, change wallpaper
 pacman,termite, best terminal emulator
 pacman,git, versionador
+pacman,code, Vscode is great
+pacman,xdotool, Allow scripting a lot o fthings
 pacman,sshpass, agiliza conexões ssh
 pacman,lolcat, printa no terminal de forma maneira
 pacman,figlet, imprime letas figlet de forma bem simples
