@@ -1,1 +1,12 @@
-CacheData
+Backups/
+Cache/
+CachedData/
+CachedExtensions/
+Code Cache/
+Cookies
+Cookies-journal
+GPUCache/
+Network Persistent State
+User/workspaceStorage/
+languagepacks.json
+logs/
