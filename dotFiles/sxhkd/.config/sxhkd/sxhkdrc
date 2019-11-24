@@ -34,7 +34,8 @@ super + b
    $BROWSER
 
 super + {_, shift +} Tab
-   i3-msg {scratchpad show, move scratchpad} && i3-msg move position center
+   i3-msg {scratchpad show, move scratchpad} && \
+   $HOME/petryfiles/scripts/resize_window_to_monitor.sh
 
 super + f
    i3-msg fullscreen toggle
