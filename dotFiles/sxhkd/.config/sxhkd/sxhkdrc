@@ -34,8 +34,10 @@ super + b
    $BROWSER
 
 super + {_, shift +} Tab
-   i3-msg {scratchpad show, move scratchpad} && \
-   $HOME/petryfiles/scripts/resize_window_to_monitor.sh
+   { $SCRIPTS_DIR/resize_window_to_monitor.sh, i3-msg move scratchpad }
+#    i3-msg {scratchpad show, move scratchpad} && \
+#    scratchPadIsVisible="$(wmctrl -lp | grep -E "\0\x[0-9a-z]+?\s+-1")" && \
+#    if [[ -z "$scratchPadIsVisible" ]] ; then $SCRIPTS_DIR/resize_window_to_monitor.sh ; fi 
 
 super + f
    i3-msg fullscreen toggle
