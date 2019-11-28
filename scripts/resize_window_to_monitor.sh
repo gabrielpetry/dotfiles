@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/sh
 
 ## Get screen info
 # screen1=($(xrandr | grep -w connected  | awk -F'[ +]' '{print $1,$3,$4}' | 
@@ -7,9 +7,10 @@
 #     tail -n 2 | head -n 1))
 # screen3=($(xrandr | grep -w connected  | awk -F'[ +]' '{print $1,$3,$4}' | 
 #     head -n 1))
+
 createLog() {
-    if [ -n "$1"]; then
-        echo "$(date) $@" >> /tmp/resizeWindow.log
+    if [ -n "$1" ]; then
+        echo "$(date) ${*}" >> /tmp/resizeWindow.log
     fi
 }
 
@@ -60,5 +61,5 @@ if [ -z "$scratchPadIsVisible" ]; then
 
 createLog "====== EOE ======"
 
-exit
+exit 0
 
