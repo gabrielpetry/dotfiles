@@ -33,5 +33,6 @@
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "vim.foldfix": true,
-    "files.autoGuessEncoding": true
+    "files.autoGuessEncoding": true,
+    "latex-workshop.view.pdf.viewer": "tab"
 }
