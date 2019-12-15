@@ -19,7 +19,7 @@ lockscreen() {
 }
 
 restart_system() {
-    restart
+    reboot
 }
 
 

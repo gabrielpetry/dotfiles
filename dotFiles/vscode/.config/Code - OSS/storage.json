@@ -2,6 +2,7 @@
     "telemetry.machineId": "3434569b275ebfbb695bdb5b2727a5c5890e24f5fe06b83f17bcbfa31b0926ae",
     "openedPathsList": {
         "workspaces3": [
+            "file:///home/petry/Projetos/songyy-frontend",
             "file:///home/petry/petryfiles"
         ],
         "files2": []
@@ -49,7 +50,18 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/home/petry/petryfiles",
+                                        "fsPath": "/home/petry/Projetos/songyy-frontend",
+                                        "external": "file:///home/petry/Projetos/songyy-frontend",
+                                        "path": "/home/petry/Projetos/songyy-frontend",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/songyy-frontend"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
                                         "external": "file:///home/petry/petryfiles",
                                         "path": "/home/petry/petryfiles",
                                         "scheme": "file"
@@ -90,11 +102,13 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "&&Save"
+                        "label": "&&Save",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As..."
+                        "label": "Save &&As...",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.files.saveAll",
@@ -552,7 +566,8 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back"
+                        "label": "&&Back",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -561,7 +576,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1371,14 +1387,14 @@
     "themeBackground": "#263238",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/petry/petryfiles",
-            "backupPath": "/home/petry/.config/Code - OSS/Backups/12603d7751add7a956923febc9e0f246",
+            "folder": "file:///home/petry/Projetos/songyy-frontend",
+            "backupPath": "/home/petry/.config/Code - OSS/Backups/7225a10aaffb1f11a3d43df2a50c1d06",
             "uiState": {
                 "mode": 1,
-                "x": 1685,
+                "x": 2449,
                 "y": 27,
-                "width": 2546,
-                "height": 1046
+                "width": 1782,
+                "height": 838
             }
         },
         "openedWindows": []
