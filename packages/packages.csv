@@ -71,3 +71,4 @@ aur,ruby-fusuma, multigestures for touchpad
 aur,i3-gaps-next, i3 gaps next branch
 aur,ttf-monoid, cool font
 manual-installation,https://github.com/ryanoasis/nerd-fonts, nerd fonts thats a large package
+pacman,python-pyudev, python udev extensions
