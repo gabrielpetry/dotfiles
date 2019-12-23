@@ -36,11 +36,21 @@ install_addons() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-main() {
+runPacman() {
     update_pacman && \
-    install_packages && \
-    install_addons
+    install_packages
 }
 
+if [[ -z "$1" ]]; then
+    echo "Usage $0 [pacman|addons]"
+    exit 1
+fi
 
-main
+if [[ "$1" == "pacman" ]]; then
+    runPacman
+fi
+
+if [[ "$1" == "addons" ]]; then
+    install_addons
+fi
+
