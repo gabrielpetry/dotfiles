@@ -1,7 +1,7 @@
 #!/bin/bash
 
 checkFileAndremove() {
-  if [[ -d "$1"  ]]; then
+  if [[ -d "$1" || -f "$1"  ]]; then
     rm -rf $1
     return 0
   fi
@@ -27,6 +27,7 @@ checkFileAndremove "$HOME/.Xmodmap"
 checkFileAndremove "$HOME/.Xprofile"
 checkFileAndremove "$HOME/.Xresources"
 checkFileAndremove "$HOME/.zshrc"
+checkFileAndremove "$HOME/.doom.d"
 
 echo "All original files removed"
 
@@ -48,3 +49,4 @@ stow vim -v -t ~
 stow vscode -v -t ~
 stow xorg -v -t ~
 stow zshrc -v -t ~
+stow doomEmacs -v -t ~
