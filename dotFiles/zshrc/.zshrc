@@ -87,7 +87,9 @@ systemExports() {
   export VISUAL=nvim
   export EDITOR=nvim
   # Append ruby gems to path
-  export PATH=/home/petry/.gem/ruby/2.6.0/bin:$PATH
+  export PATH="/home/petry/.gem/ruby/2.6.0/bin:$PATH"
+
+  export PATH="$PATH:/var/lib/snapd/snap/bin"
 
   # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
