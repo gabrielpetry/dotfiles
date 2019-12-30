@@ -6,8 +6,8 @@
 
 ;; These are used for a number of things, particularly for GPG configuration,
 ;; some email clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Gabriel Petry"
+      user-mail-address "contact@gabrielpetry.com.br")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -19,7 +19,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 ;; test
-(setq doom-font (font-spec :family "monospace" :size 14)
+(setq doom-font (font-spec :family "Cascadia Code" :size 14)
       doom-variable-pitch-font (font-spec :family "sans"))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -53,3 +53,4 @@
 
 
 (setq projectile-project-search-path '("~/Projetos"))
+(setq line-spacing 0.4)
