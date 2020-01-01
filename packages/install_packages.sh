@@ -34,6 +34,12 @@ install_packages() {
 install_addons() {
     install ohmyzsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # zsh-autosugestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+    # doom-emacs
+    git clone https://github.com/hlissner/doom-emacs ~/.emacs.d && \
+        ~/.emacs.d/bin/doom install
 }
 
 runPacman() {
