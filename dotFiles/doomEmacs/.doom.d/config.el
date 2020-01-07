@@ -22,14 +22,14 @@
 
 (set-face-attribute 'default nil
                     :family "Cascadia Code Regular"
-                    :height 100
+                    :height 120
                     :weight 'normal
                     :width 'normal)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. These are the defaults.
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-dracula)
 
 ;; If you intend to use org, it is recommended you change this!
 (setq org-directory "~/org/")
