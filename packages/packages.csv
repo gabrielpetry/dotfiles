@@ -1,3 +1,5 @@
+pacman, lib32-openal, sound lib for wine
+pacman,emacs, good ide/text editor
 pacman,feh, change wallpaper
 pacman,termite, best terminal emulator
 pacman,git, versionador
