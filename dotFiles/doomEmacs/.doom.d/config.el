@@ -22,7 +22,7 @@
 
 (set-face-attribute 'default nil
                     :family "Cascadia Code Regular"
-                    :height 100
+                    :height 120
                     :weight 'normal
                     :width 'normal)
 
