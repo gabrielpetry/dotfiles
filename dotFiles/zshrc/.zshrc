@@ -93,6 +93,12 @@ systemExports() {
 
   # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
   # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  #
+  #
+  # if it is a wsl instance, load the docker for windows as primary host
+  uname -a | \
+    grep -q Microsoft && \
+    export DOCKER_HOST=tcp://localhost:2375
 }
 setZshOpts() {
 	# remove notification of background jobs
