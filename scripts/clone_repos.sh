@@ -44,10 +44,11 @@ cloneRepos() {
 }
 
 
+preferDirectory="$1" # ./script '/personal'
 
 # getRepos gabrielpetry
 getOrgRepos Songgyy | \
-    cloneRepos "$HOME/Projetos" Songgyy
+    cloneRepos "${HOME}/Projetos${preferDirectory}" Songgyy
 
 getRepos gabrielpetry | \
-    cloneRepos "$HOME/Projetos"
+    cloneRepos "${HOME}/Projetos${preferDirectory}"
