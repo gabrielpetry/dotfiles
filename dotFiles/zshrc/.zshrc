@@ -96,10 +96,17 @@ systemExports() {
   #
   #
   # if it is a wsl instance, load the docker for windows as primary host
-  uname -a | \
-    grep -q Microsoft && \
-    export DOCKER_HOST=tcp://localhost:2375
+  # uname -a | \
+  #   grep -q Microsoft && \
+  #   loadWslDocker
 }
+
+loadWslDocker() {
+  # export DOCKER_HOST=tcp://localhost:2375
+  export PATH="$PATH:/usr/local/go/bin"
+  export DOCKER_HOST="unix://$HOME/sockets/docker.sock"
+}
+
 setZshOpts() {
 	# remove notification of background jobs
 	setopt no_monitor
