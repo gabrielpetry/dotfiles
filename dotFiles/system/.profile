@@ -14,3 +14,6 @@ export BLUE=$'\e[1;34m'
 export MAGENTA=$'\e[1;35m'
 export CYAN=$'\e[1;36m'
 export NC=$'\e[0m'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
