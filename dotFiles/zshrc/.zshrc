@@ -102,9 +102,9 @@ systemExports() {
 }
 
 loadWslDocker() {
-  # export DOCKER_HOST=tcp://localhost:2375
-  export PATH="$PATH:/usr/local/go/bin"
-  export DOCKER_HOST="unix://$HOME/sockets/docker.sock"
+  export DOCKER_HOST="tcp://localhost:2375"
+  # export PATH="$PATH:/usr/local/go/bin"
+  #export DOCKER_HOST="unix://$HOME/sockets/docker.sock" 
 }
 
 setZshOpts() {
@@ -164,6 +164,7 @@ main() {
   # load private stuff
   sourceIfExists "$HOME/Protected/zsh/.aliases"
   sourceIfExists "$HOME/Protected/zsh/.functions"
+  xmodmap "$HOME/.Xmodmap"
 }
 
 
