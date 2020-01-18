@@ -57,6 +57,7 @@
 
 
 (setq projectile-project-search-path '("~/Projetos"))
+(setq projectile-project-search-path '("/c/Projetos"))
 (setq line-spacing 0.4)
 
 
