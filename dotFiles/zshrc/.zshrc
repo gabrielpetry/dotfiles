@@ -162,7 +162,6 @@ main() {
   # load private stuff
   sourceIfExists "$HOME/Protected/zsh/.aliases"
   sourceIfExists "$HOME/Protected/zsh/.functions"
-  xmodmap "$HOME/.Xmodmap"
 }
 
 
