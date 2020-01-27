@@ -23,7 +23,7 @@ cloneRepos() {
     folder="$1"
     isOrg="$2"
 
-    while read repo_url; do
+    while read -r repo_url; do
         destination_dir="${folder}"
 
         if [[ -n "$isOrg" ]]; then
@@ -44,11 +44,15 @@ cloneRepos() {
 }
 
 
-preferDirectory="$1" # ./script '/personal'
+preferDirectory="$1" # ./script 'Projetos'
+
+if [[ -z "$preferDirectory" ]]; then
+    preferDirectory="/Projetos"
+fi
 
 # getRepos gabrielpetry
 getOrgRepos Songgyy | \
-    cloneRepos "${HOME}/Projetos${preferDirectory}" Songgyy
+    cloneRepos "${HOME}/${preferDirectory}" Songgyy
 
 getRepos gabrielpetry | \
-    cloneRepos "${HOME}/Projetos${preferDirectory}"
+    cloneRepos "${HOME}/${preferDirectory}"
