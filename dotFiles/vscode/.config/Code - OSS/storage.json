@@ -2,10 +2,20 @@
     "telemetry.machineId": "3434569b275ebfbb695bdb5b2727a5c5890e24f5fe06b83f17bcbfa31b0926ae",
     "openedPathsList": {
         "workspaces3": [
-            "file:///home/petry/Projetos/songyy-frontend",
+            "file:///home/petry/Projetos/infra/web-linux",
+            "file:///home/petry/Projetos/infra/dominio-screenshot",
+            "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+            "file:///home/petry/Projetos/infra/kingfone",
+            "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
+            "file:///home/petry/Projetos/infra/salt-centos6",
+            "file:///home/petry/Projetos/infra/rocketchat-server",
             "file:///home/petry/petryfiles"
         ],
-        "files2": []
+        "files2": [
+            "file:///home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
+            "file:///home/petry/Projetos/infra/dominio-screenshot/server.js",
+            "file:///home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php"
+        ]
     },
     "lastKnownMenubarData": {
         "menus": {
@@ -50,13 +60,79 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/home/petry/Projetos/songyy-frontend",
-                                        "external": "file:///home/petry/Projetos/songyy-frontend",
-                                        "path": "/home/petry/Projetos/songyy-frontend",
+                                        "fsPath": "/home/petry/Projetos/infra/dominio-screenshot",
+                                        "external": "file:///home/petry/Projetos/infra/dominio-screenshot",
+                                        "path": "/home/petry/Projetos/infra/dominio-screenshot",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/Projetos/songyy-frontend"
+                                    "label": "~/Projetos/infra/dominio-screenshot"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/web-linux",
+                                        "path": "/home/petry/Projetos/infra/web-linux",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/web-linux"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+                                        "path": "/home/petry/Projetos/infra/testa-dominios-migracao",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/testa-dominios-migracao"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/kingfone",
+                                        "path": "/home/petry/Projetos/infra/kingfone",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/kingfone"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
+                                        "path": "/home/petry/Projetos/devpainel/repositorios_painel/painel",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/devpainel/repositorios_painel/painel"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/salt-centos6",
+                                        "path": "/home/petry/Projetos/infra/salt-centos6",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/salt-centos6"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/rocketchat-server",
+                                        "path": "/home/petry/Projetos/infra/rocketchat-server",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/rocketchat-server"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -68,6 +144,42 @@
                                     },
                                     "enabled": true,
                                     "label": "~/petryfiles"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
+                                        "path": "/home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/testa-dominios-migracao/docker-compose.yml"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/dominio-screenshot/server.js",
+                                        "path": "/home/petry/Projetos/infra/dominio-screenshot/server.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/dominio-screenshot/server.js"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php",
+                                        "path": "/home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -102,13 +214,11 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "&&Save",
-                        "enabled": false
+                        "label": "&&Save"
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As...",
-                        "enabled": false
+                        "label": "Save &&As..."
                     },
                     {
                         "id": "workbench.action.files.saveAll",
@@ -396,7 +506,8 @@
                                 },
                                 {
                                     "id": "workbench.action.togglePanel",
-                                    "label": "Show &&Panel"
+                                    "label": "Show &&Panel",
+                                    "checked": true
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -566,8 +677,7 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -576,8 +686,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -686,8 +795,12 @@
                         "label": "Go to &&Symbol in File..."
                     },
                     {
-                        "id": "editor.action.goToDeclaration",
+                        "id": "editor.action.revealDefinition",
                         "label": "Go to &&Definition"
+                    },
+                    {
+                        "id": "editor.action.revealDeclaration",
+                        "label": "Go to &&Declaration"
                     },
                     {
                         "id": "editor.action.goToTypeDefinition",
@@ -695,7 +808,11 @@
                     },
                     {
                         "id": "editor.action.goToImplementation",
-                        "label": "Go to &&Implementation"
+                        "label": "Go to &&Implementations"
+                    },
+                    {
+                        "id": "editor.action.goToReferences",
+                        "label": "Go to &&References"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -740,7 +857,7 @@
                     },
                     {
                         "id": "workbench.action.debug.run",
-                        "label": "Start &&Without Debugging"
+                        "label": "Run &&Without Debugging"
                     },
                     {
                         "id": "workbench.action.debug.stop",
@@ -849,8 +966,7 @@
                     },
                     {
                         "id": "workbench.action.terminal.split",
-                        "label": "&&Split Terminal",
-                        "enabled": false
+                        "label": "&&Split Terminal"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -917,10 +1033,6 @@
                         "label": "&&Documentation"
                     },
                     {
-                        "id": "update.showCurrentReleaseNotes",
-                        "label": "&&Release Notes"
-                    },
-                    {
                         "id": "vscode.menubar.separator"
                     },
                     {
@@ -975,6 +1087,10 @@
             }
         },
         "keybindings": {
+            "workbench.action.files.newUntitledFile": {
+                "label": "Ctrl+N",
+                "userSettingsLabel": "ctrl+n"
+            },
             "workbench.action.newWindow": {
                 "label": "Ctrl+Shift+N",
                 "userSettingsLabel": "ctrl+shift+n"
@@ -1081,8 +1197,8 @@
                 "userSettingsLabel": "ctrl+shift+h"
             },
             "editor.action.commentLine": {
-                "label": "Ctrl+\\",
-                "userSettingsLabel": "ctrl+\\"
+                "label": "Ctrl+/",
+                "userSettingsLabel": "ctrl+/"
             },
             "editor.action.blockComment": {
                 "label": "Ctrl+Shift+A",
@@ -1133,8 +1249,8 @@
                 "userSettingsLabel": "shift+alt+i"
             },
             "editor.action.addSelectionToNextFindMatch": {
-                "label": "Ctrl+N",
-                "userSettingsLabel": "ctrl+n"
+                "label": "Ctrl+D",
+                "userSettingsLabel": "ctrl+d"
             },
             "editor.action.selectHighlights": {
                 "label": "Ctrl+Shift+L",
@@ -1187,8 +1303,9 @@
                 "userSettingsLabel": "ctrl+shift+f"
             },
             "workbench.view.scm": {
-                "label": "Ctrl+Shift+G",
-                "userSettingsLabel": "ctrl+shift+g"
+                "label": "Ctrl+Shift+G G",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+shift+g g"
             },
             "workbench.view.debug": {
                 "label": "Ctrl+Shift+D",
@@ -1229,8 +1346,12 @@
                 "userSettingsLabel": "ctrl+k ctrl+q"
             },
             "workbench.action.nextEditor": {
-                "label": "Shift+K",
-                "userSettingsLabel": "shift+k"
+                "label": "Ctrl+PageDown",
+                "userSettingsLabel": "ctrl+pagedown"
+            },
+            "workbench.action.previousEditor": {
+                "label": "Ctrl+PageUp",
+                "userSettingsLabel": "ctrl+pageup"
             },
             "workbench.action.openNextRecentlyUsedEditorInGroup": {
                 "label": "Ctrl+Tab",
@@ -1292,9 +1413,17 @@
                 "label": "Ctrl+Shift+O",
                 "userSettingsLabel": "ctrl+shift+o"
             },
+            "editor.action.revealDefinition": {
+                "label": "F12",
+                "userSettingsLabel": "f12"
+            },
             "editor.action.goToImplementation": {
                 "label": "Ctrl+F12",
                 "userSettingsLabel": "ctrl+f12"
+            },
+            "editor.action.goToReferences": {
+                "label": "Shift+F12",
+                "userSettingsLabel": "shift+f12"
             },
             "workbench.action.gotoLine": {
                 "label": "Ctrl+G",
@@ -1384,19 +1513,20 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#263238",
+    "themeBackground": "#0f111a",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/petry/Projetos/songyy-frontend",
-            "backupPath": "/home/petry/.config/Code - OSS/Backups/7225a10aaffb1f11a3d43df2a50c1d06",
+            "folder": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+            "backupPath": "/home/petry/.config/Code - OSS/Backups/dd076a56ca54db9d4e99fb2f1ce72252",
             "uiState": {
                 "mode": 1,
-                "x": 2449,
+                "x": 1373,
                 "y": 27,
-                "width": 1782,
-                "height": 838
+                "width": 1906,
+                "height": 520
             }
         },
         "openedWindows": []
-    }
+    },
+    "pickerWorkingDir": "/home/petry/Projetos/infra"
 }
