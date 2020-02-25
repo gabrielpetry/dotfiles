@@ -2,10 +2,26 @@
     "telemetry.machineId": "3434569b275ebfbb695bdb5b2727a5c5890e24f5fe06b83f17bcbfa31b0926ae",
     "openedPathsList": {
         "workspaces3": [
-            "file:///home/petry/Projetos/songyy-frontend",
+            "file:///home/petry/Projetos/infra/dominio-screenshot",
+            "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+            "file:///home/petry/Projetos/infra/app",
+            "file:///home/petry/Projetos/infra/kingfone",
+            "file:///home/petry/Projetos/infra/testa-paginas",
+            "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
+            "file:///home/petry/Projetos/infra/intranet",
+            "file:///home/petry/Projetos/infra/web-linux",
+            "file:///home/petry/Projetos/infra/class",
+            "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
+            "file:///home/petry/Projetos/infra/salt-centos6",
+            "file:///home/petry/Projetos/infra/rocketchat-server",
             "file:///home/petry/petryfiles"
         ],
-        "files2": []
+        "files2": [
+            "file:///home/petry/class.nginx.php",
+            "file:///home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
+            "file:///home/petry/Projetos/infra/dominio-screenshot/server.js",
+            "file:///home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php"
+        ]
     },
     "lastKnownMenubarData": {
         "menus": {
@@ -50,24 +66,159 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/home/petry/Projetos/songyy-frontend",
-                                        "external": "file:///home/petry/Projetos/songyy-frontend",
-                                        "path": "/home/petry/Projetos/songyy-frontend",
+                                        "fsPath": "/home/petry/Projetos/infra/dominio-screenshot",
+                                        "external": "file:///home/petry/Projetos/infra/dominio-screenshot",
+                                        "path": "/home/petry/Projetos/infra/dominio-screenshot",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/Projetos/songyy-frontend"
+                                    "label": "~/Projetos/infra/dominio-screenshot"
                                 },
                                 {
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///home/petry/petryfiles",
-                                        "path": "/home/petry/petryfiles",
+                                        "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+                                        "path": "/home/petry/Projetos/infra/testa-dominios-migracao",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/petryfiles"
+                                    "label": "~/Projetos/infra/testa-dominios-migracao"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/app",
+                                        "path": "/home/petry/Projetos/infra/app",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/app"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/kingfone",
+                                        "path": "/home/petry/Projetos/infra/kingfone",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/kingfone"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/testa-paginas",
+                                        "path": "/home/petry/Projetos/infra/testa-paginas",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/testa-paginas"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
+                                        "path": "/home/petry/Projetos/personal/gabrielpetry-com-br",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/personal/gabrielpetry-com-br"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/intranet",
+                                        "path": "/home/petry/Projetos/infra/intranet",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/intranet"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/web-linux",
+                                        "path": "/home/petry/Projetos/infra/web-linux",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/web-linux"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/class",
+                                        "path": "/home/petry/Projetos/infra/class",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/class"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
+                                        "path": "/home/petry/Projetos/devpainel/repositorios_painel/painel",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/devpainel/repositorios_painel/painel"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/class.nginx.php",
+                                        "path": "/home/petry/class.nginx.php",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/class.nginx.php"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
+                                        "path": "/home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/testa-dominios-migracao/docker-compose.yml"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/dominio-screenshot/server.js",
+                                        "path": "/home/petry/Projetos/infra/dominio-screenshot/server.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/dominio-screenshot/server.js"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php",
+                                        "path": "/home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -102,17 +253,16 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "&&Save",
-                        "enabled": false
+                        "label": "&&Save"
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As...",
-                        "enabled": false
+                        "label": "Save &&As..."
                     },
                     {
                         "id": "workbench.action.files.saveAll",
-                        "label": "Save A&&ll"
+                        "label": "Save A&&ll",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -396,7 +546,8 @@
                                 },
                                 {
                                     "id": "workbench.action.togglePanel",
-                                    "label": "Show &&Panel"
+                                    "label": "Show &&Panel",
+                                    "checked": true
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -406,7 +557,11 @@
                                     "label": "&&Move Side Bar Right"
                                 },
                                 {
-                                    "id": "workbench.action.togglePanelPosition",
+                                    "id": "workbench.action.positionPanelLeft",
+                                    "label": "Move Panel Left"
+                                },
+                                {
+                                    "id": "workbench.action.positionPanelRight",
                                     "label": "Move Panel Right"
                                 },
                                 {
@@ -566,8 +721,7 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -576,8 +730,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -594,6 +747,28 @@
                                 {
                                     "id": "workbench.action.previousEditor",
                                     "label": "&&Previous Editor"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "workbench.action.openNextRecentlyUsedEditor",
+                                    "label": "&&Next Used Editor"
+                                },
+                                {
+                                    "id": "workbench.action.openPreviousRecentlyUsedEditor",
+                                    "label": "&&Previous Used Editor"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "workbench.action.nextEditorInGroup",
+                                    "label": "&&Next Editor in Group"
+                                },
+                                {
+                                    "id": "workbench.action.previousEditorInGroup",
+                                    "label": "&&Previous Editor in Group"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -624,45 +799,54 @@
                                 },
                                 {
                                     "id": "workbench.action.focusThirdEditorGroup",
-                                    "label": "Group &&3"
+                                    "label": "Group &&3",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusFourthEditorGroup",
-                                    "label": "Group &&4"
+                                    "label": "Group &&4",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusFifthEditorGroup",
-                                    "label": "Group &&5"
+                                    "label": "Group &&5",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
                                     "id": "workbench.action.focusNextGroup",
-                                    "label": "&&Next Group"
+                                    "label": "&&Next Group",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusPreviousGroup",
-                                    "label": "&&Previous Group"
+                                    "label": "&&Previous Group",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
                                     "id": "workbench.action.focusLeftGroup",
-                                    "label": "Group &&Left"
+                                    "label": "Group &&Left",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusRightGroup",
-                                    "label": "Group &&Right"
+                                    "label": "Group &&Right",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusAboveGroup",
-                                    "label": "Group &&Above"
+                                    "label": "Group &&Above",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusBelowGroup",
-                                    "label": "Group &&Below"
+                                    "label": "Group &&Below",
+                                    "enabled": false
                                 }
                             ]
                         }
@@ -686,8 +870,12 @@
                         "label": "Go to &&Symbol in File..."
                     },
                     {
-                        "id": "editor.action.goToDeclaration",
+                        "id": "editor.action.revealDefinition",
                         "label": "Go to &&Definition"
+                    },
+                    {
+                        "id": "editor.action.revealDeclaration",
+                        "label": "Go to &&Declaration"
                     },
                     {
                         "id": "editor.action.goToTypeDefinition",
@@ -695,7 +883,11 @@
                     },
                     {
                         "id": "editor.action.goToImplementation",
-                        "label": "Go to &&Implementation"
+                        "label": "Go to &&Implementations"
+                    },
+                    {
+                        "id": "editor.action.goToReferences",
+                        "label": "Go to &&References"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -740,7 +932,7 @@
                     },
                     {
                         "id": "workbench.action.debug.run",
-                        "label": "Start &&Without Debugging"
+                        "label": "Run &&Without Debugging"
                     },
                     {
                         "id": "workbench.action.debug.stop",
@@ -849,8 +1041,7 @@
                     },
                     {
                         "id": "workbench.action.terminal.split",
-                        "label": "&&Split Terminal",
-                        "enabled": false
+                        "label": "&&Split Terminal"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -917,10 +1108,6 @@
                         "label": "&&Documentation"
                     },
                     {
-                        "id": "update.showCurrentReleaseNotes",
-                        "label": "&&Release Notes"
-                    },
-                    {
                         "id": "vscode.menubar.separator"
                     },
                     {
@@ -975,6 +1162,10 @@
             }
         },
         "keybindings": {
+            "workbench.action.files.newUntitledFile": {
+                "label": "Ctrl+N",
+                "userSettingsLabel": "ctrl+n"
+            },
             "workbench.action.newWindow": {
                 "label": "Ctrl+Shift+N",
                 "userSettingsLabel": "ctrl+shift+n"
@@ -1081,8 +1272,8 @@
                 "userSettingsLabel": "ctrl+shift+h"
             },
             "editor.action.commentLine": {
-                "label": "Ctrl+\\",
-                "userSettingsLabel": "ctrl+\\"
+                "label": "Ctrl+/",
+                "userSettingsLabel": "ctrl+/"
             },
             "editor.action.blockComment": {
                 "label": "Ctrl+Shift+A",
@@ -1133,8 +1324,8 @@
                 "userSettingsLabel": "shift+alt+i"
             },
             "editor.action.addSelectionToNextFindMatch": {
-                "label": "Ctrl+N",
-                "userSettingsLabel": "ctrl+n"
+                "label": "Ctrl+D",
+                "userSettingsLabel": "ctrl+d"
             },
             "editor.action.selectHighlights": {
                 "label": "Ctrl+Shift+L",
@@ -1187,8 +1378,9 @@
                 "userSettingsLabel": "ctrl+shift+f"
             },
             "workbench.view.scm": {
-                "label": "Ctrl+Shift+G",
-                "userSettingsLabel": "ctrl+shift+g"
+                "label": "Ctrl+Shift+G G",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+shift+g g"
             },
             "workbench.view.debug": {
                 "label": "Ctrl+Shift+D",
@@ -1229,16 +1421,22 @@
                 "userSettingsLabel": "ctrl+k ctrl+q"
             },
             "workbench.action.nextEditor": {
-                "label": "Shift+K",
-                "userSettingsLabel": "shift+k"
+                "label": "Ctrl+PageDown",
+                "userSettingsLabel": "ctrl+pagedown"
             },
-            "workbench.action.openNextRecentlyUsedEditorInGroup": {
-                "label": "Ctrl+Tab",
-                "userSettingsLabel": "ctrl+tab"
+            "workbench.action.previousEditor": {
+                "label": "Ctrl+PageUp",
+                "userSettingsLabel": "ctrl+pageup"
             },
-            "workbench.action.openPreviousRecentlyUsedEditorInGroup": {
-                "label": "Ctrl+Shift+Tab",
-                "userSettingsLabel": "ctrl+shift+tab"
+            "workbench.action.nextEditorInGroup": {
+                "label": "Ctrl+K Ctrl+PageDown",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+pagedown"
+            },
+            "workbench.action.previousEditorInGroup": {
+                "label": "Ctrl+K Ctrl+PageUp",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+pageup"
             },
             "workbench.action.focusFirstEditorGroup": {
                 "label": "Ctrl+1",
@@ -1292,9 +1490,17 @@
                 "label": "Ctrl+Shift+O",
                 "userSettingsLabel": "ctrl+shift+o"
             },
+            "editor.action.revealDefinition": {
+                "label": "F12",
+                "userSettingsLabel": "f12"
+            },
             "editor.action.goToImplementation": {
                 "label": "Ctrl+F12",
                 "userSettingsLabel": "ctrl+f12"
+            },
+            "editor.action.goToReferences": {
+                "label": "Shift+F12",
+                "userSettingsLabel": "shift+f12"
             },
             "workbench.action.gotoLine": {
                 "label": "Ctrl+G",
@@ -1384,19 +1590,43 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#263238",
+    "themeBackground": "#272822",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/petry/Projetos/songyy-frontend",
-            "backupPath": "/home/petry/.config/Code - OSS/Backups/7225a10aaffb1f11a3d43df2a50c1d06",
+            "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
+            "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
             "uiState": {
                 "mode": 1,
-                "x": 2449,
-                "y": 27,
-                "width": 1782,
-                "height": 838
+                "x": 1947,
+                "y": 339,
+                "width": 1352,
+                "height": 734
             }
         },
-        "openedWindows": []
-    }
+        "openedWindows": [
+            {
+                "folder": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+                "backupPath": "/home/petry/.config/Code - OSS/Backups/dd076a56ca54db9d4e99fb2f1ce72252",
+                "uiState": {
+                    "mode": 1,
+                    "x": 1947,
+                    "y": 339,
+                    "width": 1352,
+                    "height": 734
+                }
+            },
+            {
+                "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
+                "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
+                "uiState": {
+                    "mode": 1,
+                    "x": 1947,
+                    "y": 339,
+                    "width": 1352,
+                    "height": 734
+                }
+            }
+        ]
+    },
+    "pickerWorkingDir": "/home/petry/Projetos/infra"
 }

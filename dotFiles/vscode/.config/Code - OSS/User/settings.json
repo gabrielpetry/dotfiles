@@ -2,9 +2,8 @@
     "editor.fontFamily": "'Cascadia Code', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.rulers": [80,120],
     "editor.fontLigatures": true,
-    "editor.lineHeight": 25,
-    "window.zoomLevel": 0,
-    "editor.tabSize": 2,
+    "editor.lineHeight": 23,
+    "window.zoomLevel": -1,
     "workbench.iconTheme": "material-icon-theme",
     "vim.camelCaseMotion.enable": true,
     "keyboard.dispatch": "keyCode",
@@ -13,7 +12,7 @@
     "editor.suggestOnTriggerCharacters": false,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.smoothScrolling": true,
-    "workbench.colorTheme": "Material Theme",
+    "workbench.colorTheme": "Monokai",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "vim.neovimPath": "/usr/bin/nvim",
@@ -33,5 +32,15 @@
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "vim.foldfix": true,
-    "latex-workshop.view.pdf.viewer": "tab"
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.fontSize": 12,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "files.autoGuessEncoding": true,
+    "editor.fontWeight": "800",
+    "php-cs-fixer.pathMode": "override",
+    "php-cs-fixer.configFile": ".php_cs",
+    "php-cs-fixer.executable": "/usr/local/bin/php-cs-fixer --allow-risky=yes",
+    "editor.tabSize": 2
 }
