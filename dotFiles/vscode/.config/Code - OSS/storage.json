@@ -2,16 +2,22 @@
     "telemetry.machineId": "3434569b275ebfbb695bdb5b2727a5c5890e24f5fe06b83f17bcbfa31b0926ae",
     "openedPathsList": {
         "workspaces3": [
-            "file:///home/petry/Projetos/infra/web-linux",
             "file:///home/petry/Projetos/infra/dominio-screenshot",
             "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+            "file:///home/petry/Projetos/infra/app",
             "file:///home/petry/Projetos/infra/kingfone",
+            "file:///home/petry/Projetos/infra/testa-paginas",
+            "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
+            "file:///home/petry/Projetos/infra/intranet",
+            "file:///home/petry/Projetos/infra/web-linux",
+            "file:///home/petry/Projetos/infra/class",
             "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
             "file:///home/petry/Projetos/infra/salt-centos6",
             "file:///home/petry/Projetos/infra/rocketchat-server",
             "file:///home/petry/petryfiles"
         ],
         "files2": [
+            "file:///home/petry/class.nginx.php",
             "file:///home/petry/Projetos/infra/testa-dominios-migracao/docker-compose.yml",
             "file:///home/petry/Projetos/infra/dominio-screenshot/server.js",
             "file:///home/petry/Projetos/devpainel/repositorios_painel/painel/ativaPlano.php"
@@ -72,23 +78,23 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/web-linux",
-                                        "path": "/home/petry/Projetos/infra/web-linux",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/web-linux"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
                                         "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
                                         "path": "/home/petry/Projetos/infra/testa-dominios-migracao",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
                                     "label": "~/Projetos/infra/testa-dominios-migracao"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/app",
+                                        "path": "/home/petry/Projetos/infra/app",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/app"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -105,6 +111,61 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/testa-paginas",
+                                        "path": "/home/petry/Projetos/infra/testa-paginas",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/testa-paginas"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
+                                        "path": "/home/petry/Projetos/personal/gabrielpetry-com-br",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/personal/gabrielpetry-com-br"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/intranet",
+                                        "path": "/home/petry/Projetos/infra/intranet",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/intranet"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/web-linux",
+                                        "path": "/home/petry/Projetos/infra/web-linux",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/web-linux"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/class",
+                                        "path": "/home/petry/Projetos/infra/class",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/class"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
                                         "external": "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
                                         "path": "/home/petry/Projetos/devpainel/repositorios_painel/painel",
                                         "scheme": "file"
@@ -113,40 +174,18 @@
                                     "label": "~/Projetos/devpainel/repositorios_painel/painel"
                                 },
                                 {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/salt-centos6",
-                                        "path": "/home/petry/Projetos/infra/salt-centos6",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/salt-centos6"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/rocketchat-server",
-                                        "path": "/home/petry/Projetos/infra/rocketchat-server",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/rocketchat-server"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/petryfiles",
-                                        "path": "/home/petry/petryfiles",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/petryfiles"
-                                },
-                                {
                                     "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/class.nginx.php",
+                                        "path": "/home/petry/class.nginx.php",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/class.nginx.php"
                                 },
                                 {
                                     "id": "openRecentFile",
@@ -222,7 +261,8 @@
                     },
                     {
                         "id": "workbench.action.files.saveAll",
-                        "label": "Save A&&ll"
+                        "label": "Save A&&ll",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -517,7 +557,11 @@
                                     "label": "&&Move Side Bar Right"
                                 },
                                 {
-                                    "id": "workbench.action.togglePanelPosition",
+                                    "id": "workbench.action.positionPanelLeft",
+                                    "label": "Move Panel Left"
+                                },
+                                {
+                                    "id": "workbench.action.positionPanelRight",
                                     "label": "Move Panel Right"
                                 },
                                 {
@@ -708,6 +752,28 @@
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
+                                    "id": "workbench.action.openNextRecentlyUsedEditor",
+                                    "label": "&&Next Used Editor"
+                                },
+                                {
+                                    "id": "workbench.action.openPreviousRecentlyUsedEditor",
+                                    "label": "&&Previous Used Editor"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "workbench.action.nextEditorInGroup",
+                                    "label": "&&Next Editor in Group"
+                                },
+                                {
+                                    "id": "workbench.action.previousEditorInGroup",
+                                    "label": "&&Previous Editor in Group"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
                                     "id": "workbench.action.openNextRecentlyUsedEditorInGroup",
                                     "label": "&&Next Used Editor in Group"
                                 },
@@ -733,45 +799,54 @@
                                 },
                                 {
                                     "id": "workbench.action.focusThirdEditorGroup",
-                                    "label": "Group &&3"
+                                    "label": "Group &&3",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusFourthEditorGroup",
-                                    "label": "Group &&4"
+                                    "label": "Group &&4",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusFifthEditorGroup",
-                                    "label": "Group &&5"
+                                    "label": "Group &&5",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
                                     "id": "workbench.action.focusNextGroup",
-                                    "label": "&&Next Group"
+                                    "label": "&&Next Group",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusPreviousGroup",
-                                    "label": "&&Previous Group"
+                                    "label": "&&Previous Group",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
                                     "id": "workbench.action.focusLeftGroup",
-                                    "label": "Group &&Left"
+                                    "label": "Group &&Left",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusRightGroup",
-                                    "label": "Group &&Right"
+                                    "label": "Group &&Right",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusAboveGroup",
-                                    "label": "Group &&Above"
+                                    "label": "Group &&Above",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "workbench.action.focusBelowGroup",
-                                    "label": "Group &&Below"
+                                    "label": "Group &&Below",
+                                    "enabled": false
                                 }
                             ]
                         }
@@ -1353,13 +1428,15 @@
                 "label": "Ctrl+PageUp",
                 "userSettingsLabel": "ctrl+pageup"
             },
-            "workbench.action.openNextRecentlyUsedEditorInGroup": {
-                "label": "Ctrl+Tab",
-                "userSettingsLabel": "ctrl+tab"
+            "workbench.action.nextEditorInGroup": {
+                "label": "Ctrl+K Ctrl+PageDown",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+pagedown"
             },
-            "workbench.action.openPreviousRecentlyUsedEditorInGroup": {
-                "label": "Ctrl+Shift+Tab",
-                "userSettingsLabel": "ctrl+shift+tab"
+            "workbench.action.previousEditorInGroup": {
+                "label": "Ctrl+K Ctrl+PageUp",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+pageup"
             },
             "workbench.action.focusFirstEditorGroup": {
                 "label": "Ctrl+1",
@@ -1513,20 +1590,43 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#0f111a",
+    "themeBackground": "#272822",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
-            "backupPath": "/home/petry/.config/Code - OSS/Backups/dd076a56ca54db9d4e99fb2f1ce72252",
+            "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
+            "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
             "uiState": {
                 "mode": 1,
-                "x": 1373,
-                "y": 27,
-                "width": 1906,
-                "height": 520
+                "x": 1947,
+                "y": 339,
+                "width": 1352,
+                "height": 734
             }
         },
-        "openedWindows": []
+        "openedWindows": [
+            {
+                "folder": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+                "backupPath": "/home/petry/.config/Code - OSS/Backups/dd076a56ca54db9d4e99fb2f1ce72252",
+                "uiState": {
+                    "mode": 1,
+                    "x": 1947,
+                    "y": 339,
+                    "width": 1352,
+                    "height": 734
+                }
+            },
+            {
+                "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
+                "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
+                "uiState": {
+                    "mode": 1,
+                    "x": 1947,
+                    "y": 339,
+                    "width": 1352,
+                    "height": 734
+                }
+            }
+        ]
     },
     "pickerWorkingDir": "/home/petry/Projetos/infra"
 }
