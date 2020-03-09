@@ -81,6 +81,7 @@ systemExports() {
   export PATH=$PATH:$ANDROID_HOME/platform-tools
 
   export PATH="$PATH:$HOME/flutter/bin"
+  export PATH="$PATH:$HOME/.composer/vendor/bin"
 
   export LANG="en_US.UTF-8"
   export LC_ALL="en_US.UTF-8"
@@ -96,15 +97,13 @@ systemExports() {
   #
   #
   # if it is a wsl instance, load the docker for windows as primary host
-  # uname -a | \
-  #   grep -q Microsoft && \
-  #   loadWslDocker
+  uname -a | \
+    grep -q Microsoft && \
+    loadWslDocker
 }
 
 loadWslDocker() {
   export DOCKER_HOST="tcp://localhost:2375"
-  # export PATH="$PATH:/usr/local/go/bin"
-  #export DOCKER_HOST="unix://$HOME/sockets/docker.sock" 
 }
 
 setZshOpts() {
