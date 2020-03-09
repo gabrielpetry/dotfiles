@@ -1,9 +1,9 @@
 {
-    "editor.fontFamily": "'Cascadia Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "\"Hack\", 'Cascadia Code', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.rulers": [80,120],
     "editor.fontLigatures": true,
     "editor.lineHeight": 23,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 1,
     "workbench.iconTheme": "material-icon-theme",
     "vim.camelCaseMotion.enable": true,
     "keyboard.dispatch": "keyCode",
@@ -12,7 +12,7 @@
     "editor.suggestOnTriggerCharacters": false,
     "editor.cursorSmoothCaretAnimation": true,
     "editor.smoothScrolling": true,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Nordico",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "vim.neovimPath": "/usr/bin/nvim",
@@ -38,9 +38,10 @@
         "source.fixAll.eslint": true
     },
     "files.autoGuessEncoding": true,
-    "editor.fontWeight": "800",
+    "editor.fontWeight": "600",
     "php-cs-fixer.pathMode": "override",
     "php-cs-fixer.configFile": ".php_cs",
     "php-cs-fixer.executable": "/usr/local/bin/php-cs-fixer --allow-risky=yes",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "sonarlint.ls.javaHome": "/home/petry/.vscode-oss/extensions/sonarsource.sonarlint_managed-jre/jre/jdk-11.0.6+10-jre"
 }

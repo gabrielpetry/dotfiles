@@ -3,17 +3,25 @@
     "openedPathsList": {
         "workspaces3": [
             "file:///home/petry/Projetos/infra/dominio-screenshot",
+            "file:///home/petry/Projetos/infra-svn/zabbix",
+            "file:///home/petry/Projetos/infra/web-linux",
+            "file:///home/petry/Projetos/e-mail-profissional/email-rest",
+            "file:///home/petry/Projetos/infra/intranet",
+            "file:///home/petry/Projetos/infra/wiki-revenda",
             "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+            "file:///home/petry/Projetos/infra/rocketchat-server",
+            "file:///home/petry/Projetos/devpainel/server-tools",
+            "file:///home/petry/Projetos/devpainel/themes-api",
+            "file:///home/petry/Projetos/devpainel/cart-server",
+            "file:///home/petry/Projetos/devpainel/cart-frontend",
+            "file:///home/petry/Projetos/personal/node-ssh-session",
             "file:///home/petry/Projetos/infra/app",
             "file:///home/petry/Projetos/infra/kingfone",
             "file:///home/petry/Projetos/infra/testa-paginas",
             "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
-            "file:///home/petry/Projetos/infra/intranet",
-            "file:///home/petry/Projetos/infra/web-linux",
             "file:///home/petry/Projetos/infra/class",
             "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
             "file:///home/petry/Projetos/infra/salt-centos6",
-            "file:///home/petry/Projetos/infra/rocketchat-server",
             "file:///home/petry/petryfiles"
         ],
         "files2": [
@@ -57,7 +65,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -78,67 +87,12 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
-                                        "path": "/home/petry/Projetos/infra/testa-dominios-migracao",
+                                        "external": "file:///home/petry/Projetos/infra-svn/zabbix",
+                                        "path": "/home/petry/Projetos/infra-svn/zabbix",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/Projetos/infra/testa-dominios-migracao"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/app",
-                                        "path": "/home/petry/Projetos/infra/app",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/app"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/kingfone",
-                                        "path": "/home/petry/Projetos/infra/kingfone",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/kingfone"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/testa-paginas",
-                                        "path": "/home/petry/Projetos/infra/testa-paginas",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/testa-paginas"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
-                                        "path": "/home/petry/Projetos/personal/gabrielpetry-com-br",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/personal/gabrielpetry-com-br"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/intranet",
-                                        "path": "/home/petry/Projetos/infra/intranet",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/infra/intranet"
+                                    "label": "~/Projetos/infra-svn/zabbix"
                                 },
                                 {
                                     "id": "openRecentFolder",
@@ -155,23 +109,78 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/infra/class",
-                                        "path": "/home/petry/Projetos/infra/class",
+                                        "external": "file:///home/petry/Projetos/e-mail-profissional/email-rest",
+                                        "path": "/home/petry/Projetos/e-mail-profissional/email-rest",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/Projetos/infra/class"
+                                    "label": "~/Projetos/e-mail-profissional/email-rest"
                                 },
                                 {
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/devpainel/repositorios_painel/painel",
-                                        "path": "/home/petry/Projetos/devpainel/repositorios_painel/painel",
+                                        "external": "file:///home/petry/Projetos/infra/intranet",
+                                        "path": "/home/petry/Projetos/infra/intranet",
                                         "scheme": "file"
                                     },
                                     "enabled": true,
-                                    "label": "~/Projetos/devpainel/repositorios_painel/painel"
+                                    "label": "~/Projetos/infra/intranet"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/wiki-revenda",
+                                        "path": "/home/petry/Projetos/infra/wiki-revenda",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/wiki-revenda"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
+                                        "path": "/home/petry/Projetos/infra/testa-dominios-migracao",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/testa-dominios-migracao"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/rocketchat-server",
+                                        "path": "/home/petry/Projetos/infra/rocketchat-server",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/rocketchat-server"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/devpainel/server-tools",
+                                        "path": "/home/petry/Projetos/devpainel/server-tools",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/devpainel/server-tools"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/devpainel/themes-api",
+                                        "path": "/home/petry/Projetos/devpainel/themes-api",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/devpainel/themes-api"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -261,8 +270,7 @@
                     },
                     {
                         "id": "workbench.action.files.saveAll",
-                        "label": "Save A&&ll",
-                        "enabled": false
+                        "label": "Save A&&ll"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1590,43 +1598,20 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#272822",
+    "themeBackground": "#252933",
     "windowsState": {
         "lastActiveWindow": {
             "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
             "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
             "uiState": {
                 "mode": 1,
-                "x": 1947,
-                "y": 339,
-                "width": 1352,
-                "height": 734
+                "x": 1373,
+                "y": 27,
+                "width": 1906,
+                "height": 255
             }
         },
-        "openedWindows": [
-            {
-                "folder": "file:///home/petry/Projetos/infra/testa-dominios-migracao",
-                "backupPath": "/home/petry/.config/Code - OSS/Backups/dd076a56ca54db9d4e99fb2f1ce72252",
-                "uiState": {
-                    "mode": 1,
-                    "x": 1947,
-                    "y": 339,
-                    "width": 1352,
-                    "height": 734
-                }
-            },
-            {
-                "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
-                "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
-                "uiState": {
-                    "mode": 1,
-                    "x": 1947,
-                    "y": 339,
-                    "width": 1352,
-                    "height": 734
-                }
-            }
-        ]
+        "openedWindows": []
     },
     "pickerWorkingDir": "/home/petry/Projetos/infra"
 }
