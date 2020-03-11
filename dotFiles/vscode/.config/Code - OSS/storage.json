@@ -2,6 +2,8 @@
     "telemetry.machineId": "3434569b275ebfbb695bdb5b2727a5c5890e24f5fe06b83f17bcbfa31b0926ae",
     "openedPathsList": {
         "workspaces3": [
+            "file:///home/petry/Projetos/infra/app",
+            "file:///home/petry/Projetos/infra/tvkinghost",
             "file:///home/petry/Projetos/infra/dominio-screenshot",
             "file:///home/petry/Projetos/infra-svn/zabbix",
             "file:///home/petry/Projetos/infra/web-linux",
@@ -15,7 +17,6 @@
             "file:///home/petry/Projetos/devpainel/cart-server",
             "file:///home/petry/Projetos/devpainel/cart-frontend",
             "file:///home/petry/Projetos/personal/node-ssh-session",
-            "file:///home/petry/Projetos/infra/app",
             "file:///home/petry/Projetos/infra/kingfone",
             "file:///home/petry/Projetos/infra/testa-paginas",
             "file:///home/petry/Projetos/personal/gabrielpetry-com-br",
@@ -65,8 +66,7 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor",
-                                    "enabled": false
+                                    "label": "&&Reopen Closed Editor"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -75,7 +75,29 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/home/petry/Projetos/infra/dominio-screenshot",
+                                        "fsPath": "/home/petry/Projetos/infra/app",
+                                        "external": "file:///home/petry/Projetos/infra/app",
+                                        "path": "/home/petry/Projetos/infra/app",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/app"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/petry/Projetos/infra/tvkinghost",
+                                        "path": "/home/petry/Projetos/infra/tvkinghost",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Projetos/infra/tvkinghost"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
                                         "external": "file:///home/petry/Projetos/infra/dominio-screenshot",
                                         "path": "/home/petry/Projetos/infra/dominio-screenshot",
                                         "scheme": "file"
@@ -159,28 +181,6 @@
                                     },
                                     "enabled": true,
                                     "label": "~/Projetos/infra/rocketchat-server"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/devpainel/server-tools",
-                                        "path": "/home/petry/Projetos/devpainel/server-tools",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/devpainel/server-tools"
-                                },
-                                {
-                                    "id": "openRecentFolder",
-                                    "uri": {
-                                        "$mid": 1,
-                                        "external": "file:///home/petry/Projetos/devpainel/themes-api",
-                                        "path": "/home/petry/Projetos/devpainel/themes-api",
-                                        "scheme": "file"
-                                    },
-                                    "enabled": true,
-                                    "label": "~/Projetos/devpainel/themes-api"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -270,7 +270,8 @@
                     },
                     {
                         "id": "workbench.action.files.saveAll",
-                        "label": "Save A&&ll"
+                        "label": "Save A&&ll",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1601,17 +1602,40 @@
     "themeBackground": "#252933",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/petry/Projetos/infra/dominio-screenshot",
-            "backupPath": "/home/petry/.config/Code - OSS/Backups/f31d937e5c431bbfb636253f5da82165",
+            "folder": "file:///home/petry/Projetos/infra/app",
+            "backupPath": "/home/petry/.config/Code - OSS/Backups/56c2cf0aeb1883edf2500db3790d8186",
             "uiState": {
                 "mode": 1,
                 "x": 1373,
                 "y": 27,
                 "width": 1906,
-                "height": 255
+                "height": 1046
             }
         },
-        "openedWindows": []
+        "openedWindows": [
+            {
+                "folder": "file:///home/petry/Projetos/infra/tvkinghost",
+                "backupPath": "/home/petry/.config/Code - OSS/Backups/7f3a508c7a6b2381fd938cfa341712c6",
+                "uiState": {
+                    "mode": 1,
+                    "x": 1373,
+                    "y": 27,
+                    "width": 1906,
+                    "height": 1046
+                }
+            },
+            {
+                "folder": "file:///home/petry/Projetos/infra/app",
+                "backupPath": "/home/petry/.config/Code - OSS/Backups/56c2cf0aeb1883edf2500db3790d8186",
+                "uiState": {
+                    "mode": 1,
+                    "x": 1373,
+                    "y": 27,
+                    "width": 1906,
+                    "height": 1046
+                }
+            }
+        ]
     },
     "pickerWorkingDir": "/home/petry/Projetos/infra"
 }
