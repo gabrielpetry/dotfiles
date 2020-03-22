@@ -8,8 +8,8 @@ function virtualenv_info {
   [ $VIRTUAL_ENV ] && echo '( '$(basename $VIRTUAL_ENV)') '
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}("
-ZSH_THEME_GIT_PROMPT_DIRTY=" ✗%{$fg[red]%})"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[$ZSH_THEME_PRIMARY_COLOR]%}("
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗%{$reset_color%})"
 ZSH_THEME_GIT_PROMPT_CLEAN=")"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 
