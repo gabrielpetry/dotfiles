@@ -20,10 +20,10 @@ function get_date {
 }
 
 function exit_code {
-  echo "%(?:%{$fg_bold[$ZSH_THEME_PRIMARY_COLOR]%}:%{$fg_bold[red]%})"
+  echo "%(?:%{$fg[$ZSH_THEME_PRIMARY_COLOR]%}:%{$fg[red]%})"
 }
 
 # hostname | path | git_status
 # python_env | current_date
 PROMPT='%{$ZSH_THEME_USER_AND_HOST%} %~ $(git_prompt_info)
-$(virtualenv_info)$(get_date)$(exit_code) →%{$reset_color%} '
+$(virtualenv_info)$(exit_code)$(get_date) →%{$reset_color%} '
