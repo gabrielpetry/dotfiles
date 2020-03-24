@@ -163,6 +163,9 @@ main() {
   # load private stuff
   sourceIfExists "$HOME/Protected/zsh/.aliases"
   sourceIfExists "$HOME/Protected/zsh/.functions"
+
+  # ensure tmux
+  [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 }
 
 
