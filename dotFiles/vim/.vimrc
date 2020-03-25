@@ -12,6 +12,7 @@ endif
 call plug#begin()
   " Colorscheme
   Plug 'tyrannicaltoucan/vim-deep-space'
+  Plug 'arcticicestudio/nord-vim'
   " Syntax
   Plug 'leafgarland/typescript-vim'
   Plug 'sheerun/vim-polyglot'
