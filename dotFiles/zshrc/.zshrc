@@ -165,7 +165,7 @@ main() {
   sourceIfExists "$HOME/Protected/zsh/.functions"
 
   # ensure tmux
-  [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
+  # [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
 }
 
 
