@@ -1,3 +1,10 @@
+[vpn]
+# label=
+command=$SCRIPT_DIR/vpn_status.sh
+interval=30
+markup=pango
+signal=10
+
 [music]
 command=$SCRIPT_DIR/playerctl_status.sh 
 interval=once
