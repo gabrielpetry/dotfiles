@@ -47,4 +47,5 @@ markup=pango
 [datetime]
 label=
 command=echo "$(date "+%H:%M %d/%m") "
+# command=$SCRIPT_DIR/datetime.sh
 interval=2
