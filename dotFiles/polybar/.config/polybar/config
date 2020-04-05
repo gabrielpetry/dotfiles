@@ -27,7 +27,7 @@ format-background = #00FF00
 format-underline =
 format-overline = 
 format-spacing =
-format-padding = 2
+format-padding = 0
 format-margin =
 format-offset =
 
@@ -64,7 +64,7 @@ override-redirect = false
 bottom = false
 fixed-center = true
 width = 100%
-height = 12
+height = 20
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -86,7 +86,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "DejaVuSansMono Nerd Font:size=10;2"
+font-0 = "Ubuntu Mono:size=12;2"
 font-1 = "FiraCode Nerd Font:size=16;3"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
@@ -95,7 +95,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 ;dim-value = 1.0
 tray-position = right
-tray-detached = false
+tray-detached = true
 tray-maxsize = 20
 tray-background = ${colors.background}
 tray-offset-x = 0
@@ -130,39 +130,10 @@ double-click-right =
 cursor-click =
 cursor-scroll =
 ; }}}
-modules-left = awesome mpris2
+modules-left = i3 mpris2
 modules-center = 
-modules-right = pacman-updates pavolume weather battery date
+modules-right = pavolume weather battery date
 separator = 
-
-
-[module/bspwm]
-;{{{
-type = internal/bspwm
-
-ws-icon-0 = browser;
-ws-icon-1 = mpd;
-ws-icon-2 = term;
-ws-icon-3 = code;
-ws-icon-4 = games;
-ws-icon-default =  
-
-label-focused = %icon%
-label-focused-background = #505054 
-label-focused-padding = 3
-
-label-occupied-background = #38383c
-label-occupied = %icon%
-label-occupied-padding = 3
-
-label-urgent = %icon%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 3
-
-label-empty = %icon% 
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 3
-;}}}
 
 [module/i3]
 ; {{{
@@ -209,22 +180,6 @@ reverse-scroll = false
 ; Default: false
 fuzzy-match = false
 
-;extra icons to choose from
-;http://fontawesome.io/cheatsheet/
-;       v     
-
-; ws-icon-0 = 1;
-; ws-icon-1 = 2;
-; ws-icon-2 = 3;
-; ws-icon-3 = 4;
-; ws-icon-4 = 5;
-; ws-icon-5 = 6;
-; ws-icon-6 = 7;
-; ws-icon-7 = 8;
-; ws-icon-8 = 9;
-; ws-icon-9 = 10;
-;ws-icon-default = " "
-
 ; Available tags:
 ;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
 ;   <label-mode> (default)
@@ -235,42 +190,23 @@ label-mode-padding = 0
 label-mode-foreground = #000000
 label-mode-background = #FFBB00
 
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-; focused = Active workspace on focused monitor
-; label-focused = %icon% %name%
-; label-focused-background = ${colors.background}
-; label-focused-foreground = ${colors.foreground}
-; label-focused-underline = #AD69AF
-; label-focused-padding = 2
-
-label-focused = %icon% %name%
+label-focused = " %name% "
 label-focused-background = ${colors.secondary}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = #AD69AF
 label-focused-padding = 0
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon% %name%
-label-unfocused-padding = 2
+
+label-unfocused = " %name% "
+label-unfocused-padding = 0
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-underline =
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon% %name%
+label-visible = " %name% "
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
-	label-visible-padding = 0
+label-visible-padding = 0
 
 ; Available tokens:
 ;   %name%
@@ -278,10 +214,10 @@ label-visible-underline = ${self.label-focused-underline}
 ;   %index%
 ; Default: %icon%  %name%
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon% %name%
+label-urgent = %name%
 label-urgent-background = ${self.label-focused-background}
 label-urgent-foreground = #db104e
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
@@ -1167,8 +1103,7 @@ format-prefix-foreground = #3EC13F
 format-underline = #3EC13F
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-;exec = python -u ~/petryfiles/public/scripts/blocklets/weather.py
-exec = ~/petryfiles/public/scripts/blocklets/i3weather.sh
+exec = ~/petryfiles/scripts/blocklets/i3weather.sh
 ;tail = true
 interval = 1800
 
