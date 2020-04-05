@@ -14,7 +14,6 @@ alias xclip-i="xclip -selection clipboard -t image/png -i"
 alias s="export TERM=xterm; ssh "
 alias please="sudo"
 alias ft='flutter'
-alias code='code-oss'
 alias gc="git clone"
 alias gcm="git commit -m"
 alias php53="docker run --rm -it -v "$PWD:$PWD" php:5.3.29-cli php -l $PWD/"
