@@ -9,4 +9,4 @@ sxhkd -c "${HOME}"/.config/sxhkd/sxhkdrc &
 kitty &
 fusuma &
 compton &
-syndaemon -d -K -t -i 2 & # remove mouse tap while typing
+hash syndaemon && syndaemon -d -K -t -i 2 & # remove mouse tap while typing
