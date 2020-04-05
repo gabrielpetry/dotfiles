@@ -35,8 +35,8 @@ interval=10
 markup=pango
 
 [batteries]
-command=$SCRIPT_DIR/battery.py
-interval=30
+command=$SCRIPT_DIR/battery.sh
+interval=1
 markup=pango
 
 [GPU]
@@ -46,5 +46,6 @@ markup=pango
 
 [datetime]
 label=
-command=echo "$(date "+%H:%M %d/%m") "
+command=$SCRIPT_DIR/datetime.sh
+markup=pango
 interval=2
