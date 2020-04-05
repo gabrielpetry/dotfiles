@@ -2,9 +2,6 @@
 
 set -e
 
-# checkChromiumIsInUse() {
-#   players="$(playerctl --list-all)"
-# }
 
 main() {
   if playerctl --player=chromium status | grep -q "Playing\|Paused"; then
@@ -18,8 +15,7 @@ main() {
     title="$(playerctl metadata title | cut -c 1-20)"
     status="$(playerctl --player=spotify status)"
   fi
-  # icon=""
-  text_background="color='$($SCRIPTS_DIR/getColor.sh magenta)'"
+  text_background="color='$PRIMARY_COLOR'"
   if [ "$status" != "Playing" ]; then
     icon=""
     text_background=""
@@ -32,6 +28,7 @@ main() {
       "$(echo "${title}" | iconv -f utf-8 -t utf-8)"
   fi
 }
+
 # case $BLOCK_BUTTON in
 #     1) 
 #       if playerctl --player=chromium status | grep -q "Playing\|Paused"; then

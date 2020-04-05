@@ -15,7 +15,7 @@ curStatus="no"
 active_sink=""
 alert_danger=90;
 alert_warning=70;
-icon="墳"
+icon=" "
 
 red="$($SCRIPTS_DIR/getColor.sh red)"
 orange="$($SCRIPTS_DIR/getColor.sh yellow)"
@@ -52,6 +52,7 @@ function output() {
     if [ "${curStatus}" = 'yes' ]; then
         color="$red"
         curVol="muted"
+        icon=" "
     fi
 
     if [[ ${curVol} -gt 69 ]]; then
@@ -63,7 +64,7 @@ function output() {
     fi
 
 
-    printf "<span color='%s'>%s %s</span>\n" \
+    printf "<span color='%s'>%s%s</span>\n" \
         "${color}" \
         "${icon}" \
         "${curVol}"
