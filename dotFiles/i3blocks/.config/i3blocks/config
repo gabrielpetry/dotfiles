@@ -37,7 +37,7 @@ markup=pango
 
 [batteries]
 command=$SCRIPT_DIR/battery.sh
-interval=1
+interval=10
 markup=pango
 
 [GPU]
