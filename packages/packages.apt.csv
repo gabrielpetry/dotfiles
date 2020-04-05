@@ -1,0 +1,68 @@
+apt,imagemagick,image in terminal
+apt,fonts-font-awesome,cool icons
+apt,scrot,simple screenshots
+apt,wmctrl,hackable workspaces
+apt,compton,window compositor
+apt,unclutter,just need
+apt,acpi,Permite acessar facilmente informaçoes do sistema
+apt,arandr,adjust xrandr config easy
+apt,arandr,gerenciador de telas para o X
+apt,chromium,another browser
+apt,chromium,Chrome menos invasivo
+apt,cmake,usefull for compilling
+apt,code,Vscode is great
+apt,code,vscode text-editor
+apt,dash,faster sh POSIX compliant
+apt,dnsutils,dig the dns ;)
+apt,dunst,notifications daemons
+apt,entr,watch for files
+apt,feh,change wallpaper
+apt,figlet,imprime letas figlet de forma bem simples
+apt,firefox,a better browser
+apt,git,versionador
+apt,htop,better top
+apt,i3lock,uma forma de travar a tela do computador
+apt,jq,json parser for the command line
+apt,kitty,terminal emuator with ligatures
+apt,lolcat,printa no terminal de forma maneira
+apt,mariadb,mysql driver
+apt,mpv,mediaplayer
+apt,mupdf,mupdf for zathura
+apt,neovim,improved vim
+apt,pango,permite realizar marcações no i3blocks
+apt,paprefs,config pulseaudio
+apt,parallel,like xargs but parallel
+apt,pavucontrol,gtk frontend
+apt,playerctl,command line tool to operate with media players
+apt,postgresql,postgresql driver
+apt,python3-pip,pip3
+apt,python-neovim,python suport for neovim
+apt,python-pyudev,python udev extensions
+apt,ranger,gerenciador de arquivos no terminal
+apt,redshift,blue light filter
+apt,rofi,lançador de programas
+apt,shellcheck,lint shell scripts
+apt,sshpass,agiliza conexões ssh
+apt,sxhkd,simple x hotkey daemon
+apt,thunderbird,gerenciador de emails
+apt,tree,mostra a arvore de diretórios
+apt,tree,tree view in terminal 
+apt,whois,whois the dnsss
+apt,xclip,permite copiar do terminal para seleção mais facilmente
+apt,xdotool,Allow scripting a lot o fthings
+apt,zathura,leitor de pdf
+apt,zsh,Shell mais eficiente
+apt,spotify,spotify player
+apt,libinput-tools,lib input tools
+apt,xdotool, scriptable x things
+apt,ruby,ruby language
+apt,tmux,cool terminal multiplexer
+apt,autoconf,useful to compile stuff
+ruby,fusuma,cool gestures
+manual,light_git.sh,control backlight
+manual,chromium_widevine.sh,chromium webbrowser
+manual,docker.sh,docker containers
+manual,i3_gaps_next.sh,i3 gaps next branch
+manual,nerd_fonts.sh,https://github.com/ryanoasis/nerd-fonts
+manual,nvm.sh,node veresion manager
+pip,i3-py,i3 scripting in python
