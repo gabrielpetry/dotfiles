@@ -27,6 +27,7 @@ interval=10
 command=$SCRIPT_DIR/i3weather.sh
 interval=1800
 separator=true
+markup=pango
 
 [wifiname]
 label=
