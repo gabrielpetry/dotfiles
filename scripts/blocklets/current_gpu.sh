@@ -1,5 +1,5 @@
 #!/bin/sh
-clear
+exit
 
 optimus_manager="$(command -v optimus-manager)"
 

@@ -46,9 +46,7 @@ cloneRepos() {
 
 preferDirectory="$1" # ./script 'Projetos'
 
-if [[ -z "$preferDirectory" ]]; then
-    preferDirectory="/Projetos"
-fi
+[ -z "$preferDirectory" ] && preferDirectory="Projects/github"
 
 # getRepos gabrielpetry
 getOrgRepos Songgyy | \
