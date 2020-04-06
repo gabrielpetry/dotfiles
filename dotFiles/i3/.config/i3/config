@@ -162,6 +162,7 @@ bindsym $mod+m move workspace to output left
 # /systemwide binds }}}
 #  Programs auto start {{{
 # Always merge .Xresources config
+exec_always --no-startup-id killall compton; compton
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id $HOME/.screenlayout/screen.sh
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
