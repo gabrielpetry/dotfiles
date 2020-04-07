@@ -7,7 +7,8 @@ super + Escape
    notify-send "Reloaded SXHKD"
 
 super + {_, shift +} Return
-   $TERMINAL {-d "$(echo $HOME)", -d "$(cat $HOME/.config/.last_dir)"}
+   alacritty {--working-directory "$(echo $HOME)", --working-directory "$(cat $HOME/.config/.last_dir)"}
+   # $TERMINAL {--working-directory "$(echo $HOME)", --working-directory "$(cat $HOME/.config/.last_dir)"}
 
 super + {_, shift + } p
    $SCRIPTS_DIR/player_ctl_dmenu.sh { 1, "" }
