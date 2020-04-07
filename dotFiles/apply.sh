@@ -19,6 +19,7 @@ checkFileAndremove "$HOME/.config/nvim"
 checkFileAndremove "$HOME/.config/polybar"
 checkFileAndremove "$HOME/.config/ranger"
 checkFileAndremove "$HOME/.config/sxhkd"
+checkFileAndremove "$HOME/.config/alacritty"
 checkFileAndremove "$HOME/.profile"
 checkFileAndremove "$HOME/.config/termite"
 checkFileAndremove "$HOME/.vimrc"
@@ -50,3 +51,4 @@ stow vscode -v -t ~
 stow xorg -v -t ~
 stow zshrc -v -t ~
 stow doomEmacs -v -t ~
+stow alacritty -v -t ~
