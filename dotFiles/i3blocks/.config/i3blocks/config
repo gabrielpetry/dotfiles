@@ -19,7 +19,8 @@ markup=pango
 interval=once
 
 [docker]
-label=
+markup=pango
+label=
 command=$SCRIPT_DIR/docker.sh
 interval=10
 
