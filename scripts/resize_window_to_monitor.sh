@@ -41,7 +41,6 @@ else
     monitorWithTheWindow="$(echo "$screens" | head -n 1)"
 fi
 
-i3-msg scratchpad show
 
 createLog "Monitor with the window: $monitorWithTheWindow"
 
@@ -52,14 +51,16 @@ resolutionY="$(echo $resolutions | cut -dx -f2)"
 
 scratchPadIsVisible="$(wmctrl -lp | grep -E "\0\x[0-9a-z]+?\s+-1")"
 
-if [ -z "$scratchPadIsVisible" ]; then
+# if [ -z "$scratchPadIsVisible" ]; then
     createLog "scratchpad status $scratchPadIsVisible"
     if [[ "$resolutionX" -gt "1920" ]]; then 
         resolutionX=1920
     fi
+    i3-msg scratchpad show
+    i3-msg move position pointer
     i3-msg resize set $(expr $resolutionX - 100) $(expr $resolutionY - 100) && \
     i3-msg move position center
- fi
+ # fi
 
 
 createLog "====== EOE ======"
