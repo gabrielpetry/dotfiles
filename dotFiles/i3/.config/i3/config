@@ -172,6 +172,7 @@ exec_always --no-startup-id $HOME/petryfiles/scripts/alternating_layouts.py
 exec_always --no-startup-id cat ~/petryfiles/crons/*.cron | crontab -
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id bash -c "killall sxhkd; sxhkd"
+exec_always --no-startup-id bash -c "killall fusuma; fusuma -d"
 # }}}
 # Force windows behaviour {{{
 # Chromium sempre abre no workspace 1
