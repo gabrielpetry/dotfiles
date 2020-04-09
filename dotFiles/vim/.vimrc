@@ -58,6 +58,9 @@ call plug#begin()
   " Plug 'roxma/nvim-yarp' " ncm2 deps
   Plug 'djoshea/vim-autoread' " Reaload files automagically
   Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'} " intelisense
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'rbgrouleff/bclose.vim'
+  Plug 'ptzz/lf.vim'
 call plug#end()
 " }}}
 let mapleader = ","
@@ -553,6 +556,17 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
+" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
+" autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
+"autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+let g:ale_linters = {
+	\ 'go': ['gopls'],
+	\}
 
 " }}}
 

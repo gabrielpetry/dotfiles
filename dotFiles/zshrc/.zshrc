@@ -91,6 +91,7 @@ systemExports() {
   export PATH="/home/petry/.gem/ruby/2.6.0/bin:$PATH"
 
   export PATH="$PATH:/var/lib/snapd/snap/bin"
+  export PATH="$PATH:$HOME/go/bin"
 
   uname -a | \
     grep -q Microsoft && \
