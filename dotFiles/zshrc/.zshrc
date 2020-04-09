@@ -25,15 +25,16 @@ checkIfZsh() {
 ohMyZshConfig() {
   export ZSH=$HOME/.oh-my-zsh
   checkIfZsh || return 0
-  ZSH_THEME="petry"
-  plugins=(
-    zsh-autosuggestions
-  ) 
+  # ZSH_THEME="petry"
+  # plugins=(
+  #   zsh-autosuggestions
+  # ) 
+  source $HOME/.oh-my-zsh/themes/petry.zsh-theme
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
   # not listing virtual env in the top
   export VIRTUAL_ENV_DISABLE_PROMPT=yes
 
-  source $ZSH/oh-my-zsh.sh
+  # source $ZSH/oh-my-zsh.sh
 }
 # Fix commoon CTRL bindings.
 commonCtrlBind() {
