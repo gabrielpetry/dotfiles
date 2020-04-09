@@ -138,8 +138,7 @@ bar {
     position top
     separator_symbol "|"
     tray_output primary
-    font pango:Font Awesome 5 Free, pagno:Iosevka 10
-    # font pango:Font Awesome 5 Free 20, pango:Iosevka 20
+    font pango:Font Awesome 5 Free, pagno:Iosevka 8
     
 
     colors {
