@@ -92,6 +92,7 @@ systemExports() {
 
   export PATH="$PATH:/var/lib/snapd/snap/bin"
   export PATH="$PATH:$HOME/go/bin"
+  export PATH="$PATH:$HOME/petryfiles/bin"
 
   uname -a | \
     grep -q Microsoft && \

@@ -1,0 +1,58 @@
+set preview true
+set previewer ~/.config/lf/preview
+set hidden true
+set color256 true
+
+set ratios 1:2:3
+
+
+# cmd open ${{
+#   case $()
+# }}
+
+cmd mkdir ${{
+  set -f
+  printf "Directory Name: "
+  read dname
+  mkdir -p $dname
+  }}
+
+cmd mkfile ${{
+  set -f
+  printf "File Name: "
+  read fname
+  touch $fname
+  }}
+
+cmd setwallpaper ${{
+ convert "$f" ~/.config/wall.png && feh --bg-fill "$f"
+}}
+
+
+# Remove some defaults
+map m
+map o
+map n
+map "'"
+map '"'
+map d
+map c
+map e
+map f
+
+# Basic Functions
+map . set hidden!
+map DD delete
+map p paste
+map x cut
+map y copy
+map <enter> open
+map mf mkfile
+map md mkdir
+map bg setwallpaper
+map r rename
+map H top
+map L bottom
+map R reload
+map C clear
+map U unselect
