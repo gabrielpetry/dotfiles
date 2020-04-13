@@ -21,7 +21,7 @@ call plug#begin()
   Plug 'hdima/python-syntax'
   Plug 'mechatroner/rainbow_csv' " csv columns color
   Plug 'jwalton512/vim-blade' " Laravel blade template
-  Plug 'nathanaelkane/vim-indent-guides'
+  " Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
   Plug 'saltstack/salt-vim'
   Plug 'maxmellon/vim-jsx-pretty'
@@ -58,9 +58,12 @@ call plug#begin()
   " Plug 'roxma/nvim-yarp' " ncm2 deps
   Plug 'djoshea/vim-autoread' " Reaload files automagically
   Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'} " intelisense
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  " Plug 'zchee/nvim-go', { 'do': 'make'}
+  Plug 'neovim/go-client'
   Plug 'rbgrouleff/bclose.vim'
   Plug 'ptzz/lf.vim'
+  Plug 'Yggdroot/indentLine'
 call plug#end()
 " }}}
 let mapleader = ","
@@ -179,6 +182,7 @@ set termguicolors
 syntax enable
 colorscheme deep-space
 let g:deepspace_italics=1
+let g:airline_theme='deep_space'
 
 
 " makes background transparent
@@ -242,8 +246,7 @@ let g:airline#extensions#branch#enabled=1
 
 " Indent Guides
 let g:indentLine_enabled=1
-let g:indentLine_color_term=235
-" let g:indentLine_char='┆'
+let g:indentLine_char='┆'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -389,11 +392,6 @@ function! s:HourColor()
   echo g:colors_name
 endfunction
 
-" indent guides config
-set ts=2 sw=2 et
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -419,6 +417,7 @@ set fo-=t
 vnoremap <leader>s :sort<CR>
 
 " Better ident
+set ts=2 sw=2 et
 vnoremap < <gv
 vnoremap > >gv
 
@@ -449,7 +448,7 @@ map 0 ^
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" {{{
+" {{{ emmet
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,php,css,javascript,javascript.jsx,volt,vue  EmmetInstall
@@ -556,17 +555,18 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-" autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
-" autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
-"autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd FileType go nmap gtj :CocCommand go.tags.add json<cr>
+autocmd FileType go nmap gty :CocCommand go.tags.add yaml<cr>
+autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
 
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
 
 let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\}
+
 
 " }}}
 
