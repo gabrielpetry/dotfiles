@@ -16,7 +16,7 @@ color="$PRIMARY_COLOR"
 
 update_weather_info() {
     ping -q -c 3 1.1.1.1 > /dev/null || exit 1
-    weather_info="$(curl -s http://wttr.in/$locatio?format=j1)"
+    weather_info="$(curl -s http://wttr.in/$location?format=j1)"
     chanceofrain="$(echo $weather_info | \
         jq '.weather[0].hourly[] | .chanceofrain' | \
         sort | \
