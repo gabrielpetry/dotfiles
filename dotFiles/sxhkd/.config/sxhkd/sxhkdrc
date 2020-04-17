@@ -34,8 +34,12 @@ super + d
 super + b
    $BROWSER
 
-super + {_, shift +} Tab
-   { $SCRIPTS_DIR/resize_window_to_monitor.sh, i3-msg move scratchpad }
+super + Tab
+    $SCRIPTS_DIR/resize_window_to_monitor.sh
+
+super + shift + Tab
+   i3-msg mark add scratchpad && \
+   i3-msg '[con_mark="scratchpad"] move scratchpad'
 
 super + f
    i3-msg fullscreen toggle
