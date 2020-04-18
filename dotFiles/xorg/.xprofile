@@ -1,12 +1,9 @@
 #!/bin/bash
 source "${HOME}/.profile" & # source .profile variables
 unclutter & # no mouse when iddle
-fusuma & # Start fusuma for multigestures on lightdm boot
 "${HOME}"/petryfiles/scripts/update_mpris2.py & # Start the update_mpris2 daemon
 spotify & # initiatiate spotify always
-chromium & # Start a chrome session
 sxhkd -c "${HOME}"/.config/sxhkd/sxhkdrc &
-kitty &
-fusuma &
 compton &
 hash syndaemon && syndaemon -d -K -t -i 2 & # remove mouse tap while typing
+fusuma -d & # Start fusuma for multigestures on lightdm boot

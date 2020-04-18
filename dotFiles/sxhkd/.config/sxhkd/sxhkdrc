@@ -7,7 +7,8 @@ super + Escape
    notify-send "Reloaded SXHKD"
 
 super + {_, shift +} Return
-   $TERMINAL {-d "$(echo $HOME)", -d "$(cat $HOME/.config/.last_dir)"}
+   alacritty {--working-directory "$(echo $HOME)", --working-directory "$(cat $HOME/.config/.last_dir)"}
+   # $TERMINAL {--working-directory "$(echo $HOME)", --working-directory "$(cat $HOME/.config/.last_dir)"}
 
 super + {_, shift + } p
    $SCRIPTS_DIR/player_ctl_dmenu.sh { 1, "" }
@@ -33,8 +34,12 @@ super + d
 super + b
    $BROWSER
 
-super + {_, shift +} Tab
-   { $SCRIPTS_DIR/resize_window_to_monitor.sh, i3-msg move scratchpad }
+super + Tab
+    $SCRIPTS_DIR/resize_window_to_monitor.sh
+
+super + shift + Tab
+   i3-msg mark add scratchpad && \
+   i3-msg '[con_mark="scratchpad"] move scratchpad'
 
 super + f
    i3-msg fullscreen toggle

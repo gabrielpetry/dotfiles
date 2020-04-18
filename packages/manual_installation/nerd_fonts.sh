@@ -1,6 +1,5 @@
 #!/bin/bash
 
-exit
 installPath="$HOME/Projects/github/"
 
 mkdir -p $installPath
@@ -12,4 +11,4 @@ git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
 
 
-./install.sh
+./install.sh "Iosevka"
