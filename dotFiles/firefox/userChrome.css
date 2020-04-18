@@ -2,12 +2,19 @@
 :root {
 	--chrome-content-separator-color: none !important;
 	--toolbarbutton-border-radius: 3px !important;
-	--lwt-toolbar-field-border-color: #4c566a !important;
+  --lwt-toolbar-field-border-color: var(--tab-selected-color) !important;
+  /* --background-color: #2e3440; */
+  --background-color: #2e3440;
+  --tab-not-selected-color: #434c5e;
+  --terciary-color: #434c5e; /* large interface buttons */
+  --tab-selected-color: #81a1c1; /* some borders */
+  --notification-color-primary: #a3be8c;
+  --notification-color-secondary: #ebcb8b;
 }
 
 /*Buttons, URL Status Panel*/
 #statuspanel-label {
-	background-color: #434c5e !important;
+	background-color: var(--terciary-color) !important;
 	color: #eceff4 !important;
 	border: 0px !important;
 	opacity: .9 !important;
@@ -48,8 +55,9 @@ toolbarbutton:hover{
 	margin-top: -33px !important;
 	margin-right: 60vw !important;
 	height: 33px !important;
-	padding-top: 1px !important;
-	/* padding-left: 70px !important; */
+  padding-top: 1px !important;
+  /* mac stuff */
+  /* padding-left: 70px !important;  */
 	font-size: 10px !important;
 }
 :root[sizemode="fullscreen"] #nav-bar {
@@ -66,11 +74,11 @@ toolbarbutton:hover{
 
 /*Urlbar*/
 ::-moz-selection {
-	background-color: #4c566a !important;
+	background-color: var(--tab-selected-color) !important;
 	color: #eceff4 !important;
 }
 #urlbar-background {
-	background-color: #3b4252 !important;
+	background-color: var(--tab-not-selected-color) !important;
 }
 .urlbarView-body-inner {
 	border-top: 0px !important;
@@ -79,7 +87,7 @@ toolbarbutton:hover{
 	background: transparent !important;
 }
 .urlbarView.megabar .urlbarView-row:not([type="tip"]):hover>.urlbarView-row-inner {
-	background: #4c566a !important;
+	background: var(--tab-selected-color) !important;
 	color: #eceff4 !important;
 }
 .urlbarView-url{
@@ -164,19 +172,19 @@ margin-left: 0px !important;
 /*Right click menu*/
 menupopup {
 	-moz-appearance: none !important;
-	background-color: #2e3440 !important;
+	background-color: var(--background-color) !important;
 	border-radius: 6px !important;
 }
 menuitem:hover, menugroup:hover, menu:hover {
 	-moz-appearance: none !important;
-	background: #4c566a !important;
+	background: var(--tab-selected-color) !important;
 }
 menuseparator {
 	-moz-appearance: none !important;
 	max-height: 1px !important;
 	border: none !important;
 	padding: 0.5px 0 !important;
-	background-color: #434c5e !important;
+	background-color: var(--terciary-color) !important;
 }
 menuitem, menu {
 	-moz-appearance: none !important;
@@ -201,9 +209,10 @@ menugroup {
 .bookmark-item>.toolbarbutton-icon {
 	display: none !important;
 }
-#PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]: {
+/* #PlacesToolbarItems>.bookmark-item>.toolbarbutton-icon[label]: {
 	margin-inline-end: 0px !important;
-}
+} */
+
 #PlacesToolbarItems {
 	-moz-box-pack: center;
 	color: #ccccce !important;
@@ -262,20 +271,20 @@ toolbarbutton.bookmark-item:hover {
 	margin-top: 3px !important;
 	border-radius: var(--toolbarbutton-border-radius) !important;
 	background-image: none !important;
-	background: #3b4252 !important;
+	background: var(--tab-not-selected-color) !important;
 	
 }
 #tabbrowser-tabs:not([movingtab])>.tabbrowser-arrowscrollbox>.tabbrowser-tab>.tab-stack>.tab-background[multiselected="true"]:-moz-lwtheme, #tabbrowser-tabs:not([movingtab])>.tabbrowser-arrowscrollbox>.tabbrowser-tab>.tab-stack>.tab-background[selected="true"]:-moz-lwtheme, .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]):not([multiselected]) {
-	background-color: #4c566a!important;
+	background-color: var(--tab-selected-color)!important;
 }
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]):not([multiselected]){ 
-	background-color: #3b4252 !important;
+	background-color: var(--tab-not-selected-color) !important;
 }
 
 /*Main color*/
 #TabsToolbar, #nav-bar, #PersonalToolbar {
 	-moz-appearance: none !important;
-	background-color: #2E3440 !important;
+	background-color: var(--background-color) !important;
 }
 #TabsToolbar {
 	margin-left: 40vw !important;
@@ -284,11 +293,57 @@ toolbarbutton.bookmark-item:hover {
 .tabbrowser-tab::after {
 	display: none !important;
 }
-.tabbrowser-tab:not([pinned]):hover .tab-close-button { 
-	visibility: visible !important; 
-	display: block !important;
+
+/* remove the blue dot from pinned tabs that changed */
+.tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected="true"]),
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+  /* background-image: none !important; */
 }
 
+.tabbrowser-tab:not([pinned]):hover .tab-close-button { 
+  visibility: visible !important; 
+  display: block !important;
+  padding: 0 !important;
+}
+
+.tabbrowser-tab[pinned] image {
+  margin: 0 !important;
+  transform: scale(1) !important;
+  /* width: 100% !important; */
+  min-width: 1vw;
+}
+
+@keyframes titleChangedAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@-moz-keyframes titleChangedAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+
+.tabbrowser-tab[titlechanged] .tab-label-container {
+  background: linear-gradient(270deg, #a3be8c, #ebcb8b) !important;
+  background-size: 400% 400% !important;
+  animation: titleChangedAnimation 5s ease infinite !important;
+  -moz-animation: titleChangedAnimation 5s ease infinite !important;
+  -webkit-animation: titleChangedAnimation 5s ease infinite !important;
+}
+
+.tabbrowser-tab[titlechanged] > .tab-stack > .tab-background:not([selected="true"]):not([multiselected]) {
+  background: linear-gradient(270deg, #a3be8c, #ebcb8b) !important;
+  background-size: 400% 400% !important;
+  -moz-animation: titleChangedAnimation 5s ease infinite !important;
+  -webkit-animation: titleChangedAnimation 5s ease infinite !important;
+  animation: titleChangedAnimation 5s ease infinite !important;
+}
+.tabbrowser-tab[titlechanged] > .tab-stack > .tab-background {
+  background-color: red !important;
+}
 /*Monochrome Extension Icons*/
 #_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action {
 	-webkit-filter: grayscale(100%);
@@ -336,12 +391,12 @@ findbar {
 	border-bottom-left-radius: 4px !important;
 	border-bottom-right-radius: 4px !important;
 	border: 0px !important;
-	background: #2e3440 !important;
+	background: var(--background-color) !important;
 	color: #eceff4 !important;
 }
 .findbar-textbox {
 	border-right: none !important;
-	background: #3b4252 !important;
+	background: var(--tab-not-selected-color) !important;
 	color: #eceff4 !important;
 }
 .findbar-textbox:focus {
@@ -351,20 +406,20 @@ findbar {
 
 /*Hamburger Menu*/
 .panel-subview-body{
-	background: #2e3440 !important;
+	background: var(--background-color) !important;
 }
 .panel-arrow{
-	fill: #2e3440 !important;
+	fill: var(--background-color) !important;
 }
 #panel-subview:hover{
 	background: red !important;
 }
 .subviewbutton:hover{
-	background: #4c566a !important;
+	background: var(--tab-selected-color) !important;
 }
 /*Overflow menu customization button*/
 #overflowMenu-customize-button{
-	background: #434c5e !important;
+	background: var(--terciary-color) !important;
 }
 
 .toolbarbutton-1 {
@@ -372,9 +427,9 @@ findbar {
 	--toolbarbutton-active-background: none !important;
 }
 .download-state{
-	background: #2E3440  !important;
+	background: var(--background-color)  !important;
 }
 .downloadsPanelFooterButton{
-	background: #434c5e !important;
+	background: var(--terciary-color) !important;
 }
 
