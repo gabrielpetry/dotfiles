@@ -54,13 +54,13 @@ i3-msg scratchpad show
 
 scratchPadIsVisible="$(wmctrl -lp | grep -E "\0\x[0-9a-z]+?\s+-1")"
 
-if [ -n "$scratchPadIsVisible" ]; then
+if [ -z "$scratchPadIsVisible" ]; then
     createLog "scratchpad status $scratchPadIsVisible"
     if [[ "$resolutionX" -gt "1920" ]]; then 
         resolutionX=1920
     fi
-    i3-msg [con_mark="scratchpad"] move position pointer
-    i3-msg [con_mark="scratchpad"] resize set $(expr $resolutionX - 100) $(expr $resolutionY - 100) && \
+    i3-msg "[con_mark=scratchpad] move position pointer"
+    i3-msg "[con_mark=scratchpad] resize set $(expr $resolutionX - 100) $(expr $resolutionY - 100)" && \
     i3-msg move position center
 fi
 
