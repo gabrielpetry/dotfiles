@@ -1,4 +1,5 @@
 apt,fzf, fuzzy finder
+apt,lxappearance,select a gtk theme for i3
 apt,imagemagick,image in terminal
 apt,fonts-font-awesome,cool icons
 apt,scrot,simple screenshots
