@@ -306,11 +306,14 @@ toolbarbutton.bookmark-item:hover {
   padding: 0 !important;
 }
 
+.tabbrowser-tab[pinned] {
+  min-width: 1vw;
+}
+
 .tabbrowser-tab[pinned] image {
   margin: 0 !important;
   transform: scale(1) !important;
-  /* width: 100% !important; */
-  min-width: 1vw;
+	/* width: 100% !important; */
 }
 
 @keyframes titleChangedAnimation {
