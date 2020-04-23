@@ -68,28 +68,27 @@ bindsym $mod+Shift+l move right
 # Workspaces control {{{
 # Defining workspaces with variables
 # Can be used simbols from [fontAwesome](https://fontawesome.com/cheatsheet)
-# set $ws1 "1 "
-# set $ws2 "2 "
-# set $ws3 "3 "
-# set $ws4 "4 "
+# set $ws1 "1 Browser"
+# set $ws2 "2 Terminals"
+# set $ws3 "3 Code"
+# set $ws4 "4 Chat"
 # set $ws5 "5 "
 # set $ws6 "6 "
 # set $ws7 "7 "
 # set $ws7 "7 "
-# set $ws8 "8 "
-# set $ws9 "9 "
-# set $ws10 "10 "
-set $ws1 "1 Browser"
-set $ws2 "2 Terminals"
-set $ws3 "3 Code"
-set $ws4 "4 Chat"
-set $ws5 "5 "
-set $ws6 "6 "
-set $ws7 "7 "
-set $ws7 "7 "
-set $ws8 "8 Email"
-set $ws9 "9 Background"
-set $ws10 "10 Music"
+# set $ws8 "8 Email"
+# set $ws9 "9 Background"
+# set $ws10 "10 Music"
+set $ws1 " 1"
+set $ws2 " 2"
+set $ws3 " 3"
+set $ws4 " 4"
+set $ws5 " 5"
+set $ws6 " 6"
+set $ws7 " 7"
+set $ws8 " 8"
+set $ws9 " 9"
+set $ws10 " 10"
 # switch to workspace
 # bindsym $mod+1 workspace $ws1
 bindsym $mod+1 workspace $ws1
@@ -146,8 +145,8 @@ bar {
         statusline "#d8dee8"
         separator "#ffffff95"
         #colour of             border       background   text
-        focused_workspace       $blue       $blue        $black
-        active_workspace        $blue       $blue        $black
+        focused_workspace       "#2f343f95" "#2f343f95"  $blue
+        active_workspace        "#2f343f95" "#2f343f95"  $blue
         inactive_workspace      "#2f343f95" "#2f343f95"  $white 
         urgent_workspace        $red        $red         "#d8dee8"
     }
