@@ -21,36 +21,36 @@ getOrgRepos() {
 
 cloneRepos() {
     folder="$1"
-    isOrg="$2"
+    [[ -z "$folder" ]] && echo  "Can't proced without an destination folder" && exit
+    # destination="$2"
+    repo_url="$2"
 
-    while read -r repo_url; do
-        destination_dir="${folder}"
+    destination_dir="${folder}"
 
-        if [[ -n "$isOrg" ]]; then
-            destination_dir="${folder}/${isOrg}"
-        fi
+    # if [[ -n "$destination" ]]; then
+    #     destination_dir="${folder}/${destination}"
+    # fi
 
-        mkdir -p "$destination_dir"
+    # mkdir -p "$destination_dir"
 
-        repo_name="$(echo $repo_url | cut -d'/' -f2 | cut -d'.' -f1)"
-        destination_dir="${destination_dir}/$repo_name"
-        if [[ -d "${destination_dir}" ]]; then
-            echo "Repository already cloned"
-        else
-            git clone "${repo_url}" "$destination_dir"
-        fi
-    done
+    repo_name="$(echo $repo_url | cut -d':' -f2 | cut -d'.' -f1 )"
+    destination_dir="${destination_dir}/$repo_name"
+    if [[ -d "${destination_dir}" ]]; then
+        echo "Repository already cloned"
+    else
+        git clone "${repo_url}" "$destination_dir"
+    fi
 
 }
 
+export -f cloneRepos
 
 preferDirectory="$1" # ./script 'Projetos'
 
 [ -z "$preferDirectory" ] && preferDirectory="Projects/github"
 
-# getRepos gabrielpetry
 getOrgRepos Songgyy | \
-    cloneRepos "${HOME}/${preferDirectory}" Songgyy
+    parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" {}
 
 getRepos gabrielpetry | \
-    cloneRepos "${HOME}/${preferDirectory}"
+    parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" gabrielpetry {}
