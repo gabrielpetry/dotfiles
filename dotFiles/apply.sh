@@ -29,6 +29,7 @@ checkFileAndremove "$HOME/.Xprofile"
 checkFileAndremove "$HOME/.Xresources"
 checkFileAndremove "$HOME/.zshrc"
 checkFileAndremove "$HOME/.doom.d"
+checkFileAndremove "$HOME/.tmux"
 
 echo "All original files removed"
 
@@ -52,3 +53,4 @@ stow xorg -v -t ~
 stow zshrc -v -t ~
 stow doomEmacs -v -t ~
 stow alacritty -v -t ~
+stow tmux -v -t ~
