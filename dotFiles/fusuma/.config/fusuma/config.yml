@@ -2,9 +2,9 @@
 swipe:
   3: 
     left: 
-      command: 'i3-msg workspace previous'
+      command: 'xdotool key Super+CTRL+Up'
     right: 
-      command: 'i3-msg workspace next'
+      command: 'xdotool key Super+CTRL+Down'
     up: 
       command: 'xdotool key ctrl+Page_Down'
     down: 
