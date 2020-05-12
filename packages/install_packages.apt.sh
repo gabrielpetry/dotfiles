@@ -56,9 +56,13 @@ runApt() {
 runManual() {
     scripts="$(dirname "$0")/manual_installation"
 
-    for i in $scripts/*; do
-        $i
-    done
+    $scripts/docker.sh
+
+    $scripts/nvm.sh
+
+    $scripts/nerd_fonts.sh
+
+    $scripts/nvim.sh
 }
 
 [ -z "$1" ] && echo "Usage $0 [apt|addons|manual]" && exit 1
@@ -66,5 +70,6 @@ runManual() {
 [ "$1" = "apt" ]    && runApt
 [ "$1" = "manual" ] && runManual
 [ "$1" = "addons" ] && install_addons
+[ "$1" = "all" ] && runApt; runManual; install_addons
 
 exit 0
