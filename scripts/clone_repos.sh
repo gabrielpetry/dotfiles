@@ -38,6 +38,7 @@ cloneRepos() {
     if [[ -d "${destination_dir}" ]]; then
         echo "Repository already cloned"
     else
+        echo -n "Clonning repo $repo_url"
         git clone "${repo_url}" "$destination_dir"
     fi
 
@@ -53,4 +54,4 @@ getOrgRepos Songgyy | \
     parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" {}
 
 getRepos gabrielpetry | \
-    parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" gabrielpetry {}
+    parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" {}
