@@ -1,0 +1,68 @@
+dnf,oathtool, cli otp :)
+dnf,maim, screenshot tool
+dnf,jq, json parser
+dnf,openvpn, connect to vpns
+dnf,expect, make shellscripting awesome
+dnf,fzf, fuzzy finder
+dnf,lxappearance,select a gtk theme for i3
+dnf,fonts-font-awesome,cool icons
+dnf,scrot,simple screenshots
+dnf,wmctrl,hackable workspaces
+dnf,compton,window compositor
+dnf,arandr,adjust xrandr config easy
+dnf,arandr,gerenciador de telas para o X
+dnf,chromium,another browser
+dnf,chromium,Chrome menos invasivo
+dnf,cmake,usefull for compilling
+dnf,dash,faster sh POSIX compliant
+dnf,dunst,notifications daemons
+dnf,entr,watch for files
+dnf,feh,change wallpaper
+dnf,figlet,imprime letas figlet de forma bem simples
+dnf,git,versionador
+dnf,htop,better top
+dnf,i3lock,uma forma de travar a tela do computador
+dnf,jq,json parser for the command line
+dnf,kitty,terminal emuator with ligatures
+dnf,lolcat,printa no terminal de forma maneira
+dnf,mariadb,mysql driver
+dnf,mpv,mediaplayer
+dnf,mupdf,mupdf for zathura
+dnf,neovim,improved vim
+dnf,pango,permite realizar marcações no i3blocks
+dnf,paprefs,config pulseaudio
+dnf,parallel,like xargs but parallel
+dnf,pavucontrol,gtk frontend
+dnf,playerctl,command line tool to operate with media players
+dnf,postgresql,postgresql driver
+dnf,python3-pip,pip3
+dnf,python-neovim,python suport for neovim
+dnf,python-pyudev,python udev extensions
+dnf,ranger,gerenciador de arquivos no terminal
+dnf,redshift,blue light filter
+dnf,rofi,lançador de programas
+dnf,shellcheck,lint shell scripts
+dnf,sshpass,agiliza conexões ssh
+dnf,sxhkd,simple x hotkey daemon
+dnf,thunderbird,gerenciador de emails
+dnf,tree,mostra a arvore de diretórios
+dnf,tree,tree view in terminal 
+dnf,whois,whois the dnsss
+dnf,xclip,permite copiar do terminal para seleção mais facilmente
+dnf,xdotool,Allow scripting a lot o fthings
+dnf,zathura,leitor de pdf
+dnf,zsh,Shell mais eficiente
+dnf,spotify,spotify player
+dnf,libinput-tools,lib input tools
+dnf,xdotool, scriptable x things
+dnf,ruby,ruby language
+dnf,tmux,cool terminal multiplexer
+dnf,autoconf,useful to compile stuff
+ruby,fusuma,cool gestures
+manual,light_git.sh,control backlight
+manual,chromium_widevine.sh,chromium webbrowser
+manual,docker.sh,docker containers
+manual,i3_gaps_next.sh,i3 gaps next branch
+manual,nerd_fonts.sh,https://github.com/ryanoasis/nerd-fonts
+manual,nvm.sh,node veresion manager
+pip,i3-py,i3 scripting in python
