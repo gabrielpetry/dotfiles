@@ -1,0 +1,1 @@
+/home/petry/Projects/github/gabrielpetry/rocketchat-node-cli/bin/changeStatus.sh
