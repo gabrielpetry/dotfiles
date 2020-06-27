@@ -1,0 +1,25 @@
+Looking for git in: git
+Using git 2.26.2 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+Open repository: /home/petry/Projects/Kinghost/infra/orquestradores/salt-centos6
+> git fetch
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse geoip-devel
+> git rev-parse --symbolic-full-name geoip-devel@{u}
+fatal: no upstream configured for branch 'geoip-devel'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+From gitlab.kinghost.net:infra/orquestradores/salt-centos6
+   ed41e63..2058a86  master     -> origin/master
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse geoip-devel
+> git rev-parse --symbolic-full-name geoip-devel@{u}
+fatal: no upstream configured for branch 'geoip-devel'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git config --get commit.template
+> git check-ignore -v -z --stdin

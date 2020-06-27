@@ -1,0 +1,159 @@
+untitled:Untitled-4
+#
+# geisweb.com.br WWW
+#
+<VirtualHost 10.15.76.103:443 10.17.76.103:443 191.6.204.103:443 [2804:10:4076::204:103]:443>
+    #<Ifmodule http2_module>
+    #    Protocols h2 http/1.1
+    #</Ifmodule>
+
+    RewriteEngine on
+    RewriteRule ^/stats$ /awstats/awstats.pl [R]
+    RewriteRule ^/stats/(.*)$ /awstats/awstats.pl [R]
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+    RewriteRule .* - [F]
+    DocumentRoot /home/geisweb/www/
+    ServerName geisweb.com.br
+    ServerAdmin geisweb@geisweb.com.br
+
+    #<IfModule log_config_module>
+        # LogFormat "geisweb.com.br %h %l %u %t "%r" %>s %b "%{Referer}i" "%{User-Agent}i" %{remote}p"
+        # TransferLog /home/logs/access_log
+    #</IfModule>
+
+    # http://seclists.org/fulldisclosure/2011/Aug/175 - DDoS
+    SetEnvIf Range (,.*?){5,} bad-range=1
+    RequestHeader unset Range env=bad-range
+
+    <IfModule mod_fastcgi.c>
+        AddHandler php5-fcgi .php .phar .php2 .php3 .php4 .php5 .htx .phtml
+        Action php5-fcgi /php5-fcgi
+        Alias /php5-fcgi /var/run/fastcgi/oba-dominio-ssl-novo-5b7346e8da8d1-fcgi
+        FastCgiExternalServer /var/run/fastcgi/oba-dominio-ssl-novo-5b7346e8da8d1-fcgi -appConnTimeout 10 -idle-timeout 360 -socket /var/run/fastcgi/geisweb.socket -pass-header Authorization
+        Alias /79b1cd8d790454781987750c1cedcf69 "/tmp/null/"
+
+        <LocationMatch "/79b1cd8d790454781987750c1cedcf69/fpm-status">
+            <Ifmodule security2_module>
+                SecRuleEngine Off
+            </Ifmodule>
+
+            Order deny,allow
+            Allow from all
+            SetHandler php-fastcgi-virt
+            Action php-fastcgi-virt /php5-fcgi virtual
+        </LocationMatch>
+
+        <LocationMatch "/79b1cd8d790454781987750c1cedcf69/fpm-ping">
+            <Ifmodule security2_module>
+                SecRuleEngine Off
+            </Ifmodule>
+
+            Order deny,allow
+            Allow from all
+            SetHandler php-fastcgi-virt
+            Action php-fastcgi-virt /php5-fcgi virtual
+        </LocationMatch>
+    </IfModule>
+
+    <IfModule mod_proxy_fcgi.c>
+        <FilesMatch ".(php|phar|php2|php3|php4|php5|htx|phtml)$">
+            SetHandler "proxy:unix:/var/run/fastcgi/geisweb.socket|fcgi://oba-dominio-ssl-novo-5b7346e8da8d1/"
+        </FilesMatch>
+
+        Alias /79b1cd8d790454781987750c1cedcf69 "/tmp/null/"
+
+        <LocationMatch "/79b1cd8d790454781987750c1cedcf69/fpm-status">
+            <Ifmodule security2_module>
+                SecRuleEngine Off
+            </Ifmodule>
+
+            Order deny,allow
+            Allow from all
+            ProxyPass "unix:/var/run/fastcgi/geisweb.socket|fcgi://oba-dominio-ssl-novo-5b7346e8da8d1/"
+        </LocationMatch>
+
+        <LocationMatch "/79b1cd8d790454781987750c1cedcf69/fpm-ping">
+            <Ifmodule security2_module>
+                SecRuleEngine Off
+            </Ifmodule>
+
+            Order deny,allow
+            Allow from all
+            ProxyPass "unix:/var/run/fastcgi/geisweb.socket|fcgi://oba-dominio-ssl-novo-5b7346e8da8d1/"
+        </LocationMatch>
+
+        <Proxy fcgi://oba-dominio-ssl-novo-5b7346e8da8d1>
+            ProxySet connectiontimeout=10 timeout=360
+        </Proxy>
+    </IfModule>
+
+    SuexecUserGroup geisweb geisweb
+
+    <Ifmodule security2_module>
+        SecRuleEngine On
+    </Ifmodule>
+
+    # Bloqueia SSL de baixa criptografia
+    SSLProtocol all -SSLv2 -SSLv3
+    SSLHonorCipherOrder on
+    SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA
+    SSLVerifyDepth 10
+    SSLEngine on
+    SSLCertificateFile /etc/letsencrypt/live/www.geisweb.com.br/cert.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/www.geisweb.com.br/privkey.pem
+    SSLCACertificateFile /etc/letsencrypt/live/www.geisweb.com.br/chain.pem
+    SSLCompression off
+    SSLUseStapling off
+    Alias /.well-known/acme-challenge/ /home/web-ded-260332a/www/.well-known/acme-challenge/
+    ScriptAlias /cgi-bin/ /home/geisweb/www/cgi-bin/
+    SSLVerifyClient none
+    SSLCACertificatePath "/home/geisweb/ca-certs/"
+
+    <Location "/ipero/webservice/GeisWebServiceImpl.php">
+        SSLVerifyClient require
+        SSLVerifyDepth 3
+        SSLOptions +StdEnvVars +LegacyDNStringFormat +ExportCertData
+    </Location>
+
+    <Location "/homologacao/modelo/webservice/GeisWebServiceImpl.php">
+        SSLVerifyClient require
+        SSLVerifyDepth 3
+        SSLOptions +StdEnvVars +LegacyDNStringFormat +ExportCertData
+    </Location>
+
+
+    <Directory /home/geisweb/www/>
+        Options +Includes -Indexes +SymLinksIfOwnerMatch -ExecCGI
+        AllowOverride All
+        AddHandler cgi-script .cgi .pl
+        SetEnvIfNoCase User-Agent ^Mozilla.*Indy badUA
+        SetEnvIfNoCase User-Agent "HTTP Client" badUA
+        SetEnvIfNoCase User-Agent ^.*Havij badUA
+        SetEnvIfNoCase User-Agent ^EmailSiphon badUA
+        SetEnvIfNoCase User-Agent ^EmailWolf badUA
+        SetEnvIfNoCase User-Agent ^Mozilla$ badUA
+        SetEnvIfNoCase User-Agent ^Mozilla/5.0$ badUA
+        SetEnvIfNoCase User-Agent ^Java badUA
+        SetEnvIfNoCase User-Agent "User-Agent" badUA
+        SetEnvIfNoCase User-Agent "panscient.com" badUA
+        SetEnvIfNoCase User-Agent Nutch badUA
+        SetEnvIfNoCase User-Agent larbin badUA
+        SetEnvIfNoCase User-Agent heritrix badUA
+        SetEnvIfNoCase User-Agent ia_archiver badUA
+        SetEnvIfNoCase User-Agent "Microsoft URL Control" badUA
+        SetEnvIfNoCase User-Agent "ISC Systems iRc Search" badUA
+        SetEnvIfNoCase User-Agent "Wells Search II" badUA
+        SetEnvIfNoCase User-Agent "WEP Search" badUA
+        SetEnvIfNoCase User-Agent Baiduspider* badUA
+        SetEnvIfNoCase User-Agent Baiduspider badUA
+        SetEnvIfNoCase User-Agent AhrefsBot badUA
+        SetEnvIfNoCase User-Agent MJ12bot badUA
+        SetEnvIfNoCase User-Agent dotbot badUA
+        SetEnvIfNoCase User-Agent BDCbot badUA
+        SetEnvIfNoCase User-Agent BUbiNG badUA
+        SetEnvIfNoCase User-Agent SemrushBot badUA
+        Order Allow,Deny
+        Allow from all
+        Deny from env=badUA
+    </Directory>
+</VirtualHost>

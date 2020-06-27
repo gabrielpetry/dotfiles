@@ -1,0 +1,3 @@
+untitled:Untitled-1
+SELECT *
+FROM `ServidorMigracao` WHERE ServidorOrigem in ('web1441', 'web1443', 'web1445', 'web1447', 'web1449', 'web1451', 'web1453', 'web1455', 'web1457', web1459)

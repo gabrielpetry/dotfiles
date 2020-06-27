@@ -3,7 +3,7 @@
     "editor.rulers": [80,120],
     "editor.fontLigatures": true,
     "editor.lineHeight": 23,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.iconTheme": "material-icon-theme",
     "vim.camelCaseMotion.enable": true,
     "keyboard.dispatch": "keyCode",
