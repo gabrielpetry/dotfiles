@@ -1,8 +1,12 @@
 #!/bin/bash
 
+timestamp=$(date +"%s")
+
 checkFileAndremove() {
   if [[ -d "$1" || -f "$1"  ]]; then
-    rm -rf $1
+    backup_dir="$HOME/.config/backup/$timestamp"
+    mkdir -p "$backup_dir"
+    mv "$1" "backup_dir"
     return 0
   fi
 
