@@ -7,7 +7,14 @@ if [[ ! -d "$path" ]]; then
 	mkdir -p "$path"
 fi
 
-filename=$(scrot -s -z "$path/%Y-%m-%d_temp_name.png" -e 'echo $f')
+if command -v maim; then
+	scrot="maim"
+
+	filename="$path/%Y-%m-%d_temp_name.png"
+	$scrot -o -s "$filename"
+else
+	filename=$(scrot -s -z "$path/%Y-%m-%d_temp_name.png" -e 'echo $f')
+fi
 
 chosen=$(printf "%b" "$options" | dmenu -i )
 # name=$(dmenu -p "Nome do arquivo")
