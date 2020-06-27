@@ -1,5 +1,5 @@
 [vpn]
-# label=
+# 
 command=$SCRIPT_DIR/vpn_status.sh
 interval=30
 markup=pango
