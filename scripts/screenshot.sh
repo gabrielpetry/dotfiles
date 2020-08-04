@@ -7,10 +7,12 @@ if [[ ! -d "$path" ]]; then
 	mkdir -p "$path"
 fi
 
+date=$(date +"%s")
+
 if command -v maim; then
 	scrot="maim"
 
-	filename="$path/%Y-%m-%d_temp_name.png"
+	filename="$path/${date}.png"
 	$scrot -o -s "$filename"
 else
 	filename=$(scrot -s -z "$path/%Y-%m-%d_temp_name.png" -e 'echo $f')
