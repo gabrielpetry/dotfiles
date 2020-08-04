@@ -1,7 +1,0 @@
-[2020-06-05 15:48:08.524] [main] [info] update#setState idle
-[2020-06-05 15:48:38.539] [main] [info] update#setState checking for updates
-[2020-06-05 15:48:38.748] [main] [info] update#setState idle
-[2020-06-05 16:40:02.250] [main] [error] [uncaught exception in main]: Error: read ECONNRESET
-[2020-06-05 16:40:02.250] [main] [error] Error: read ECONNRESET
-    at Pipe.onStreamRead (internal/stream_base_commons.js:183:27)
-[2020-06-05 16:40:02.254] [main] [error] [VS Code]: render process crashed!

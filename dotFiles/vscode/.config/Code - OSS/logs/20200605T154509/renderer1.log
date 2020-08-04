@@ -1,2 +1,0 @@
-[2020-06-05 15:45:42.431] [renderer1] [error] ENOENT: no such file or directory, open '/etc/shells': Error: ENOENT: no such file or directory, open '/etc/shells'
-[2020-06-05 15:45:44.747] [renderer1] [error] ENOENT: no such file or directory, open '/etc/shells': Error: ENOENT: no such file or directory, open '/etc/shells'

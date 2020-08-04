@@ -27,7 +27,6 @@ checkFileAndremove "$HOME/.config/alacritty"
 checkFileAndremove "$HOME/.profile"
 checkFileAndremove "$HOME/.config/termite"
 checkFileAndremove "$HOME/.vimrc"
-checkFileAndremove "$HOME/.config/Code - Oss"
 checkFileAndremove "$HOME/.Xmodmap"
 checkFileAndremove "$HOME/.Xprofile"
 checkFileAndremove "$HOME/.Xresources"
@@ -52,7 +51,6 @@ stow sxhkd -v -t ~
 stow system -v -t ~
 stow termite -v -t ~
 stow vim -v -t ~
-stow vscode -v -t ~
 stow xorg -v -t ~
 stow zshrc -v -t ~
 stow doomEmacs -v -t ~
