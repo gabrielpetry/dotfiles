@@ -3,9 +3,13 @@ apt,openvpn, connect to vpns
 apt,code, microsoft made something great at least
 apt,expect, make shellscripting awesome
 apt,fzf, fuzzy finder
+apt,curl,CURL
+apt,wget,wget
+apt,vim,vim
 apt,lxappearance,select a gtk theme for i3
 apt,imagemagick,image in terminal
 apt,fonts-font-awesome,cool icons
+apt,fonts-powerline,power line fonts
 apt,scrot,simple screenshots
 apt,wmctrl,hackable workspaces
 apt,compton,window compositor
@@ -65,10 +69,4 @@ apt,ruby,ruby language
 apt,tmux,cool terminal multiplexer
 apt,autoconf,useful to compile stuff
 ruby,fusuma,cool gestures
-manual,light_git.sh,control backlight
-manual,chromium_widevine.sh,chromium webbrowser
-manual,docker.sh,docker containers
-manual,i3_gaps_next.sh,i3 gaps next branch
-manual,nerd_fonts.sh,https://github.com/ryanoasis/nerd-fonts
-manual,nvm.sh,node veresion manager
 pip,i3-py,i3 scripting in python

@@ -18,23 +18,26 @@ install_packages() {
         fi
         
         if [[ "${install_method}" =~ (apt) ]]; then
-            echo "Installing ${program} - wait"
             if sudo apt-get install -yq "${program}" > /dev/null; then
-                echo "${program}(${install_method}) - ${comment} [SUCESS]" 
+                echo "${program}(${install_method}) - ${comment} [SUCESS]"
+            else
+                echo "${program}(${install_method}) - ${comment} [ERROR]"
             fi
         fi
 
         if [[ "${install_method}" =~ (ruby) ]]; then
-            echo "Installing ${program} - wait"
             if sudo gem install "${program}" > /dev/null; then
                 echo "${program}(${install_method}) - ${comment} [SUCESS]" 
+            else
+                echo "${program}(${install_method}) - ${comment} [ERROR]" 
             fi
         fi
 
         if [[ "${install_method}" =~ (pip) ]]; then
-            echo "Installing ${program} - wait"
             if sudo pip3 install "${program}" > /dev/null; then
                 echo "${program}(${install_method}) - ${comment} [SUCESS]" 
+            else
+                echo "${program}(${install_method}) - ${comment} [ERRORsudo]" 
             fi
         fi
 
@@ -43,9 +46,13 @@ install_packages() {
 
 install_addons() {
     install ohmyzsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    # zsh-autosugestions
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    # sh -c "$()"
+    sh -c "$(curl \
+      -fsSL \
+      https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh \
+        | sed 's:exec zsh -l::g' \
+        | sed 's:chsh -s .*$::g')"
+      git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
 runApt() {
@@ -56,7 +63,15 @@ runApt() {
 runManual() {
     scripts="$(dirname "$0")/manual_installation"
 
-    $scripts/docker.sh
+    # run this only IF NOT in wsl
+    if [[ ! $(grep -i Microsoft /proc/version) ]]; then
+      $scripts/docker.sh
+      $scripts/i3_gaps_next.sh
+      $scripts/light_git.sh
+      $scripts/nerd_fonts.sh
+    fi
+
+    $scripts/chromium_widevine.sh
 
     $scripts/nvm.sh
 
