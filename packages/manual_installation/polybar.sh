@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "I3 blocks is better"
-exit
+exit 0
 installPath="$HOME/Projects/github/"
 
 mkdir -p $installPath

@@ -1,4 +1,6 @@
 #!/bin/sh
 
-sudo add-apt-repository ppa:mmstick76/alacritty
-sudo apt install alacritty
+command -v alacritty > /dev/null && exit 0
+
+sudo add-apt-repository -y ppa:mmstick76/alacritty
+sudo apt -y install alacritty

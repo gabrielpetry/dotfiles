@@ -1,4 +1,5 @@
 #!/bin/bash
+command -v light > /dev/null && exit 0
 
 installPath="$HOME/Projects/github/"
 

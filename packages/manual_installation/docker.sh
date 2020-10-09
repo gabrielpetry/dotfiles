@@ -1,5 +1,7 @@
 #!/bin/bash
 
+command -v docker > /dev/null && exit 0
+
 release="$(cat /etc/*-release | grep 'NAME')"
 
 

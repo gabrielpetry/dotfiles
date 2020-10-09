@@ -1,5 +1,6 @@
 #!/bin/sh
 
+command -v nvim > /dev/null && exit 0
 
 git clone --depth 1 https://github.com/neovim/neovim.git
 
