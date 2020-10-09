@@ -2,7 +2,8 @@
 
 # Update the pacman base
 update_apt() {
-    sudo apt-get update -y
+    sudo sed -i 's/main$/main contrib/g' /etc/apt/sources.list && \
+      sudo apt-get update -y
 }
 
 
@@ -74,8 +75,6 @@ runManual() {
     $scripts/chromium_widevine.sh
 
     $scripts/nvm.sh
-
-    $scripts/nerd_fonts.sh
 
     $scripts/nvim.sh
 }
