@@ -79,7 +79,7 @@ runManual() {
     $scripts/nvim.sh
 }
 
-[ -z "$1" ] && echo "Usage $0 [apt|addons|manual]" && exit 1
+[ -z "$1" ] && echo "Usage $0 [apt|addons|manual|all]" && exit 1
 
 [ "$1" = "apt" ]    && runApt
 [ "$1" = "manual" ] && runManual
