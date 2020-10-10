@@ -1,0 +1,20 @@
+# Fix commoon CTRL bindings.
+commonCtrlBind() {
+  checkIfZsh || return 0
+  # ctrl + a send to beginning of line
+  bindkey "^a" beginning-of-line
+  # ctrl + e send to end of line
+  bindkey "^e" end-of-line
+  # ctrl + b back on word
+  bindkey "^b" backward-word
+  # ctrl + k clear to EOL
+  bindkey "^k" kill-line
+  # ctrl + d delete one char
+  bindkey "^d" delete-char
+  # ctrl + y run the command and keep the line
+  bindkey "^y" accept-and-hold
+  # ctrl + w delete last world
+  bindkey "^w" backward-kill-word
+  # ctrl + u delete til start of line
+  bindkey "^u" backward-kill-line
+}
