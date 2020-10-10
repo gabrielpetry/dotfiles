@@ -28,20 +28,21 @@ apt,dunst,notifications daemons
 apt,entr,watch for files
 apt,feh,change wallpaper
 apt,figlet,imprime letas figlet de forma bem simples
-apt,firefox,a better browser
+apt,firefox-esr,a better browser
 apt,git,versionador
 apt,htop,better top
 apt,i3lock,uma forma de travar a tela do computador
 apt,jq,json parser for the command line
 apt,kitty,terminal emuator with ligatures
 apt,lolcat,printa no terminal de forma maneira
-apt,mariadb,mysql driver
+apt,mariadb-client,mysql driver
 apt,mpv,mediaplayer
 apt,mupdf,mupdf for zathura
 apt,neovim,improved vim
 apt,pango,permite realizar marcações no i3blocks
 apt,paprefs,config pulseaudio
 apt,parallel,like xargs but parallel
+apt,stow,manage symlinks
 apt,pavucontrol,gtk frontend
 apt,playerctl,command line tool to operate with media players
 apt,postgresql,postgresql driver
@@ -62,7 +63,7 @@ apt,xclip,permite copiar do terminal para seleção mais facilmente
 apt,xdotool,Allow scripting a lot o fthings
 apt,zathura,leitor de pdf
 apt,zsh,Shell mais eficiente
-apt,spotify,spotify player
+apt,spotify-client,spotify player
 apt,libinput-tools,lib input tools
 apt,xdotool, scriptable x things
 apt,ruby,ruby language
