@@ -82,6 +82,10 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zstyle :prompt:pure:git:stash show yes
 PURE_CMD_MAX_EXEC_TIME=10
 fpath+=$HOME/.zplug/repos/sindresorhus/pure
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 # Check if there's plugins to be installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
