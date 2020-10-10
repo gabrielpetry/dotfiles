@@ -2,6 +2,8 @@
 
 # Update the pacman base
 update_apt() {
+  curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
     sudo sed -i 's/main$/main contrib/g' /etc/apt/sources.list && \
       sudo apt-get update -y
 }
@@ -9,7 +11,7 @@ update_apt() {
 
 install_packages() {
     PACKAGE_LIST_CSV="packages.apt.csv"
-    INSTALLED_PACKAGES="$(apt list --installed | cut -d'/' -f1)"
+    INSTALLED_PACKAGES="$(apt-get list --installed | cut -d'/' -f1)"
 
     # Iterate over the programs and create a list of the non installed ones
     while IFS=, read -r install_method program comment; do
