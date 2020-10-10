@@ -1,15 +1,18 @@
 #!/bin/bash
 
+
+
 github_api="https://api.github.com"
+
+
 
 getRepos() {
     username="$1"
     repos="$(curl -Ss "${github_api}/users/${username}/repos")"
-    echo "$repos" | \
+    echo -ne "$repos" | \
         grep ssh_url | \
         cut -d'"' -f4
 }
-
 
 getOrgRepos() {
     org="$1"
@@ -19,7 +22,7 @@ getOrgRepos() {
         cut -d '"' -f4
 }
 
-cloneRepos() {
+cloneRepo() {
     folder="$1"
     [[ -z "$folder" ]] && echo  "Can't proced without an destination folder" && exit
     # destination="$2"
@@ -36,22 +39,21 @@ cloneRepos() {
     repo_name="$(echo $repo_url | cut -d':' -f2 | cut -d'.' -f1 )"
     destination_dir="${destination_dir}/$repo_name"
     if [[ -d "${destination_dir}" ]]; then
-        echo "Repository already cloned"
+        echo -ne "Repository already cloned\n"
     else
-        echo -n "Clonning repo $repo_url"
+        echo -ne "Clonning repo $repo_url\n"
         git clone "${repo_url}" "$destination_dir"
     fi
-
 }
 
-export -f cloneRepos
+export -f cloneRepo
 
 preferDirectory="$1" # ./script 'Projetos'
 
 [ -z "$preferDirectory" ] && preferDirectory="Projects/github"
 
 getOrgRepos Songgyy | \
-    parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" {}
+    parallel -j $(nproc) cloneRepo "${HOME}/${preferDirectory}" {}
 
 getRepos gabrielpetry | \
-    parallel -n $(nproc) -I{} cloneRepos "${HOME}/${preferDirectory}" {}
+    parallel -j $(nproc) cloneRepo "${HOME}/${preferDirectory}" {}
