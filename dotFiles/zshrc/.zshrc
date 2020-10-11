@@ -77,15 +77,23 @@ sourceIfExists "$HOME/.functions"
 sourceIfExists "$HOME/Protected/zsh/.aliases"
 sourceIfExists "$HOME/Protected/zsh/.functions"
 
-zplug "gabrielpetry/dotfiles", use:"zsh-plugins/*.zsh"
+zplug "~/petryfiles/zsh-plugins", \
+  from:local, \
+  use:"*.zsh"
+
 zplug "b4b4r07/httpstat", \
     as:command, \
     use:'(*).sh', \
     rename-to:'$1'
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", defer:2
+zplug 'zplug/zplug', \
+  hook-build:'zplug --self-manage'
+
+zplug "zsh-users/zsh-syntax-highlighting", \
+  defer:2
+  
+zplug "zsh-users/zsh-autosuggestions", \
+  defer:2
 
 # Define the theme
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
