@@ -51,6 +51,16 @@ loadWslDocker() {
 setZshOpts() {
 	# remove notification of background jobs
 	setopt no_monitor
+  # history
+  export SAVEHIST=10000
+  export SAVEHIST=10000
+  export HISTFILE=~/.zsh_history
+  bindkey '\e[A' history-beginning-search-backward
+  bindkey '\e[B' history-beginning-search-forward
+  # Appends every command to the history file once it is executed
+  setopt inc_append_history
+  # Reloads the history whenever you use it
+  setopt share_history
 }
 
 setZshOpts
