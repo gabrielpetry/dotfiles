@@ -1,5 +1,5 @@
 # Fix commoon CTRL bindings.
-
+# To get the keybind, enter cat and type it ;) 
 checkIfZsh || exit 0
 # ctrl + a send to beginning of line
 bindkey "^a" beginning-of-line
