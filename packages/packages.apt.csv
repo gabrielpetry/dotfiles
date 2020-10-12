@@ -1,4 +1,5 @@
 apt,oathtool, cli otp :)
+apt,rsync,rsync is great
 apt,openvpn, connect to vpns
 apt,code, microsoft made something great at least
 apt,expect, make shellscripting awesome
