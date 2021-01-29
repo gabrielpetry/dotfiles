@@ -1,5 +1,6 @@
 #!/bin/bash
 # vim: fdm=marker ft=sh
+alias ls="ls -F"
 alias vim="nvim"
 alias vimzsh="vim ~/.zshrc"
 alias vimaliases="vim \$HOME/.aliases"

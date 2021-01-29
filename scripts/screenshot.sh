@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 options="ScrotToGimp\nScrotToClipboard\nJustSave"
 path="$HOME/Imagens/Print"

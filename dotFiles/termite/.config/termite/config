@@ -1,63 +1,75 @@
 [options]
 allow_bold = true
-audible_bell = true
-browser = xdg-open
+#audible_bell = false
+#bold_is_bright = true
+#cell_height_scale = 1.0
+#cell_width_scale = 1.0
 clickable_url = true
-cursor_blink = system
-cursor_shape = block
 dynamic_title = true
-filter_unmatched_urls = true
-# font = DejaVuSansMono Nerd Font 10
-font = FiraCode 12
-geometry = 480x280
-icon_name = terminal
-modify_other_keys = false
-mouse_autohide = false
-scroll_on_output = false
-scroll_on_keystroke = true
-scrollback_lines = 15000
-size_hints = false
-search_wrap = true
-urgent_on_bell = true
-highlight = #30343e
+font = Iosevka 14
+#fullscreen = true
+#icon_name = terminal
+#mouse_autohide = false
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 10000
+#search_wrap = true
+#urgent_on_bell = true
+#hyperlinks = false
 
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = xdg-open
+
+# "system", "on" or "off"
+cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+#scrollbar = off
+
+# ====================================
 [colors]
 
-# special
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #c5c8c6
-background      = rgba(30,31,33, 0.92)
+# https://github.com/chriskempson/base16-xresources/blob/master/base16-apathy.light.256.xresources
+# Base16 Apathy
+# Scheme: Jannik Siebert (https://github.com/janniks)
+foreground=#184E45
+background=#D2E7E4
+cursor=#184E45
 
-# black
-color0  = #282a2e
-color8  = #373b41
+color0=#031A16
+color1=#3E9688
+color2=#883E96
+color3=#3E4C96
+color4=#96883E
+color5=#4C963E
+color6=#963E4C
+color7=#81B5AC
+color8=#2B685E
+color9=#3E9688
+color10=#883E96
+color11=#3E4C96
+color12=#96883E
+color13=#4C963E
+color14=#963E4C
+color15=#D2E7E4
 
-# red
-color1  = #a54242
-color9  = #cc6666
-
-# green
-color2  = #8c9440
-color10 = #b5bd68
-
-# yellow
-color3  = #de935f
-color11 = #f0c674
-
-# blue
-color4  = #5f819d
-color12 = #81a2be
-
-# magenta
-color5  = #85678f
-color13 = #b294bb
-
-# cyan
-color6  = #5e8d87
-color14 = #8abeb7
-
-# white
-color7  = #707880
-color15 = #c5c8c6
-
+color16=#3E7996
+color17=#3E965B
+color18=#0B342D
+color19=#184E45
+color20=#5F9C92
+color21=#A7CEC8

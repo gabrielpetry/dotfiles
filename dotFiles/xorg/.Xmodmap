@@ -1,11 +1,13 @@
 ! Change Caps to act as Esc an reverse
 ! Swap capsLock and Escape
-remove Lock = Caps_Lock
-keysym Escape = Caps_Lock
-keysym Caps_Lock = Escape
-add Lock = Caps_Lock
+! remove Lock = Caps_Lock
+! keysym Escape = Caps_Lock
+! keysym Caps_Lock = Escape
+! add Lock = Caps_Lock
 
 ! Change Right Shift to /
 remove Lock = Mode_switch
-keycode 62 = slash question slash question
-keycode 108 = slash question slash question
+! keycode 62 = slash question slash question
+keysym Shift_R = slash question slash question
+
+! keycode 108 = slash question slash question

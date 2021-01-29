@@ -48,10 +48,10 @@ stow petryZshTheme -v -t ~
 stow polybar -v -t ~
 stow ranger -v -t ~
 stow sxhkd -v -t ~
-stow system -v -t ~
+# stow system -v -t ~
 stow termite -v -t ~
 stow vim -v -t ~
-stow xorg -v -t ~
+# stow xorg -v -t ~
 stow zshrc -v -t ~
 stow doomEmacs -v -t ~
 stow alacritty -v -t ~

@@ -25,7 +25,7 @@ checkIfZsh() {
 ohMyZshConfig() {
   export ZSH=$HOME/.oh-my-zsh
   checkIfZsh || return 0
-  ZSH_THEME="petry"
+  ZSH_THEME="robbyrussell"
   plugins=(
     zsh-autosuggestions
   ) 
@@ -158,3 +158,10 @@ main() {
 
 
 main
+
+if [[ $PATH != */home/petry/Projects/Kinghost/hospedagem-compartilhada/dev-integracao-servicos/scripts/uteis* ]]; then
+  PATH=${PATH}.":/home/petry/Projects/Kinghost/hospedagem-compartilhada/dev-integracao-servicos/scripts/uteis"
+fi
+if [[ $PATH != */home/petry/Projects/kinghost/hospedagem-compartilhada/dev-integracao-servicos/scripts/uteis* ]]; then
+  PATH=${PATH}.":/home/petry/Projects/kinghost/hospedagem-compartilhada/dev-integracao-servicos/scripts/uteis"
+fi

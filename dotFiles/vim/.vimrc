@@ -12,6 +12,7 @@ endif
 call plug#begin()
   " Colorscheme
   Plug 'tyrannicaltoucan/vim-deep-space'
+  Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'arcticicestudio/nord-vim'
   " Syntax
   Plug 'leafgarland/typescript-vim'
@@ -180,7 +181,8 @@ set whichwrap+=<,>,h,l
 " set background=dark
 set termguicolors
 syntax enable
-colorscheme deep-space
+" colorscheme deep-space
+" colorscheme dracula
 let g:deepspace_italics=1
 let g:airline_theme='deep_space'
 

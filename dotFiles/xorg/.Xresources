@@ -1,22 +1,42 @@
 ! Dracula Xresources palette
-*.foreground: #000000
-*.background: #1E1F29
+! *.foreground: #000000
+! *.background: #1E1F29
+! *.color0:     #000000
+! *.color8:     #555555
+! *.color1:     #FF5555
+! *.color9:     #FF6E67
+! *.color2:     #50FA7B
+! *.color10:    #5AF78E
+! *.color3:     #F1FA8C
+! *.color11:    #F4F99D
+! *.color4:     #CAA9FA
+! *.color12:    #CAA9FA
+! *.color5:     #FF79C6
+! *.color13:    #FF92D0
+! *.color6:     #8BE9FD
+! *.color14:    #9AEDFE
+! *.color7:     #BBBBBB
+! *.color15:    #FFFFFF
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
 *.color0:     #000000
-*.color8:     #555555
+*.color8:     #4D4D4D
 *.color1:     #FF5555
 *.color9:     #FF6E67
 *.color2:     #50FA7B
 *.color10:    #5AF78E
 *.color3:     #F1FA8C
 *.color11:    #F4F99D
-*.color4:     #CAA9FA
+*.color4:     #BD93F9
 *.color12:    #CAA9FA
 *.color5:     #FF79C6
 *.color13:    #FF92D0
 *.color6:     #8BE9FD
 *.color14:    #9AEDFE
-*.color7:     #BBBBBB
-*.color15:    #FFFFFF
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
 
 ! XTERM SETTINGS
 XTerm.vt100.faceName:          xft:InputMonoNarrow:size=10
@@ -25,3 +45,33 @@ XTerm.vt100.scrollBar:         true
 XTerm.vt100.scrollbar.width:   8
 XTerm.vt100.internalBorder:    16
 
+xterm*faceName: Iosevka
+xterm*faceSize: 12
+
+! Scroll lines, lots of scroll lines
+xterm*savelines: 16384
+
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+xterm*loginshell: true
+
+
+! right hand side scrollbar...
+xterm*rightScrollBar: false
+xterm*ScrollBar: false
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
+Xterm*VT100.selectToClipboard: true
+XTerm*selectToClipboard: true
+
+
+
+xterm*VT100.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+                 Shift<Btn1Down>: select-start() \n\
+                 Shift<Btn1Motion>: select-extend() \n\
+                 Shift<Btn1Up>: select-end(CLIPBOARD) \n\
+                 

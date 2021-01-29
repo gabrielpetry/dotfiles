@@ -40,7 +40,9 @@ case $selection in
        restart_system
        ;;
    "PowerOff")
-        shutdown --poweroff now
+        sudo systemctl stop vpnking
+        sleep 120
+        sudo shutdown --poweroff now
        ;;
    *)
        notify-send "Error runnning command"
