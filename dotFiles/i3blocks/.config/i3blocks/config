@@ -1,3 +1,14 @@
+[firefoxtitle]
+command=$SCRIPT_DIR/firefox_title.sh
+markup=pango
+interval=2
+signal=10
+
+[cputemp]
+command=sensors | grep "Core 0" | awk '{print $3}' | grep -Eo "[0-9.]+"
+interval=30
+signal=10
+
 [vpn]
 # 
 command=$SCRIPT_DIR/vpn_status.sh
