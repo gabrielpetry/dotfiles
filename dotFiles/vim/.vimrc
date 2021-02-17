@@ -3,6 +3,7 @@
 " Auto install to vim plug
 " :CocInstall coc-css
 " :CocInstall coc-tsserver
+" :CocInstall coc-phpls
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -14,7 +15,9 @@ call plug#begin()
   Plug 'tyrannicaltoucan/vim-deep-space'
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'arcticicestudio/nord-vim'
+  Plug 'haishanh/night-owl.vim'
   " Syntax
+  Plug 'severin-lemaignan/vim-minimap'
   Plug 'leafgarland/typescript-vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'briancollins/vim-jst' " ejs syntax
@@ -41,6 +44,9 @@ call plug#begin()
   Plug 'tpope/vim-markdown'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'itchyny/lightline.vim'
+  Plug 'mengelbrecht/lightline-bufferline'
+  Plug 'voldikss/vim-floaterm'
   " Helpers
   Plug 'tpope/vim-fugitive' " Git wrapper, it's illegal
   Plug 'tpope/vim-sleuth' " Auto set tabs or spaces based on file
@@ -50,6 +56,8 @@ call plug#begin()
   Plug 'cohama/lexima.vim' " Auto close (){}[]
   Plug 'vim-scripts/ctags.vim'
   Plug 'sumpygump/php-documentor-vim'
+  "Plug 'codota/tabnine-vim'
+  Plug 'ctrlpvim/ctrlp.vim'
   " Plug 'garbas/vim-snipmate'
   Plug 'honza/vim-snippets'
   Plug 'skywind3000/asyncrun.vim'
@@ -126,6 +134,13 @@ let mapleader = " "
   " A buffer becomes hidden when it is abandoned
   set hid
 
+  "floaterm
+  let g:floaterm_position='bottom'
+  let g:floaterm_wintype="split"
+  nnoremap <C-q> :FloatermToggle<CR>
+  nnoremap <C-e> :FloatermToggle<CR> !! <CR>
+  tnoremap <C-q> <C-\><C-n>:FloatermToggle<CR>
+
 " fix backspace
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
@@ -160,16 +175,16 @@ set whichwrap+=<,>,h,l
   set history=700
   set undolevels=700
   " Tabs and spaces config {{{
-  set tabstop=1
-  set softtabstop=2
-  set shiftwidth=2
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
   " set shiftround
   set expandtab
   set smarttab
   " }}}
 
   " Bind :find to ctrl + p
-  nnoremap <c-p> <esc>:find
+  " nnoremap <c-p> <esc>:find 
 " }}}
 
 
@@ -179,13 +194,43 @@ set whichwrap+=<,>,h,l
 " color scheme config {{{
 " Enable syntax Highlight
 " set background=dark
-set termguicolors
+if (has("termguicolors"))
+ set termguicolors
+endif
 syntax enable
 " colorscheme deep-space
 " colorscheme dracula
-let g:deepspace_italics=1
-let g:airline_theme='deep_space'
+" let g:deepspace_italics=1
+" let g:airline_theme='deep_space'
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme night-owl
+set showtabline=2
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline = {
+      \ 'colorscheme': 'nightowl',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+      \ }
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
 
+let g:lightline                  = {}
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " makes background transparent
 hi Normal guibg=NONE ctermbg=NONE
@@ -223,6 +268,8 @@ hi Comment ctermfg=12
 set ffs=unix,dos,mac
 
 set ruler
+let g:indentLine_enabled=1
+let g:indentLine_char='┆'
 
 " Equivalent to the above.
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
@@ -230,47 +277,45 @@ let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 " }}}
 " Vim airline config {{{
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_theme = 'bubblegum'
-let g:airline_theme = 'deep_space'
-let g:airline#extensions#tagbar#enabled = 1
-
-
+" let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+" let g:airline#extensions#tabline#show_close_button = 0
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" " let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'deep_space'
+" let g:airline#extensions#tagbar#enabled = 1
+" 
+" 
 " set laststatus=2
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#branch#enabled=1
-
-" Indent Guides
-let g:indentLine_enabled=1
-let g:indentLine_char='┆'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_alt_sep = ''
-
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = 'ln'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.readonly = ''
+" let g:airline_powerline_fonts = 1
+" " let g:airline_theme='bubblegum'
+" let g:airline_powerline_fonts=1
+" let g:airline#extensions#branch#enabled=1
+" 
+" " Indent Guides
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
+" 
+" " unicode symbols
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_alt_sep = ''
+" 
+" let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '☰'
+" " let g:airline_symbols.linenr = '␊'
+" " let g:airline_symbols.linenr = '␤'
+" " let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = 'ln'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_symbols.readonly = ''
 
 " }}}
 " Script to change color schemes
@@ -478,7 +523,17 @@ nmap <leader>f :Goyo<cr>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-map <C-f> :NERDTreeToggle<CR>
+" map <C-f> :NERDTreeToggle<CR>
+function MyNerdToggle()
+    if &filetype == 'nerdtree'
+        :NERDTreeToggle
+    else
+        :NERDTreeFind
+    endif
+endfunction
+
+nnoremap <C-f> :call MyNerdToggle()<CR>
+
 " find file in tree view
 " map <C-b> :NERDTreeFind<CR>
 map <leader>r :NERDTreeRefreshRoot<CR>
@@ -631,9 +686,9 @@ augroup vg
 " }}}
 
 " PHP Documentor {{{
-au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+" au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
+" au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
+" au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
