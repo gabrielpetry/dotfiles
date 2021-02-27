@@ -16,6 +16,7 @@ call plug#begin()
   Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'arcticicestudio/nord-vim'
   Plug 'haishanh/night-owl.vim'
+  Plug 'morhetz/gruvbox'
   " Syntax
   Plug 'severin-lemaignan/vim-minimap'
   Plug 'leafgarland/typescript-vim'
@@ -38,7 +39,8 @@ call plug#begin()
   Plug 'terryma/vim-multiple-cursors'
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons' " icons for NERDTree
-  Plug 'joeytwiddle/sexy_scroller.vim' " Smotth scrolling
+  Plug 'justinmk/vim-sneak'
+  " Plug 'joeytwiddle/sexy_scroller.vim' " Smotth scrolling
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'junegunn/goyo.vim' " Zen mode
   Plug 'tpope/vim-markdown'
@@ -73,6 +75,7 @@ call plug#begin()
   Plug 'rbgrouleff/bclose.vim'
   Plug 'ptzz/lf.vim'
   Plug 'Yggdroot/indentLine'
+  Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 " }}}
 let mapleader = " "
@@ -198,12 +201,16 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
+let g:sneak#label = 1
+let g:sneak#s_next = 1
 " colorscheme deep-space
 " colorscheme dracula
 " let g:deepspace_italics=1
 " let g:airline_theme='deep_space'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme night-owl
+" colorscheme night-owl
+" colorscheme gruvbox
+colorscheme dracula
 set showtabline=2
 let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline = {
