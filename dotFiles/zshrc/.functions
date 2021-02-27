@@ -474,4 +474,43 @@ parrotOs() { # {{{
   docker run -ti --rm parrotsec/parrot
 }
 # }}} 
+
+ffind() {
+  if [[ -n "$2" ]]; then
+    place="$2"
+  else
+    place="."
+  fi
+  find $place -name "$1"
+}
+
+
+function _gco_complete() {
+  compadd $(git branch -a)
+}
+
+function gco() {
+  if git branch -a | grep -iqo "$1" ; then
+    git checkout "$(git branch -a | grep -i "$1")"
+  else
+    branch="$(echo $1 | awk '{print toupper($1)}')"
+    git checkout -b ${branch}
+  fi
+}
+
+compdef _gco_complete gco
+
+function _dkl_complete() {
+  compadd $(docker ps --format '{{.Names}}')
+}
+
+function dkl() {
+  if [[ -z "$1" ]]; then
+    echo "usage [-f] container tab (autocompleted)"
+    return
+  fi
+  docker logs "$@"
+}
+
+compdef _dkl_complete dkl
 # vim: fdm=marker ft=sh

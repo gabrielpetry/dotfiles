@@ -93,6 +93,7 @@ systemExports() {
   export PATH="$PATH:/var/lib/snapd/snap/bin"
   export PATH="$PATH:$HOME/go/bin"
   export PATH="$PATH:$HOME/petryfiles/bin"
+  export PATH="$PATH:$HOME/Protected/scripts"
 
   uname -a | \
     grep -q Microsoft && \
@@ -106,6 +107,7 @@ loadWslDocker() {
 setZshOpts() {
 	# remove notification of background jobs
 	setopt no_monitor
+  zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 }
 load_nvm() {
   export NVM_DIR=~/.nvm

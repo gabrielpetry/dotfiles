@@ -18,3 +18,11 @@ alias ft='flutter'
 alias gc="git clone"
 alias gcm="git commit -m"
 alias php53="docker run --rm -it -v "$PWD:$PWD" php:5.3.29-cli php -l $PWD/"
+alias g='grep -ni --color'
+alias gg='grep -Ri --color'
+alias dockernames="docker ps --format '{{.ID}}\t{{.Names}}'"
+alias dknames='dockernames'
+#function dockernames { docker ps --format '{{.Id .Names}}' }
+alias dc="docker-compose"
+alias dcupd='dc up -d'
+alias dcps="dc ps"
