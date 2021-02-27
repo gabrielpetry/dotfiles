@@ -1,1 +1,4 @@
 */5 * * * * pkill -RTMIN+12 i3blocks
+*/5 * * * * pkill -RTMIN+10 i3blocks
+* * * * * if [[ "$(ps -faux | grep "ssh -f -N -D 0.0.0.0:1234" | wc -l)" -lt 2 ]]; then ssh -f -N -D 0.0.0.0:1234 localhost; fi
+*/5 * * * * cat ~/petryfiles/crons/*.cron | crontab -
