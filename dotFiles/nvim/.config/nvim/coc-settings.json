@@ -1,5 +1,5 @@
 {
-  "css.filetypes": ["css", "less", "styl", "scss"]
+  "css.filetypes": ["css", "less", "styl", "scss"],
     "languageserver": {
     "golang": {
       "command": "gopls",
