@@ -484,6 +484,8 @@ ffind() {
   find $place -name "$1"
 }
 
+alias ff="ffind"
+
 
 function _gco_complete() {
   compadd $(git branch -a)
