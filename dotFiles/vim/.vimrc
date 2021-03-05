@@ -95,6 +95,7 @@ let mapleader = " "
 
   " Better copy and paste
   set pastetoggle=<F2>
+  set paste
   set clipboard=unnamed
 
   " enable mouse and backspace
@@ -164,6 +165,7 @@ set whichwrap+=<,>,h,l
   " Better performance
   set ttyfast
   set lazyredraw
+  set redrawtime=10000
 
   set magic
   " }}}
