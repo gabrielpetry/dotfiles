@@ -1,4 +1,4 @@
 */5 * * * * pkill -RTMIN+12 i3blocks
 */5 * * * * pkill -RTMIN+10 i3blocks
-* * * * * ps -faux | grep -v grep | grep -q "ssh -f -N -D 0.0.0.0:1234" || ssh -f -N -D 0.0.0.0:1234 localhost
+* * * * * ps -faux | grep -v grep | grep -q "ssh -f -N -D 0.0.0.0:1234" || (pgrep openvpn && ssh -f -N -D 0.0.0.0:1234 localhost)
 */5 * * * * cat ~/petryfiles/crons/*.cron | crontab -
