@@ -1,10 +1,10 @@
 #!/bin/bash
 # vim: fdm=marker ft=sh
 alias ls="ls -F"
-alias vim="nvim"
-alias vimzsh="vim ~/.zshrc"
-alias vimaliases="vim \$HOME/.aliases"
-alias vimfunctions="vim \$HOME/.functions"
+alias vim="node --version 2>&1 >/dev/null ; nvim"
+alias vimzsh="vim ~/.zshrc; srczsh"
+alias vimaliases="vim \$HOME/.aliases; srczsh"
+alias vimfunctions="vim \$HOME/.functions; srczsh"
 alias srczsh="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias ll="ls -l"
@@ -15,14 +15,32 @@ alias xclip-i="xclip -selection clipboard -t image/png -i"
 alias s="export TERM=xterm; ssh "
 alias please="sudo"
 alias ft='flutter'
-alias gc="git clone"
-alias gcm="git commit -m"
-alias php53="docker run --rm -it -v "$PWD:$PWD" php:5.3.29-cli php -l $PWD/"
 alias g='grep -ni --color'
 alias gg='grep -Ri --color'
+alias -g G="| grep -in"
+alias cpf="/usr/local/bin/cpf | xclip"
+alias -g ~~="~"
+alias c="ps faux | grep -v grep | grep "
+
+function aliases() {
+  alias | grep -i $1 | grep -E "^[a-zA-Z0-9]+"
+}
+
+## docker 
 alias dockernames="docker ps --format '{{.ID}}\t{{.Names}}'"
+alias php53="docker run --rm -it -v "$PWD:$PWD" php:5.3.29-cli php -l $PWD/"
 alias dknames='dockernames'
 #function dockernames { docker ps --format '{{.Id .Names}}' }
 alias dc="docker-compose"
 alias dcupd='dc up -d'
 alias dcps="dc ps"
+alias dk="docker "
+alias dke="docker exec -it "
+
+## git
+alias gs="git status"
+alias gd="git diff"
+alias ga="git add"
+alias push='git push origin $(git branch --show-current)'
+alias gc="git clone"
+alias gcm="git commit -m"
