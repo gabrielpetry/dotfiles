@@ -1,6 +1,6 @@
 #!/bin/sh
 
-date="$(date "+%H:%M %d/%m")"
+date="$(date "+%H:%M:%S %d/%m")"
 
 color="$PRIMARY_COLOR"
 
