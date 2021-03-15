@@ -98,6 +98,8 @@ systemExports() {
   uname -a | \
     grep -q Microsoft && \
     loadWslDocker
+
+  export TMOUT=14400 # timeout after 4h
 }
 
 loadWslDocker() {

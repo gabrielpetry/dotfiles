@@ -1,6 +1,6 @@
 #!/bin/bash
 # vim: fdm=marker ft=sh
-alias ls="ls -F"
+alias ls="ls -F --color"
 alias vim="node --version 2>&1 >/dev/null ; nvim"
 alias vimzsh="vim ~/.zshrc; srczsh"
 alias vimaliases="vim \$HOME/.aliases; srczsh"
@@ -15,27 +15,47 @@ alias xclip-i="xclip -selection clipboard -t image/png -i"
 alias s="export TERM=xterm; ssh "
 alias please="sudo"
 alias ft='flutter'
-alias g='grep -ni --color'
-alias gg='grep -Ri --color'
-alias -g G="| grep -in"
 alias cpf="/usr/local/bin/cpf | xclip"
 alias -g ~~="~"
-alias c="ps faux | grep -v grep | grep "
-
 function aliases() {
   alias | grep -i $1 | grep -E "^[a-zA-Z0-9]+"
 }
+
+# Hand tools
+alias -g 2null="2>&3 3>/dev/null "
+alias -g H=" | head "
+alias -g T=" | tail "
+
+
+## Grep
+alias c="ps faux | grep -v grep 2null | grep 2null "
+alias g='grep -ni --color 2null '
+alias gg='grep -Ri --color 2null '
+alias -g G="| grep -in 2null "
+
+## tail
+alias -g T="| tail -n"
 
 ## docker 
 alias dockernames="docker ps --format '{{.ID}}\t{{.Names}}'"
 alias php53="docker run --rm -it -v "$PWD:$PWD" php:5.3.29-cli php -l $PWD/"
 alias dknames='dockernames'
-#function dockernames { docker ps --format '{{.Id .Names}}' }
 alias dc="docker-compose"
 alias dcupd='dc up -d'
 alias dcps="dc ps"
 alias dk="docker "
 alias dke="docker exec -it "
+alias dcl="docker-compose logs "
+alias dclf="docker-compose logs -f"
+
+function _dkcontaienrs_complete() {
+  compadd $(docker-compose ps --services)
+}
+
+dcsrm() {
+  docker-compose stop $1 && docker-compose rm $1
+}
+compdef _dkcontaienrs_complete dcsrm
 
 ## git
 alias gs="git status"
