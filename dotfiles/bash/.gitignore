@@ -1,0 +1,6 @@
+.bash_history
+.config/baash/.bash_sessions/
+.config/bash/.bash_logout
+.config/bash/.bash_profile
+.config/bash/.bashrc.local
+.config/bash/private

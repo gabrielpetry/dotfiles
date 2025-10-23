@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+kubectx() {
+	contexts="$(kubectl config get-contexts -o name | sort)"
+
+	context="${1:-}"
+	[ -z "$context" ] &&
+		context=$(echo "$contexts" | fzf)
+
+	[ -z "$context" ] &&
+		echo "No context selected" &&
+		exit 1
+
+	context_full="$(echo "$contexts" | grep "$context")"
+
+	kubectl config use-context "$context_full"
+}
+
+kubectx-env() {
+	TEMP_KUBECONFIG="$(mktemp)"
+	cp "$KUBECONFIG" "$TEMP_KUBECONFIG"
+	export KUBECONFIG="$TEMP_KUBECONFIG"
+	kubectx "$@"
+}
+
+kubens() {
+	if [ -z "$1" ]; then
+		namespaces="$(kubectl get namespaces -o name | cut -d/ -f2 | sort)"
+
+		# choose with fzf
+		namespace=$(echo "$namespaces" | fzf)
+	else
+		namespace="$1"
+	fi
+
+	test -n "$namespace" &&
+		kubectl config set-context --current --namespace="$namespace"
+}

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+function take {
+  mkdir -p "$@"
+  cd "$@" || exit
+}

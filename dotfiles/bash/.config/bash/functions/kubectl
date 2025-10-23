@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+
+# wrapper for kubectl that has caches
+export KUBECTL_CACHE_TTL_SECONDS="${KUBECTL_CACHE_TTL_SECONDS:-15}"
+
+function kubernetes_namespace {
+  local ns
+  local ctx
+  ctx="$(grep current-context "$KUBECONFIG" | awk '{print $2}')"
+  [[ -z "$ctx" ]] && return
+  ns="$(grep "cluster: $ctx" "$KUBECONFIG" -A 3 | grep namespace: | awk '{print $2}')"
+  echo -e "${ns:-default}"
+}
+
+function kubernetes_context {
+  grep current-context "$KUBECONFIG" | awk '{print $2}' | sed 's|.*cluster/||g'
+}
+
+kubecmd() {
+  if command -v kubecolor >/dev/null 2>&1; then
+    kubecolor --force-colors "$@"
+  else
+    kubectl "$@"
+  fi
+}
+
+clear_ansi() {
+  cat - | sed 's/\x1b\[[0-9;]*m//g'
+}
+
+clear_ansi_arg() {
+  echo "$1" | clear_ansi
+}
+
+kubectl-cache() {
+  set -o pipefail
+  local edit_mode=0
+  args=()
+  local ttl_seconds="$KUBECTL_CACHE_TTL_SECONDS"
+  for arg in "$@"; do
+    case "$arg" in
+    --no-cache)
+      ttl_seconds=0
+      ;;
+    --force-cache)
+      ttl_seconds="3600"
+      ;;
+    nodes)
+      ttl_seconds="120"
+      args+=("$arg")
+      ;;
+    edit)
+      edit_mode=1
+      args+=("$arg")
+      ;;
+    exec)
+      edit_mode=1
+      args+=("$arg")
+      ;;
+    *)
+      # remove colors from another command like k describe node $(k get node | awk 'NR==2 {print $1}')
+      # args+=("$(echo "$arg" | sed 's/\x1b\[[0-9;]*m//g')")
+      args+=("$arg")
+      ;;
+    esac
+  done
+
+  [[ $edit_mode -eq 1 ]] && kubecmd "${args[@]}" && return
+
+  local KUBECTL_CACHE_DIR
+  local CACHE_FILE
+  KUBECTL_CACHE_DIR="/tmp/kubectl_cache_$(kubernetes_context)"
+  mkdir -p "$KUBECTL_CACHE_DIR"
+  CACHE_FILE="""$KUBECTL_CACHE_DIR/$(kubernetes_namespace | clear_ansi)_$(echo "${args[*]}" | sed 's/[^a-zA-Z0-9]/_/g' | md5sum | awk '{print $1}').cache"""
+
+  if [[ -f "$CACHE_FILE" && $(($(date +%s) - $(stat -c %Y "$CACHE_FILE"))) -lt "$ttl_seconds" ]]; then
+    if [ -t 1 ]; then
+      /usr/bin/cat "$CACHE_FILE"
+    else
+      /usr/bin/cat "$CACHE_FILE" | clear_ansi
+    fi
+  else
+    if [ -t 1 ]; then
+      kubecmd "${args[@]}" | tee "$CACHE_FILE"
+    else
+      kubecmd "${args[@]}" | tee "$CACHE_FILE" | clear_ansi
+    fi
+  fi
+}
+
+# this function combines kubectl get pod and kubectl top pod into a single unified output showing resource usage per pod
+kube-pod-usage() {
+  set -o pipefail
+  local get_output
+  local get_temp_file
+  local top_output
+  local top_temp_file
+  top_temp_file="$(mktemp)"
+  get_temp_file="$(mktemp)"
+
+  local columns="NAME,CPU,MEMORY,READY,STATUS,RESTARTS,AGE"
+
+  [[ "$*" == "-A" ]] && columns="NAMESPACE,${columns}"
+
+  {
+    kubecmd get pods --no-headers "$@" | sed -E 's/([0-9]+) \((\S+) ago\)/\1_(\2_ago)/g' >"$get_temp_file" &
+    kubecmd top pods --no-headers "$@" >"$top_temp_file" &
+  } >/dev/null 2>&1
+  wait 2>/dev/null
+  get_output="$(cat "$get_temp_file")"
+  top_output="$(cat "$top_temp_file")"
+  # the whole point of sed to replace to underline and later revert it back, is to avoid issues with column and endup breaking the layout
+  join <(echo -e "$top_output") <(echo -e "$get_output") |
+    column --table --table-columns="$columns" |
+    sed -E 's/([0-9]+)_\((\S+)_ago\)/\1 (\2 ago)/g'
+
+  rm "$get_temp_file" "$top_temp_file"
+
+}
+
+kube-get-pod-by-node-name() {
+  set -o pipefail
+  [[ -z "$1" ]] && {
+    echo "Node name argument is required"
+    return 1
+  }
+  local get_output
+  local get_temp_file
+  local top_output
+  local top_temp_file
+  local top_final_temp_file
+  local columns="NAMESPACE,NAME,CPU,MEMORY,READY,STATUS,RESTARTS,AGE"
+  get_temp_file="$(mktemp)"
+  top_temp_file="$(mktemp)"
+  top_final_temp_file="$(mktemp)"
+
+  {
+    kubecmd get pods --no-headers --all-namespaces --field-selector "spec.nodeName=$1" | sed -E 's/([0-9]+) \((\S+) ago\)/\1_(\2_ago)/g' >"$get_temp_file" &
+    kubecmd top pods --no-headers --all-namespaces >"$top_temp_file" &
+  } >/dev/null 2>&1
+
+  wait 2>/dev/null
+
+  while read -r line; do
+    if grep -q "$(echo "$line" | clear_ansi | awk '{print $2}')" "$get_temp_file"; then
+      echo "$line" >>"$top_final_temp_file"
+    fi
+  done < <(cat "$top_temp_file")
+  # join namespace and name with | to make sure join command works properly, then revert it back later with sed so column work properly
+  get_output="$(cat "$get_temp_file" | sort | awk '{print $1"|"$2, $3, $4, $5, $6, $7, $8}')"
+  top_output="$(cat "$top_final_temp_file" | sort | awk '{print $1"|"$2, $3, $4, $5, $6, $7, $8}')"
+
+  # echo "$get_output"
+  # echo "$get_temp_file" "$top_final_temp_file"
+  rm "$get_temp_file" "$top_temp_file" "$top_final_temp_file"
+  join <(echo -e "$top_output") <(echo -e "$get_output") |
+    sed 's/|/\t/g' |
+    column --table --table-columns="$columns" |
+    sed -E 's/([0-9]+)_\((\S+)_ago\)/\1 (\2 ago)/g'
+}
