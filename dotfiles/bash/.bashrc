@@ -39,6 +39,7 @@ bashrc_md5() {
     rm -f "${BASHRC_CACHE}" "${BASHRC_CACHE}_md5"
 
 [[ -f "${BASHRC_CACHE}" ]] &&
+    source "$HOME/.config/bash/plugins/abbr.bash" &&
     source "${BASHRC_CACHE}" &&
     return
 
@@ -147,7 +148,8 @@ source ~/.config/bash/plugins/theme.bash
     alias
     declare -p | grep -E -v '^declare -[a-zA-Z-]* (BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID|GROUPS|BASHPID)'
     declare -f
-} >"${BASHRC_CACHE}" &
+    abbr-alias
+} >"${BASHRC_CACHE}"
 
 bashrc_md5 >"${BASHRC_CACHE}_md5"
 
