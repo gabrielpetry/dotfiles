@@ -45,11 +45,23 @@ kubectl-cache() {
     --force-cache)
       ttl_seconds="3600"
       ;;
+    --context)
+      edit_mode=1
+      args+=("$arg")
+      ;;
+    port-foward)
+      edit_mode=1
+      args+=("$arg")
+      ;;
     nodes)
       ttl_seconds="120"
       args+=("$arg")
       ;;
     edit)
+      edit_mode=1
+      args+=("$arg")
+      ;;
+    logs)
       edit_mode=1
       args+=("$arg")
       ;;
@@ -153,8 +165,21 @@ kube-get-pod-by-node-name() {
   # echo "$get_output"
   # echo "$get_temp_file" "$top_final_temp_file"
   rm "$get_temp_file" "$top_temp_file" "$top_final_temp_file"
-  join <(echo -e "$top_output") <(echo -e "$get_output") |
-    sed 's/|/\t/g' |
-    column --table --table-columns="$columns" |
-    sed -E 's/([0-9]+)_\((\S+)_ago\)/\1 (\2 ago)/g'
+
+  # join <(echo -e "$top_output") <(echo -e "$get_output") |
+  #   sed 's/|/\t/g' |
+  #   column --table --table-columns="$columns" |
+  #   sed -E 's/([0-9]+)_\((\S+)_ago\)/\1 (\2 ago)/g'
+
+  if [[ -t 1 ]]; then
+    join <(echo -e "$top_output") <(echo -e "$get_output") |
+      sed 's/|/\t/g' |
+      column --table --table-columns="$columns" |
+      sed -E 's/([0-9]+)_\((\S+)_ago\)/\1 (\2 ago)/g'
+  else
+    join <(echo -e "$top_output") <(echo -e "$get_output") |
+      sed 's/|/\t/g' |
+      column --table --table-columns="$columns" |
+      sed -E 's/([0-9]+)_\((\S+)_ago\)/\1 (\2 ago)/g' | clear_ansi
+  fi
 }

@@ -38,8 +38,10 @@ bashrc_md5() {
 [[ "$(bashrc_md5)" != "$(cat "${BASHRC_CACHE}_md5" 2>/dev/null)" ]] &&
     rm -f "${BASHRC_CACHE}" "${BASHRC_CACHE}_md5"
 
-[[ -f "${BASHRC_CACHE}" ]] &&
-    source "$HOME/.config/bash/plugins/abbr.bash" &&
+# hooks have to be sourced before anything
+
+source "$HOME/.config/bash/plugins/abbr.bash" &&
+    [[ -f "${BASHRC_CACHE}" ]] &&
     source "${BASHRC_CACHE}" &&
     return
 
@@ -56,9 +58,8 @@ export unix_configs="$HOME/unix-configs"
 export SCRIPTS="$unix_configs/scripts"
 export CACHE_DIR="$HOME/.cache"
 
-function clear_bash_cache {
+function refresh_bash_cache {
     rm -f "$BASHRC_CACHE"
-    source ~/.bashrc
     source ~/.bashrc
 }
 
@@ -91,7 +92,9 @@ for comp in "$HOME"/.config/bash/completions/**; do
     source "$comp"
 done
 
-add_to_path "$HOME/.asdf/installs/golang/1.24.1/packages/bin"
+for go_version in $HOME/.asdf/installs/golang/*; do
+    add_to_path "$go_version/bin"
+done
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.meteor"
 source ~/.config/bash/aliases.bash
@@ -149,7 +152,8 @@ source ~/.config/bash/plugins/theme.bash
     declare -p | grep -E -v '^declare -[a-zA-Z-]* (BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID|GROUPS|BASHPID)'
     declare -f
     abbr-alias
-} >"${BASHRC_CACHE}"
+    complete
+} >"${BASHRC_CACHE}" 2>/dev/null
 
 bashrc_md5 >"${BASHRC_CACHE}_md5"
 
